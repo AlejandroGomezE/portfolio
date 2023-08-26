@@ -6,11 +6,11 @@ const config: Config = {
     colors: {
       dark_bg: '#1E2336',
       dark_border: '#1B1E2E',
-      terminal_text: '#a9b1d6',
       white: '#FFF',
       'red-500': '#E51400',
       'gray-300': '#36394A',
-      'gray-500': '#C5C5C5',
+      'gray-500': '#a9b1d6',
+      'blue-300': '#3D59A1',
     },
   },
   plugins: [],

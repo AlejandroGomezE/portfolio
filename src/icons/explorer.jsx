@@ -1,0 +1,10 @@
+export default function Explorer() {
+  return (
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M23.3333 0H11.3333L9.33331 2V8H3.33331L1.33331 10V30.0933L3.33331 32H19.4266L21.3333 30.0933V24H27.5999L29.3333 22.0933V6L23.3333 0ZM23.3333 2.82666L26.5067 6H23.3333V2.82666ZM19.3333 30H3.33331V10H9.33331V22.0933L11.3333 24H19.3333V30ZM27.3333 22H11.3333V2H21.3333V8H27.3333V22Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
