@@ -1,6 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { ActivityBar, BottomBar, TopBar } from '@/components';
+import { ActivityBar, BottomBar, CollapsableMenu, TopBar } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -12,7 +12,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`bg-dark_bg min-h-screen flex flex-col`}>
         <TopBar />
-        <ActivityBar />
+        <div className='flex-1 flex'>
+          <ActivityBar />
+          <CollapsableMenu />
+        </div>
         {children}
         <BottomBar />
       </body>

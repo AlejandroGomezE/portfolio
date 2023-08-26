@@ -24,7 +24,7 @@ const barItems = [
 
 export default function ActivityBar() {
   return (
-    <div className="flex-1 max-w-fit text-gray-500 flex flex-col justify-between">
+    <div className="max-w-fit text-gray-500 flex flex-col justify-between">
       <div className="cursor-pointer">
         <Tooltip icon={<Explorer />} text="Explorer (Ctrl+Shift+E)" active={true} />
         {barItems.map((item, index) => (
