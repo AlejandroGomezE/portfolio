@@ -1,5 +1,5 @@
-import ActivityBar from './ActivityBar.tsx';
-import BottomBar from './BottomBar.tsx';
-import TopBar from './TopBar/TopBar';
+import ActivityBar from './ActivityBar';
+import BottomBar from './BottomBar';
+import TopBar from './TopBar';
 
 export { ActivityBar, BottomBar, TopBar };

@@ -10,7 +10,7 @@ const barItems = [
   },
   {
     hoverText: 'Source Control (Ctrl + Shift + G)',
-    icon: <SourceControl />,
+    icon: <SourceControl height={32} width={32} />,
   },
   {
     hoverText: 'Run and Debug (Ctrl + Shift + D)',
@@ -57,7 +57,7 @@ function Tooltip({ icon, text, active }: { icon: JSX.Element; text: string; acti
       </div>
       <span
         className={clsx(
-          toolTipActive ? 'opacity-100' : 'opacity-0',
+          toolTipActive ? 'block opacity-100' : 'opacity-0 hidden',
           'absolute top-1/2 -translate-y-1/2 translate-x-[50px] bg-dark_bg border border-dark_border py-1 px-2 whitespace-nowrap text-sm transition-opacity ease-in-out duration-300'
         )}
       >
