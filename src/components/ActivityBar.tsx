@@ -1,6 +1,6 @@
 'use client';
 import clsx from 'clsx';
-import { MouseEventHandler, useState, MouseEvent } from 'react';
+import { useState, useCallback } from 'react';
 import { Accounts, Debug, Explorer, Extensions, Gear, Search, SourceControl } from '@/icons';
 import { useDispatch, useSelector, selectExpanded, selectMenu, expandableSlice, Menu } from '@/lib/redux';
 
@@ -46,15 +46,15 @@ export default function ActivityBar() {
             icon={item.icon}
             text={item.hoverText}
             active={expanded && activeMenu === item.menu}
-            handleMouseClick={(e: MouseEvent<HTMLButtonElement>) => {
+            handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               dispatch(expandableSlice.actions.toggleMenu({ menu: item.menu }));
             }}
           />
         ))}
       </div>
       <div className="cursor-pointer">
-        <Tooltip icon={<Accounts />} text="Accounts" active={false} handleMouseClick={(e: MouseEvent<HTMLButtonElement>) => {}} />
-        <Tooltip icon={<Gear />} text="Manage" active={false} handleMouseClick={(e: MouseEvent<HTMLButtonElement>) => {}} />
+        <Tooltip icon={<Accounts />} text="Accounts" active={false} handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {}} />
+        <Tooltip icon={<Gear />} text="Manage" active={false} handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {}} />
       </div>
     </div>
   );
@@ -63,28 +63,34 @@ export default function ActivityBar() {
 function Tooltip({ icon, text, active, handleMouseClick }: TooltipProps) {
   const [toolTipActive, setToolTipActive] = useState<boolean>(false);
 
-  const handleMouseIn: MouseEventHandler = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleMouseIn: React.MouseEventHandler = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     setToolTipActive(true);
-  };
+  }, []);
 
-  const handleMouseOut: MouseEventHandler = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleMouseOut: React.MouseEventHandler = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    e.currentTarget.blur();
     setToolTipActive(false);
-  };
+  }, []);
+
+  const handleFocus: React.FocusEventHandler = useCallback((e: React.FocusEvent<HTMLButtonElement>) => {
+    setToolTipActive(false);
+  }, []);
 
   return (
     <div className="relative">
-      <div
+      <button
+        onFocus={handleFocus}
         onClick={handleMouseClick}
-        onMouseOver={handleMouseIn}
-        onMouseOut={handleMouseOut}
+        onMouseEnter={handleMouseIn}
+        onMouseLeave={handleMouseOut}
         className={clsx(active ? 'border-gray-500' : 'opacity-50 hover:opacity-90', 'p-3 relative border-l-2 border-dark_bg')}
       >
         {icon}
-      </div>
+      </button>
       <span
         className={clsx(
           toolTipActive ? 'block opacity-100' : 'opacity-0 hidden',
-          'absolute top-1/2 -translate-y-1/2 translate-x-[50px] bg-dark_bg border border-dark_border py-1 px-2 whitespace-nowrap text-sm transition-opacity ease-in-out duration-300 select-none'
+          'absolute top-1/2 -translate-y-1/2 right-0 translate-x-full bg-dark_bg border border-dark_border py-1 px-2 whitespace-nowrap text-sm transition-opacity ease-in-out duration-300 select-none'
         )}
       >
         {text}
@@ -98,5 +104,5 @@ interface TooltipProps {
   icon: JSX.Element;
   text: string;
   active: boolean;
-  handleMouseClick: MouseEventHandler;
+  handleMouseClick: React.MouseEventHandler;
 }
