@@ -37,7 +37,7 @@ const rightItems = [
 
 export default function BottomBar() {
   return (
-    <div className="flex justify-between border-t-2 border-dark_border text-gray-500 text-sm">
+    <div className="flex justify-between border-t-2 border-dark_border text-gray-500 text-sm select-none">
       <div className="flex items-center cursor-pointer gap-1">
         <div className="bg-blue-300 0">
           <Tooltip icon={<Remote />} text="Open a Remote Window" position="left" />
@@ -84,7 +84,7 @@ function Tooltip({ icon, text, position }: { icon: JSX.Element; text: string; po
           toolTipActive ? 'block opacity-100' : 'opacity-0 hidden',
           position === 'right' && 'right-0',
           position === 'left' && 'left-0',
-          'absolute -translate-y-[calc(100%+5px)] top-0 bg-dark_bg border border-dark_border py-1 px-2 whitespace-nowrap text-sm transition-opacity ease-in-out duration-300'
+          'absolute -translate-y-[calc(100%+5px)] top-0 bg-dark_bg border border-dark_border py-1 px-2 whitespace-nowrap text-sm transition-opacity ease-in-out duration-300 select-none'
         )}
       >
         {text}

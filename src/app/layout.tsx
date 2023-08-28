@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { ActivityBar, BottomBar, CollapsableMenu, TopBar } from '@/components';
+import { Providers } from '@/lib/providers';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -9,16 +10,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`bg-dark_bg min-h-screen flex flex-col`}>
-        <TopBar />
-        <div className='flex-1 flex'>
-          <ActivityBar />
-          <CollapsableMenu />
-        </div>
-        {children}
-        <BottomBar />
-      </body>
-    </html>
+    <Providers>
+      <html lang="en">
+        <body className={`bg-dark_bg min-h-screen flex flex-col`}>
+          <TopBar />
+          <div className="flex-1 flex">
+            <ActivityBar />
+            <CollapsableMenu />
+          </div>
+          {children}
+          <BottomBar />
+        </body>
+      </html>
+    </Providers>
   );
 }
