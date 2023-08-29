@@ -72,7 +72,12 @@ export default function SubCollapsableMenu({ subMenuTitle, subMenuButtons, child
   return (
     <div onDragEnd={(e) => console.log(e)} ref={(ref) => (containerRef.current = ref)} onMouseEnter={handleMouseIn} onMouseLeave={handleMouseOut} className="bg-dark_bg">
       <div className="relative">
-        <button onFocus={handleFocusIn} onBlur={handleFocusBlur} onClick={handleToggleMenu} className="flex w-full focus:ring-[.5px] active:ring-0 ring-gray-500 ring-opacity-20 py-1 justify-between">
+        <button
+          onFocus={handleFocusIn}
+          onBlur={handleFocusBlur}
+          onClick={handleToggleMenu}
+          className="flex w-full focus:ring-[.5px] active:ring-0 ring-gray-500 ring-opacity-20 py-1 justify-between"
+        >
           <div className="flex">
             {open ? <ChevronDown /> : <ChevronRight />}
             <span className="text-xs font-extrabold text-gray-500 ml-1">{subMenuTitle}</span>

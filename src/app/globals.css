@@ -23,7 +23,6 @@
 }
 
 .content {
-  margin-top: 5px;
   mask-image: linear-gradient(to top, transparent, black), linear-gradient(to left, transparent 12px, black 12px);
   mask-size: 100% 20000px;
   mask-position: left bottom;
