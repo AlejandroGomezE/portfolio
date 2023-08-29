@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { useState, useCallback } from 'react';
 import { Accounts, Debug, Explorer, Extensions, Gear, Search, SourceControl } from '@/icons';
 import { useDispatch, useSelector, selectExpanded, selectMenu, expandableSlice, Menu } from '@/lib/redux';
+import ToolTip from './ToolTip';
 
 const barItems = [
   {
@@ -87,14 +88,7 @@ function Tooltip({ icon, text, active, handleMouseClick }: TooltipProps) {
       >
         {icon}
       </button>
-      <span
-        className={clsx(
-          toolTipActive ? 'block opacity-100' : 'opacity-0 hidden',
-          'absolute top-1/2 -translate-y-1/2 right-0 translate-x-full bg-dark_bg border border-dark_border py-1 px-2 whitespace-nowrap text-sm transition-opacity ease-in-out duration-300 select-none'
-        )}
-      >
-        {text}
-      </span>
+      <ToolTip className="top-1/2 -translate-y-1/2 right-0 translate-x-full" active={toolTipActive} text={text} />
     </div>
   );
 }

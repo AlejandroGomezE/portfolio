@@ -1,33 +1,30 @@
+'use client';
 import Header from '../Header';
 import SubCollapsableMenu from '../SubCollapsableMenu';
-import { Ellipsis } from '@/icons';
+import { CloseAll, CollapseAll, Ellipsis, Refresh, NewFile, NewFolder, SaveAll } from '@/icons';
 import Editors from './Editors';
 
 const subMenus = [
   {
     subMenuTitle: 'OPEN EDITORS',
-    subMenuButtons: <></>,
+    subMenuButtons: [
+      { id: 0, button: <NewFile /> },
+      { id: 1, button: <SaveAll /> },
+      { id: 2, button: <CloseAll /> },
+    ],
     children: <Editors />,
+    id: 'editors_submenu',
   },
   {
     subMenuTitle: 'PORTFOLIO',
-    subMenuButtons: <></>,
+    subMenuButtons: [
+      { id: 0, button: <NewFile /> },
+      { id: 1, button: <NewFolder /> },
+      { id: 2, button: <Refresh /> },
+      { id: 3, button: <CollapseAll /> },
+    ],
     children: <></>,
-  },
-  {
-    subMenuTitle: 'OUTLINE',
-    subMenuButtons: <></>,
-    children: <></>,
-  },
-  {
-    subMenuTitle: 'TIMELINE',
-    subMenuButtons: <></>,
-    children: <></>,
-  },
-  {
-    subMenuTitle: 'NPM SCRIPTS',
-    subMenuButtons: <></>,
-    children: <></>,
+    id: 'portfolio_submenu',
   },
 ];
 
@@ -39,9 +36,9 @@ export default function Explorer() {
           <Ellipsis />
         </button>
       </Header>
-      <div className="gap-y-[1px] bg-dark_border flex flex-col mx-[1px]">
+      <div id="explorerMenu" className="divide-dark_border divide-y-2 flex flex-col mx-[1px] flex-1">
         {subMenus.map((item, index) => (
-          <SubCollapsableMenu key={index} subMenuTitle={item.subMenuTitle} subMenuButtons={item.subMenuButtons}>
+          <SubCollapsableMenu key={index} id={item.id} subMenuTitle={item.subMenuTitle} subMenuButtons={item.subMenuButtons}>
             {item.children}
           </SubCollapsableMenu>
         ))}

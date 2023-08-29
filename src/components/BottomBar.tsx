@@ -2,6 +2,7 @@
 import clsx from 'clsx';
 import { useState, useCallback } from 'react';
 import { Bell, CloudUpload, Info, RadioTower, Remote, SourceControl, Warning } from '@/icons';
+import ToolTip from './ToolTip';
 
 const rightItems = [
   {
@@ -92,22 +93,26 @@ function Tooltip({ icon, text, position }: { icon: JSX.Element; text: string; po
     setToolTipActive(false);
   }, []);
 
+  let classes = 'top-0 -translate-y-[calc(100%+5px)] ';
+
+  switch (position) {
+    case 'right':
+      classes += 'right-0';
+      break;
+    case 'left':
+      classes += 'left-0';
+      break;
+    case 'center':
+      classes += 'left-1/2 -translate-x-1/2';
+      break;
+  }
+
   return (
     <div className="relative">
       <div onMouseOver={handleMouseIn} onMouseOut={handleMouseOut} className="p-1 px-2 relative hover:bg-blue-200">
         {icon}
       </div>
-      <span
-        className={clsx(
-          toolTipActive ? 'block opacity-100' : 'opacity-0 hidden',
-          position === 'right' && 'right-0',
-          position === 'left' && 'left-0',
-          position === 'center' && 'left-1/2 -translate-x-1/2',
-          'absolute -translate-y-[calc(100%+5px)] top-0 bg-dark_bg border border-dark_border py-1 px-2 whitespace-nowrap text-sm transition-opacity ease-in-out duration-300 select-none'
-        )}
-      >
-        {text}
-      </span>
+      <ToolTip active={toolTipActive} className={classes} text={text} />
     </div>
   );
 }
