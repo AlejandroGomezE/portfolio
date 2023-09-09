@@ -16,6 +16,10 @@ import Gear from './gear';
 import Info from './info';
 import NewFile from './new-file';
 import NewFolder from './new-folder';
+import Next from './next';
+import Node from './node';
+import Public from './public';
+import PublicOpen from './public-open';
 import RadioTower from './radio-tower';
 import Refresh from './refresh';
 import Remote from './remote';
@@ -47,6 +51,10 @@ export {
   Info,
   NewFile,
   NewFolder,
+  Next,
+  Node,
+  Public,
+  PublicOpen,
   RadioTower,
   Refresh,
   Remote,

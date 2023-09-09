@@ -9,6 +9,7 @@ const config: Config = {
       white: '#FFF',
       'red-500': '#E51400',
       'gray-300': '#36394A',
+      'gray-400': '#292E42',
       'gray-500': '#A9B1D6',
       'blue-200': '#282E44',
       'blue-300': '#3D59A1',

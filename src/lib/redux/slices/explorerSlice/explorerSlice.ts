@@ -72,9 +72,11 @@ export const explorerSlice = createSlice({
 
           const subMenuPortafolio = document.getElementById('subMenu-' + SubMenu.PORTFOLIO) as HTMLDivElement;
           if (state.portfolio.open) {
-            if (!state.editor.open) {
-              state.portfolio.maxHeight = subMenuPortafolio.scrollHeight - 100 + 'px';
-            }
+            const newHeight = subMenuPortafolio.scrollHeight - 100 + 'px';
+            state.portfolio.maxHeight = newHeight;
+            state.portfolio.height = newHeight;
+            subMenuPortafolio.style.height = newHeight;
+            subMenuPortafolio.style.maxHeight = newHeight;
           }
         } else if (action.payload.subMenu === SubMenu.PORTFOLIO) {
           state.portfolio.height = availableHeight + 'px';
