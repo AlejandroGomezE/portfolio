@@ -65,7 +65,7 @@ export default function SubCollapsableMenu({ subMenuTitle, subMenuButtons, child
           </div>
         )}
       </div>
-      <div tabIndex={-1} onFocus={handleFocusIn} onBlur={handleFocusBlur} className="wrapper focus:ring-[.5px] active:ring-0 ring-gray-500 ring-opacity-20 select-none">
+      <div tabIndex={-1} onFocus={handleFocusIn} onBlur={handleFocusBlur} className="focus:ring-[.5px] active:ring-0 ring-gray-500 ring-opacity-20 select-none">
         <div
           id={'subMenu-' + subMenu}
           ref={(ref) => (contentRef.current = ref)}

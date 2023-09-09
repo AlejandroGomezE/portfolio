@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { useState, useCallback } from 'react';
 import { Accounts, Debug, Explorer, Extensions, Gear, Search, SourceControl } from '@/icons';
 import { useDispatch, useSelector, selectExpanded, selectMenu, expandableSlice, Menu } from '@/lib/redux';
+import { CollapsableMenu } from '@/components';
 import ToolTip from './ToolTip';
 
 const barItems = [
@@ -39,24 +40,27 @@ export default function ActivityBar() {
   const expanded = useSelector(selectExpanded);
 
   return (
-    <div className="max-w-fit text-gray-500 flex flex-col justify-between">
-      <div className="cursor-pointer">
-        {barItems.map((item, index) => (
-          <Tooltip
-            key={index}
-            icon={item.icon}
-            text={item.hoverText}
-            active={expanded && activeMenu === item.menu}
-            handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-              dispatch(expandableSlice.actions.toggleMenu({ menu: item.menu }));
-            }}
-          />
-        ))}
+    <div className="relative md:flex">
+      <div className="max-w-fit text-gray-500 flex flex-col justify-between h-full">
+        <div className="cursor-pointer">
+          {barItems.map((item, index) => (
+            <Tooltip
+              key={index}
+              icon={item.icon}
+              text={item.hoverText}
+              active={expanded && activeMenu === item.menu}
+              handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                dispatch(expandableSlice.actions.toggleMenu({ menu: item.menu }));
+              }}
+            />
+          ))}
+        </div>
+        <div className="cursor-pointer">
+          <Tooltip icon={<Accounts />} text="Accounts" active={false} handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {}} />
+          <Tooltip icon={<Gear />} text="Manage" active={false} handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {}} />
+        </div>
       </div>
-      <div className="cursor-pointer">
-        <Tooltip icon={<Accounts />} text="Accounts" active={false} handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {}} />
-        <Tooltip icon={<Gear />} text="Manage" active={false} handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {}} />
-      </div>
+      <CollapsableMenu />
     </div>
   );
 }
