@@ -1,6 +1,6 @@
 import { SplitHorizontal, SplitVertical, ToggleSidebar } from '@/icons';
 
-const toggleButtons = [{ icon: <SplitVertical /> }, { icon: <ToggleSidebar /> }, { icon: <SplitHorizontal /> }];
+const toggleButtons = [{ icon: <ToggleSidebar /> }, { icon: <SplitVertical /> }, { icon: <SplitHorizontal /> }];
 
 export default function ToggleButtons() {
   return (

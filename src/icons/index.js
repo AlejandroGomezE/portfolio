@@ -29,6 +29,7 @@ import SourceControl from './source-control.tsx';
 import SplitHorizontal from './split-horizontal';
 import SplitVertical from './split-vertical';
 import ToggleSidebar from './toggle-sidebar';
+import Tsx from './tsx';
 import VSCode from './vscode';
 import Warning from './warning';
 
@@ -64,6 +65,7 @@ export {
   SplitHorizontal,
   SplitVertical,
   ToggleSidebar,
+  Tsx,
   VSCode,
   Warning,
 };
