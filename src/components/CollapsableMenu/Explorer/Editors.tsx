@@ -18,17 +18,7 @@ export default function Editors() {
       maxHeight={editors.maxHeight}
       overflowY={editors.overflowY}
     >
-      <p>Hola</p>
-      <p>Hola</p>
-      <p>Hola</p>
-      <p>Hola</p>
-      <p>Hola</p>
-      <p>Hola</p>
-      <p>Hola</p>
-      <p>Hola</p>
-      <p>Hola</p>
-      <p>Hola</p>
-      <p>Hola</p>
+      <></>
     </SubCollapsableMenu>
   );
 }

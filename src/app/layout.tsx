@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { ActivityBar, BottomBar, CollapsableMenu, TopBar } from '@/components';
 import { Providers } from '@/lib/providers';
+import TogglePortfolio from '@/components/TogglePortfolio';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
           {children}
           <BottomBar />
+          <TogglePortfolio />
         </body>
       </html>
     </Providers>
