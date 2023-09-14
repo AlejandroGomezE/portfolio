@@ -9,21 +9,25 @@ const rightItems = [
     icon: <span>Spaces: 2</span>,
     text: 'Select Indentation',
     position: 'center' as const,
+    className: 'hidden md:block',
   },
   {
     icon: <span>UTF-8</span>,
     text: 'Select Encoding',
     position: 'center' as const,
+    className: 'hidden sm:block',
   },
   {
     icon: <span>CRLF</span>,
     text: 'Select End of Line Sequence',
     position: 'center' as const,
+    className: 'hidden sm:block',
   },
   {
     icon: <span>&#123; &#125; TypeScript JSX</span>,
     text: 'Select Language Mode',
     position: 'center' as const,
+    className: 'hidden sm:block',
   },
   {
     icon: (
@@ -59,7 +63,7 @@ export default function BottomBar() {
           text="portfolio Git - main*"
           position="left"
         />
-        <Tooltip icon={<CloudUpload />} text="portfolio (Git) - Publish Branch" position="center" />
+        <Tooltip icon={<CloudUpload />} text="portfolio (Git) - Publish Branch" position="center" className="hidden sm:block" />
         <Tooltip
           icon={
             <div className="flex items-center text-xs">
@@ -71,18 +75,19 @@ export default function BottomBar() {
           }
           text="No Problems"
           position="center"
+          className="hidden sm:block"
         />
       </div>
       <div className="flex items-center cursor-pointer mr-2 gap-2">
         {rightItems.map((item, index) => (
-          <Tooltip key={index} icon={item.icon} text={item.text} position={item.position} />
+          <Tooltip key={index} icon={item.icon} text={item.text} position={item.position} className={item.className} />
         ))}
       </div>
     </div>
   );
 }
 
-function Tooltip({ icon, text, position }: { icon: JSX.Element; text: string; position: 'left' | 'right' | 'center' }) {
+function Tooltip({ icon, text, position, className }: { icon: JSX.Element; text: string; position: 'left' | 'right' | 'center'; className?: string }) {
   const [toolTipActive, setToolTipActive] = useState<boolean>(false);
 
   const handleMouseIn: React.MouseEventHandler = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
@@ -109,7 +114,7 @@ function Tooltip({ icon, text, position }: { icon: JSX.Element; text: string; po
 
   return (
     <div className="relative">
-      <div onMouseOver={handleMouseIn} onMouseOut={handleMouseOut} className="p-1 px-2 relative hover:bg-blue-200">
+      <div onMouseOver={handleMouseIn} onMouseOut={handleMouseOut} className={clsx('p-1 px-2 relative hover:bg-blue-200', className)}>
         {icon}
       </div>
       <ToolTip active={toolTipActive} className={classes} text={text} />

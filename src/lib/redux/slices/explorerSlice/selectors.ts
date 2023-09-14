@@ -7,3 +7,6 @@ import type { ReduxState } from '@/lib/redux';
 
 export const selectEditor = (state: ReduxState) => state.explorer.editor;
 export const selectPortfolio = (state: ReduxState) => state.explorer.portfolio;
+export const selectOutline = (state: ReduxState) => state.explorer.outline;
+export const selectTimeline = (state: ReduxState) => state.explorer.timeline;
+export const selectScripts = (state: ReduxState) => state.explorer.scripts;

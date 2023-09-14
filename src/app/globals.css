@@ -23,7 +23,7 @@
 /* https://css-tricks.com/custom-scrollbars-in-webkit/ */
 
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 14px;
 }
 
 ::-webkit-scrollbar-track {
@@ -41,15 +41,29 @@
 }
 
 .content {
-  mask-image: linear-gradient(to top, transparent, black), linear-gradient(to left, transparent 12px, black 12px);
+  mask-image: linear-gradient(to top, transparent, black), linear-gradient(to left, transparent 0px, black 0px);
   mask-size: 100% 20000px;
   mask-position: left bottom;
-  -webkit-mask-image: linear-gradient(to top, transparent, black), linear-gradient(to left, transparent 12px, black 12px);
+
+  -webkit-mask-image: linear-gradient(to top, transparent, black), linear-gradient(to left, transparent 0px, black 0px);
   -webkit-mask-size: 100% 20000px;
   -webkit-mask-position: left bottom;
-  transition-duration: 0.3s;
+
+  transition-duration: 0.5s;
 }
 
 .content:hover {
+  mask-image: linear-gradient(to top, transparent, black), linear-gradient(to left, transparent 14px, black 14px);
+  -webkit-mask-image: linear-gradient(to top, transparent, black), linear-gradient(to left, transparent 14px, black 14px);
+  mask-position: left top;
   -webkit-mask-position: left top;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+  position: absolute;
+}
+
+.content:hover::-webkit-scrollbar {
+  display: block;
 }

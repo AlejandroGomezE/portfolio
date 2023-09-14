@@ -1,5 +1,4 @@
 'use client';
-import clsx from 'clsx';
 import { useState, useCallback, useRef } from 'react';
 import { ChevronDown, ChevronRight } from '@/icons';
 import { SubMenu, useDispatch, explorerSlice } from '@/lib/redux';
@@ -37,7 +36,7 @@ export default function SubCollapsableMenu({ subMenuTitle, subMenuButtons, child
   const handleTransitionEnd: React.TransitionEventHandler = useCallback(
     (e: React.TransitionEvent<HTMLDivElement>) => {
       if (!contentRef.current) return;
-      if (open) {
+      if (open && e.propertyName === 'max-height') {
         dispatch(explorerSlice.actions.overFlowYAuto({ subMenu }));
         contentRef.current.style.overflowY = 'auto';
       }
@@ -46,7 +45,6 @@ export default function SubCollapsableMenu({ subMenuTitle, subMenuButtons, child
   );
 
   return (
-    //TODO Drag
     <div onDragEnd={(e) => console.log(e)} onMouseEnter={handleMouseIn} onMouseLeave={handleMouseOut} className="bg-dark_bg">
       <div className="relative">
         <button onFocus={handleFocusIn} onBlur={handleFocusBlur} onClick={handleToggleMenu} className="flex w-full focus:ring-[.5px] active:ring-0 ring-gray-500 ring-opacity-20 py-1 justify-between">
@@ -70,10 +68,11 @@ export default function SubCollapsableMenu({ subMenuTitle, subMenuButtons, child
           id={'subMenu-' + subMenu}
           ref={(ref) => (contentRef.current = ref)}
           onTransitionEnd={handleTransitionEnd}
-          className={clsx('content transition-all')}
-          style={{ maxHeight: maxHeight, overflowY: overflowY, overflowX: 'hidden', height: height ? height : 'auto' }}
+          className="transition-all content"
+          style={{ maxHeight: maxHeight, overflowY: overflowY, height: height ? height : 'auto' }}
         >
           {children}
+          <div className="cover-bar"></div>
         </div>
       </div>
     </div>

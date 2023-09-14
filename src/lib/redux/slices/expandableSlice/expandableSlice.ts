@@ -22,10 +22,12 @@ export const expandableSlice = createSlice({
     toggleMenu: (
       state,
       action: PayloadAction<{
-        menu: Menu;
+        menu?: Menu;
       }>
     ) => {
-      if (!state.value) {
+      if (!action.payload.menu) {
+        state.value = !state.value;
+      } else if (!state.value) {
         state.value = true;
         state.menu = action.payload.menu;
       } else if (state.menu === action.payload.menu) {
