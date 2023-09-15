@@ -6,16 +6,13 @@ export const metadata = {
 };
 
 export const sections = [
-  { title: 'Protocol SDKs', id: 'Protocol' },
-  { title: 'Hola', id: 'o' },
-  { title: 'i', id: 'i' },
-  { title: 'e', id: 'e' },
-  { title: 'a', id: 'a' },
+  { title: 'Protocol', id: 'protocol' },
+  { title: 'Hola', id: 'hola' },
 ];
 
-<Section id="Protocol">
+<Section id={sections[0].id}>
 
-# Protocol SDKs
+# Protocol
 
 The recommended way to interact with the Protocol API is by using one of our official SDKs. Today, Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and give you the best experience when consuming the API. {{ className: 'lead' }}
 
@@ -63,7 +60,7 @@ The recommended way to interact with the Protocol API is by using one of our off
 <br/>
 <br/>
 <br/>
-<Section id="Hola">
+<Section id={sections[1].id}>
 # Hola
 
 The recommended way to interact with the Protocol API is by using one of our official SDKs. Today, Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and

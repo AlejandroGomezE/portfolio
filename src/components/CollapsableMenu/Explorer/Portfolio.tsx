@@ -22,6 +22,7 @@ import {
   PublicOpen,
   Src,
   SrcOpen,
+  SubSection,
   TailwindCSS,
   Tsx,
   TsConfig,
@@ -84,7 +85,7 @@ export default function Portfolio() {
   );
 }
 
-const itemsCSS = 'flex w-full hover:bg-dark_border items-center py-[2px] cursor-pointer';
+const itemsCSS = 'flex w-full hover:bg-dark_border items-center py-[2px] cursor-pointer transition-all duration-200';
 
 interface FolderProps {
   name: string;
@@ -131,7 +132,7 @@ function File({ name, icon, url, indent, sections }: FileWrapperProps) {
     <>
       <FileContent name={name} icon={icon} url={url} indent={indent} active={sections.length > 0} />
       {sections.length > 0 && (
-        <div style={{ paddingLeft: indent * 16 + 22 }} className="flex flex-col ml-6">
+        <div style={{ paddingLeft: indent * 16 + 22 }} className="flex flex-col ml-7">
           {sections.map((section) => (
             <FileSection key={section.id} id={section.id} title={section.title} />
           ))}
@@ -144,8 +145,9 @@ function File({ name, icon, url, indent, sections }: FileWrapperProps) {
 function FileSection({ id, title }: { id: string; title: string }) {
   const isVisible = useSelector((state) => selectSectionIsVisible(state, id));
   return (
-    <div>
-      {title}, {isVisible ? 'hola' : 'adios'}
+    <div className="flex items-center text-white hover:text-gray-500 py-[2px] transition-colors duration-300">
+      <SubSection />
+      <p>{title}</p>
     </div>
   );
 }

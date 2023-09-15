@@ -65,6 +65,7 @@ export const explorerSlice = createSlice({
           let editorsScrollHeight = subMenuEditor.clientHeight;
           state.editor.overflowY = 'hidden' as const;
           state.editor.maxHeight = '0px';
+          subMenuEditor.classList.remove('overflown');
 
           if (state.portfolio.open) {
             state.portfolio.height = subMenuPortafolio.clientHeight + editorsScrollHeight + 'px';
@@ -74,6 +75,7 @@ export const explorerSlice = createSlice({
           state.portfolio.overflowY = 'hidden' as const;
           state.portfolio.height = '0px';
           state.portfolio.maxHeight = '0px';
+          subMenuPortafolio.classList.remove('overflown');
         }
       } else {
         if (action.payload.subMenu === SubMenu.EDITOR) {

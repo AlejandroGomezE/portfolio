@@ -36,7 +36,8 @@ export default function SubCollapsableMenu({ subMenuTitle, subMenuButtons, child
   const handleTransitionEnd: React.TransitionEventHandler = useCallback(
     (e: React.TransitionEvent<HTMLDivElement>) => {
       if (!contentRef.current) return;
-      if (open && e.propertyName === 'max-height') {
+      if (open && e.propertyName === 'max-height' && contentRef.current.clientHeight < contentRef.current.scrollHeight) {
+        contentRef.current.classList.add('overflown');
         dispatch(explorerSlice.actions.overFlowYAuto({ subMenu }));
         contentRef.current.style.overflowY = 'auto';
       }

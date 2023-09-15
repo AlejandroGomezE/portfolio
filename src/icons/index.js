@@ -38,6 +38,7 @@ import SplitVerticalToggled from './split-vertical-toggled';
 import SplitVerticalUntoggled from './split-vertical-untoggled';
 import Src from './src';
 import SrcOpen from './src-open';
+import SubSection from './sub-section';
 import TailwindCSS from './tailwindcss';
 import ToggledSidebar from './toggled-sidebar';
 import TsConfig from './tsconfig';
@@ -87,6 +88,7 @@ export {
   SplitVerticalUntoggled,
   Src,
   SrcOpen,
+  SubSection,
   TailwindCSS,
   ToggledSidebar,
   TsConfig,

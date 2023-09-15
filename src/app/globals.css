@@ -49,10 +49,10 @@
   -webkit-mask-size: 100% 20000px;
   -webkit-mask-position: left bottom;
 
-  transition-duration: 0.5s;
+  transition-duration: 200ms;
 }
 
-.content:hover {
+.content:hover.overflown {
   mask-image: linear-gradient(to top, transparent, black), linear-gradient(to left, transparent 14px, black 14px);
   -webkit-mask-image: linear-gradient(to top, transparent, black), linear-gradient(to left, transparent 14px, black 14px);
   mask-position: left top;
