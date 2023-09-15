@@ -8,36 +8,46 @@ export interface Section {
   headingRef?: React.RefObject<HTMLHeadingElement>;
 }
 
+interface ObjectLiteral {
+  [key: string]: boolean;
+}
+
 interface SectionState {
   sections: Section[];
-  visibleSections: string[];
+  visible: ObjectLiteral;
 }
 
 const initialState: SectionState = {
   sections: [],
-  visibleSections: [],
+  visible: {},
 };
 
 export const sectionSlice = createSlice({
   name: 'sections',
   initialState,
   reducers: {
-    setVisibleSections: (state, action: PayloadAction<{ visibleSections: string[] }>) => {
-      state.visibleSections = action.payload.visibleSections;
-    },
-    registerHeading(state, action: PayloadAction<{ id: string; ref: React.RefObject<HTMLHeadingElement>; offsetRem: number }>) {
+    setSections: (state, action: PayloadAction<{ sections: Section[] }>) => {
       return {
-        visibleSections: state.visibleSections,
-        sections: state.sections.map((section) => {
-          if (section.id === action.payload.id) {
-            return {
-              ...section,
-              headingRef: action.payload.ref,
-              offsetRem: action.payload.offsetRem,
-            };
-          }
-          return section;
-        }) as Section[],
+        sections: action.payload.sections as Section[],
+        visible: state.visible,
+      };
+    },
+    setVisible: (state, action: PayloadAction<{ key: string }>) => {
+      return {
+        sections: state.sections,
+        visible: {
+          ...state.visible,
+          [action.payload.key]: true,
+        },
+      };
+    },
+    setHidden: (state, action: PayloadAction<{ key: string }>) => {
+      return {
+        sections: state.sections,
+        visible: {
+          ...state.visible,
+          [action.payload.key]: false,
+        },
       };
     },
   },

@@ -8,12 +8,16 @@ export { Button } from '@/components/Button';
 export { CodeGroup, Code as code, Pre as pre } from '@/components/Code';
 
 export function wrapper({ children }: { children: React.ReactNode }) {
-  return <div className="p-12 overflow-y-auto content text-gray-500">{children}</div>;
+  return <div className="overflow-y-auto text-gray-500 w-full">{children}</div>;
 }
 
-export const h2 = function H2(props: Omit<React.ComponentPropsWithoutRef<typeof Heading>, 'level'>) {
-  return <Heading level={2} {...props} />;
-};
+export function H1(props: { children: React.ReactNode; id: string }) {
+  return <Heading level={1} {...props} />;
+}
+
+export function Section({ children }: { children: React.ReactNode }) {
+  return <section>{children}</section>;
+}
 
 function InfoIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (

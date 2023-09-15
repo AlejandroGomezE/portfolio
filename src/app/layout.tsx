@@ -2,7 +2,7 @@ import glob from 'fast-glob';
 
 import './globals.css';
 import type { Metadata } from 'next';
-import { ActivityBar, BottomBar, CollapsableMenu, TopBar } from '@/components';
+import { ActivityBar, BottomBar, TopBar } from '@/components';
 import { Providers } from '@/lib/providers';
 import { type Section } from '@/lib/redux/slices/sectionSlice/sectionSlice';
 import TogglePortfolio from '@/components/TogglePortfolio';
@@ -13,9 +13,11 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  let pages = await glob('**/*.mdx', { cwd: 'src/app' });
-  let allSectionsEntries = (await Promise.all(pages.map(async (filename) => ['/' + filename.replace(/(^|\/)page\.mdx$/, ''), (await import(`./${filename}`)).sections]))) as Array<[string, Section[]]>;
-  let allSections = Object.fromEntries(allSectionsEntries);
+  const pages = await glob('**/*.mdx', { cwd: 'src/app' });
+  const allSectionsEntries = (await Promise.all(pages.map(async (filename) => ['/' + filename.replace(/(^|\/)page\.mdx$/, ''), (await import(`./${filename}`)).sections]))) as Array<
+    [string, Section[]]
+  >;
+  const allSections = Object.fromEntries(allSectionsEntries);
 
   return (
     <Providers>
@@ -23,7 +25,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <body className={`bg-dark_bg min-h-screen max-h-screen flex flex-col`}>
           <TopBar />
           <main className="flex-1 flex overflow-hidden">
-            <ActivityBar />
+            <ActivityBar sections={allSections} />
             {children}
           </main>
           <BottomBar />

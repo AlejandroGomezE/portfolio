@@ -1,10 +1,11 @@
 'use client';
 import clsx from 'clsx';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { Accounts, Debug, Explorer, Extensions, Gear, Search, SourceControl } from '@/icons';
-import { useDispatch, useSelector, selectExpanded, selectMenu, expandableSlice, Menu } from '@/lib/redux';
+import { useDispatch, useSelector, selectExpanded, selectMenu, expandableSlice, Menu, sectionSlice, Section } from '@/lib/redux';
 import { CollapsableMenu } from '@/components';
 import ToolTip from './ToolTip';
+import { usePathname } from 'next/navigation';
 
 const barItems = [
   {
@@ -34,10 +35,15 @@ const barItems = [
   },
 ];
 
-export default function ActivityBar() {
+export default function ActivityBar({ sections }: { sections: Record<string, Array<Section>> }) {
   const dispatch = useDispatch();
   const activeMenu = useSelector(selectMenu);
   const expanded = useSelector(selectExpanded);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    dispatch(sectionSlice.actions.setSections({ sections: sections[pathname] }));
+  }, [pathname, dispatch, sections]);
 
   return (
     <div className="relative md:flex">

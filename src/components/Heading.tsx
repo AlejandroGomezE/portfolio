@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { ElementType, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useDispatch, sectionSlice } from '@/lib/redux';
 import { useInView } from 'framer-motion';
@@ -12,20 +12,6 @@ function AnchorIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     <svg viewBox="0 0 20 20" fill="none" strokeLinecap="round" aria-hidden="true" {...props}>
       <path d="m6.5 11.5-.964-.964a3.535 3.535 0 1 1 5-5l.964.964m2 2 .964.964a3.536 3.536 0 0 1-5 5L8.5 13.5m0-5 3 3" />
     </svg>
-  );
-}
-
-function Eyebrow({ tag, label }: { tag?: string; label?: string }) {
-  if (!tag && !label) {
-    return null;
-  }
-
-  return (
-    <div className="flex items-center gap-x-3">
-      {tag && <Tag>{tag}</Tag>}
-      {tag && label && <span className="h-0.5 w-0.5 rounded-full bg-zinc-300" />}
-      {label && <span className="font-mono text-xs text-zinc-400">{label}</span>}
-    </div>
   );
 }
 
@@ -44,48 +30,15 @@ function Anchor({ id, inView, children }: { id: string; inView: boolean; childre
   );
 }
 
-export function Heading<Level extends 2 | 3>({
-  children,
-  tag,
-  label,
-  level,
-  anchor = true,
-  ...props
-}: React.ComponentPropsWithoutRef<`h${Level}`> & {
-  id: string;
-  tag?: string;
-  label?: string;
-  level?: Level;
-  anchor?: boolean;
-}) {
-  level = level ?? (2 as Level);
-  let Component = `h${level}` as 'h2' | 'h3';
+export function Heading({ level, children, id }: { level: 1 | 2 | 3; children: React.ReactNode; id: string }) {
+  let Component = `h${level}` as 'h1' | 'h2' | 'h3';
   let ref = useRef<HTMLHeadingElement>(null);
+  const isInView = useInView(ref);
   let dispatch = useDispatch();
 
-  let inView = useInView(ref, {
-    margin: `${remToPx(-3.5)}px 0px 0px 0px`,
-    amount: 'all',
-  });
-
   useEffect(() => {
-    if (level === 2) {
-      dispatch(sectionSlice.actions.registerHeading({ id: props.id, ref, offsetRem: tag || label ? 8 : 6 }));
-    }
-  });
+    console.log(ref.current, isInView);
+  }, [isInView]);
 
-  return (
-    <>
-      <Eyebrow tag={tag} label={label} />
-      <Component ref={ref} className={tag || label ? 'mt-2 scroll-mt-32' : 'scroll-mt-24'} {...props}>
-        {anchor ? (
-          <Anchor id={props.id} inView={inView}>
-            {children}
-          </Anchor>
-        ) : (
-          children
-        )}
-      </Component>
-    </>
-  );
+  return <Component ref={ref}>{children}</Component>;
 }

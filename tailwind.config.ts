@@ -9,6 +9,7 @@ const config: Config = {
         dark_border: '#1B1E2E',
         white: '#FFF',
         'red-500': '#E51400',
+        'gray-200': '#292E42',
         'gray-300': '#36394A',
         'gray-500': '#A9B1D6',
         'blue-200': '#282E44',
