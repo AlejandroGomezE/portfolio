@@ -72,7 +72,7 @@
   position: relative;
 }
 
-.folder-container:hover .line-before-folder {
+.content:hover .line-before-folder {
   height: calc(100% - 28px);
   position: absolute;
   border-left: 1px solid #31374e;
@@ -86,4 +86,31 @@
   border-left: 1.5px solid #31374e;
   top: 28px;
   user-select: none;
+}
+
+.top-arrows,
+.bottom-arrows {
+  content: '';
+  position: absolute;
+  z-index: 30;
+}
+
+.top-arrows.left-arrow {
+  top: -2px;
+  left: -2px;
+}
+
+.top-arrows.right-arrow {
+  top: -2px;
+  right: -2px;
+}
+
+.bottom-arrows.left-arrow {
+  bottom: -2px;
+  left: -2px;
+}
+
+.bottom-arrows.right-arrow {
+  bottom: -2px;
+  right: -2px;
 }

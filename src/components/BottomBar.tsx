@@ -114,7 +114,7 @@ function Tooltip({ icon, text, position, className }: { icon: JSX.Element; text:
 
   return (
     <div className="relative">
-      <div onMouseOver={handleMouseIn} onMouseOut={handleMouseOut} className={clsx('p-1 px-2 relative hover:bg-blue-200', className)}>
+      <div onMouseOver={handleMouseIn} onMouseOut={handleMouseOut} className={clsx('p-1 px-2 relative hover:bg-blue-800', className)}>
         {icon}
       </div>
       <ToolTip active={toolTipActive} className={classes} text={text} />

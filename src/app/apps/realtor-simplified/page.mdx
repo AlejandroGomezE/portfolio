@@ -1,18 +1,18 @@
 import Section from '@/components/Section';
 
 export const metadata = {
-  title: 'About Me',
-  description: 'My personal portfolio and blog.',
+  title: 'Realtor Simplified',
+  description: 'My personal side project, to deploy real estate websites in minutes.',
 };
 
 export const sections = [
-  { title: 'Protocol', id: 'protocol' },
-  { title: 'Hola', id: 'hola' },
+  { index: 0, title: 'About Project', id: 'about-project' },
+  { index: 1, title: 'Technologies Used', id: 'technologies-used' },
 ];
 
 <Section id={sections[0].id}>
 
-# Protocol
+# About Project
 
 The recommended way to interact with the Protocol API is by using one of our official SDKs. Today, Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and give you the best experience when consuming the API. {{ className: 'lead' }}
 
@@ -61,7 +61,7 @@ The recommended way to interact with the Protocol API is by using one of our off
 <br/>
 <br/>
 <Section id={sections[1].id}>
-# Hola
+# Technologies Used
 
 The recommended way to interact with the Protocol API is by using one of our official SDKs. Today, Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and
 give you the best experience when consuming the API. {{ className: 'lead' }}

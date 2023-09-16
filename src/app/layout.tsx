@@ -6,6 +6,7 @@ import { ActivityBar, BottomBar, TopBar } from '@/components';
 import { Providers } from '@/lib/providers';
 import { type Section } from '@/lib/redux/slices/sectionSlice/sectionSlice';
 import TogglePortfolio from '@/components/TogglePortfolio';
+import NavigationChange from '@/components/NavigationChange';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -30,6 +31,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           </main>
           <BottomBar />
           <TogglePortfolio />
+          <NavigationChange />
         </body>
       </html>
     </Providers>
