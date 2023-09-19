@@ -5,7 +5,6 @@ import { Heading } from '@/components/Heading';
 
 export const a = Link;
 export { Button } from '@/components/Button';
-export { CodeGroup, Code as code, Pre as pre } from '@/components/Code';
 
 export function wrapper({ children }: { children: React.ReactNode }) {
   return <div className="overflow-y-auto text-gray-500 w-full">{children}</div>;
@@ -13,6 +12,10 @@ export function wrapper({ children }: { children: React.ReactNode }) {
 
 export function H1(props: { children: React.ReactNode; id: string }) {
   return <Heading level={1} {...props} />;
+}
+
+export function p({ children, className }: { children: React.ReactNode; className: string }) {
+  return <p className={clsx('mt-6 lg:text-lg text-gray-500', className)}>{children}</p>;
 }
 
 export function Section({ children }: { children: React.ReactNode }) {
@@ -53,26 +56,5 @@ export function Properties({ children }: { children: React.ReactNode }) {
         {children}
       </ul>
     </div>
-  );
-}
-
-export function Property({ name, children, type }: { name: string; children: React.ReactNode; type?: string }) {
-  return (
-    <li className="m-0 px-0 py-4 first:pt-0 last:pb-0">
-      <dl className="m-0 flex flex-wrap items-center gap-x-3 gap-y-2">
-        <dt className="sr-only">Name</dt>
-        <dd>
-          <code>{name}</code>
-        </dd>
-        {type && (
-          <>
-            <dt className="sr-only">Type</dt>
-            <dd className="font-mono text-xs text-zinc-400 ">{type}</dd>
-          </>
-        )}
-        <dt className="sr-only">Description</dt>
-        <dd className="w-full flex-none [&>:first-child]:mt-0 [&>:last-child]:mb-0">{children}</dd>
-      </dl>
-    </li>
   );
 }

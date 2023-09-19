@@ -1,4 +1,4 @@
-import Section from '@/components/Section';
+import { AnimatedTitle, FadeIn, GridPattern, Section, Socials, WriteWord } from '@/components';
 
 export const metadata = {
   title: 'About Me',
@@ -12,56 +12,18 @@ export const sections = [
   { index: 3, title: 'My Projects', id: 'projects' },
 ];
 
+<GridPattern />
 <Section id={sections[0].id}>
+  <FadeIn className="max-w-5xl mt-24 sm:mt-32 md:mt-40">
+    <h1 className="font-display text-5xl font-medium tracking-tight text-white/90 [text-wrap:balance] sm:text-6xl">Alejandro Gomez<span className="wave">👋</span></h1>
+    
+    <div className="flex mt-3 text-white/90">Software Engineer / &#8205; <AnimatedTitle/></div>
+    
+    26 yo software engineer with a B.S. in Computer Science and Technology and a strong background in Front-End and Back-End technologies.{{ className: 'max-w-3xl' }}
 
-# About Me
+  </FadeIn>
 
-The recommended way to interact with the Protocol API is by using one of our official SDKs. Today, Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and give you the best experience when consuming the API. {{ className: 'lead' }}
-
-</Section>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<Section id={sections[1].id}>
-# Hola
-
-The recommended way to interact with the Protocol API is by using one of our official SDKs. Today, Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and
-give you the best experience when consuming the API. {{ className: 'lead' }}
-
+  <Socials/>
 </Section>
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-
-<Section id={sections[2].id}>
-# Hola
-
-The recommended way to interact with the Protocol API is by using one of our official SDKs. Today, Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and
-give you the best experience when consuming the API. {{ className: 'lead' }}
-
-</Section>
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<Section id={sections[3].id}>
-# Hola
-
-The recommended way to interact with the Protocol API is by using one of our official SDKs. Today, Protocol offers fine-tuned JavaScript, Ruby, PHP, Python, and Go libraries to make your life easier and
-give you the best experience when consuming the API. {{ className: 'lead' }}
-
-</Section>
+<Section id={sections[1].id}></Section>

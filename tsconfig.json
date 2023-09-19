@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/**/*.tsx", "src/lib/providers.js", "src/icons/split-vertical-untoggled.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/**/*.tsx", "src/lib/providers.js", "src/icons/split-vertical-untoggled.jsx", "src/app/page.js"],
   "exclude": ["node_modules"]
 }

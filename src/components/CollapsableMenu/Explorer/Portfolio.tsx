@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { usePathname, useSelectedLayoutSegments } from 'next/navigation';
 import { useState, useCallback } from 'react';
 import SubCollapsableMenu from '../SubCollapsableMenu';
+import { FadeIn, FadeInStagger } from '@/components';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   AboutMe,
@@ -82,27 +83,25 @@ export default function Portfolio() {
       maxHeight={portafolio.maxHeight}
       height={portafolio.height}
     >
-      <AnimatePresence mode="popLayout" initial={false}>
-        {expanded && (
-          <>
-            <Folder name=".next" openIcon={<></>} closedIcon={<Next />} disabled indent={0} segmentActive={false} />
-            <Folder name="node_modules" openIcon={<></>} closedIcon={<NodeModules />} disabled indent={0} segmentActive={false} />
-            <Folder name="public" openIcon={<PublicOpen />} closedIcon={<Public />} disabled={false} indent={0} segmentActive={segments.length === 0}>
-              <File name="about_me.ts" icon={<FavIcon />} url="/" indent={1} sections={pathname === '/' ? sections : []} />
+      {expanded && (
+        <>
+          <Folder name=".next" openIcon={<></>} closedIcon={<Next />} disabled indent={0} segmentActive={false} />
+          <Folder name="node_modules" openIcon={<></>} closedIcon={<NodeModules />} disabled indent={0} segmentActive={false} />
+          <Folder name="public" openIcon={<PublicOpen />} closedIcon={<Public />} disabled={false} indent={0} segmentActive={segments.length === 0}>
+            <File name="about_me.ts" icon={<FavIcon />} url="/" indent={1} sections={pathname === '/' ? sections : []} />
+          </Folder>
+          <Folder name="src" openIcon={<SrcOpen />} closedIcon={<Src />} disabled={false} indent={0} segmentActive={false}>
+            <Folder name="projects" openIcon={<AppOpen />} closedIcon={<App />} disabled={false} indent={1} segmentActive={segments[0] === 'apps'}>
+              {appFiles.map((file) => (
+                <File key={file.name} name={file.name} icon={file.icon} url={file.url} indent={2} sections={pathname === file.url ? sections : []} />
+              ))}
             </Folder>
-            <Folder name="src" openIcon={<SrcOpen />} closedIcon={<Src />} disabled={false} indent={0} segmentActive={false}>
-              <Folder name="projects" openIcon={<AppOpen />} closedIcon={<App />} disabled={false} indent={1} segmentActive={segments[0] === 'apps'}>
-                {appFiles.map((file) => (
-                  <File key={file.name} name={file.name} icon={file.icon} url={file.url} indent={2} sections={pathname === file.url ? sections : []} />
-                ))}
-              </Folder>
-            </Folder>
-            {staticFiles.map((file) => (
-              <File key={file.name} name={file.name} icon={file.icon} indent={0} sections={[]} />
-            ))}
-          </>
-        )}
-      </AnimatePresence>
+          </Folder>
+          {staticFiles.map((file) => (
+            <File key={file.name} name={file.name} icon={file.icon} indent={0} sections={[]} />
+          ))}
+        </>
+      )}
     </SubCollapsableMenu>
   );
 }
@@ -157,11 +156,13 @@ function File({ name, icon, url, indent, sections }: FileWrapperProps) {
       <FileContent name={name} icon={icon} url={url} indent={indent} active={sections.length > 0} />
       {sections.length > 0 && (
         <div style={{ paddingLeft: indent * 16 + 22 }} className="flex flex-col ml-7 relative py-1">
-          <div className="w-max" role="list">
+          <FadeInStagger className="w-max" role="list">
             {sections.map((section) => (
-              <FileSection key={section.id} id={section.id} title={section.title} url={url ? url : ''} />
+              <FadeIn key={section.id}>
+                <FileSection id={section.id} title={section.title} url={url ? url : ''} />
+              </FadeIn>
             ))}
-          </div>
+          </FadeInStagger>
         </div>
       )}
     </>
@@ -208,7 +209,7 @@ function FileSection({ id, title, url }: { id: string; title: string; url: strin
         )}
         <Link href={`${url}#${id}`} className={clsx('flex items-center hover:text-gray-500 px-[4px] transition-colors duration-300', isVisible ? 'text-blue-100' : 'text-gray-500')}>
           {subSectionsIcons[id] ? <div className="mr-2">{subSectionsIcons[id]}</div> : <div className="mr-3 w-4" />}
-          <p className="leading-5 w-full">{title}</p>
+          <p className="leading-5">{title}</p>
         </Link>
       </motion.div>
     </AnimatePresence>
