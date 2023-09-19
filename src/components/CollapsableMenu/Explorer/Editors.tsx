@@ -16,21 +16,8 @@ export default function Editors() {
       subMenu={SubMenu.EDITOR}
       open={editors.open}
       maxHeight={editors.maxHeight}
-      overflowY={editors.overflowY}
     >
-      <>
-        <p>d</p>
-        <p>d</p>
-        <p>d</p>
-        <p>d</p>
-        <p>d</p>
-        <p>d</p>
-        <p>d</p>
-        <p>d</p>
-        <p>d</p>
-        <p>d</p>
-        <p>d</p>
-      </>
+      <></>
     </SubCollapsableMenu>
   );
 }

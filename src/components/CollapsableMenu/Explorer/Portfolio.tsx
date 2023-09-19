@@ -36,19 +36,7 @@ import {
   TsConfig,
   WorkExperience,
 } from '@/icons';
-import {
-  SubMenu,
-  useSelector,
-  selectPortfolio,
-  selectSections,
-  Section,
-  selectFirstVisibleSection,
-  selectExpanded,
-  selectLastVisibleSection,
-  selectSectionIsVisible,
-  useDispatch,
-  explorerSlice,
-} from '@/lib/redux';
+import { SubMenu, useSelector, selectPortfolio, selectSections, Section, selectFirstVisibleSection, selectExpanded, selectLastVisibleSection, selectSectionIsVisible } from '@/lib/redux';
 
 const staticFiles = [
   { name: '.eslintrc.json', icon: <Eslint /> },
@@ -99,9 +87,6 @@ export default function Portfolio() {
           <>
             <Folder name=".next" openIcon={<></>} closedIcon={<Next />} disabled indent={0} segmentActive={false} />
             <Folder name="node_modules" openIcon={<></>} closedIcon={<NodeModules />} disabled indent={0} segmentActive={false} />
-            <Folder name="node_modules" openIcon={<></>} closedIcon={<NodeModules />} disabled indent={0} segmentActive={false} />
-            <Folder name="node_modules" openIcon={<></>} closedIcon={<NodeModules />} disabled indent={0} segmentActive={false} />
-            <Folder name="node_modules" openIcon={<></>} closedIcon={<NodeModules />} disabled indent={0} segmentActive={false} />
             <Folder name="public" openIcon={<PublicOpen />} closedIcon={<Public />} disabled={false} indent={0} segmentActive={segments.length === 0}>
               <File name="about_me.ts" icon={<FavIcon />} url="/" indent={1} sections={pathname === '/' ? sections : []} />
             </Folder>
@@ -136,7 +121,6 @@ interface FolderProps {
 
 function Folder({ name, openIcon, closedIcon, disabled, indent, children, segmentActive }: FolderProps) {
   const [open, setOpen] = useState(true);
-  const dispatch = useDispatch();
 
   const onToggleFolder: React.MouseEventHandler = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     setOpen((prev) => !prev);
