@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname, useSelectedLayoutSegments } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import SubCollapsableMenu from '../SubCollapsableMenu';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -36,7 +36,19 @@ import {
   TsConfig,
   WorkExperience,
 } from '@/icons';
-import { SubMenu, useSelector, selectPortfolio, selectSections, Section, selectFirstVisibleSection, selectExpanded, selectLastVisibleSection, selectSectionIsVisible } from '@/lib/redux';
+import {
+  SubMenu,
+  useSelector,
+  selectPortfolio,
+  selectSections,
+  Section,
+  selectFirstVisibleSection,
+  selectExpanded,
+  selectLastVisibleSection,
+  selectSectionIsVisible,
+  useDispatch,
+  explorerSlice,
+} from '@/lib/redux';
 
 const staticFiles = [
   { name: '.eslintrc.json', icon: <Eslint /> },
@@ -81,12 +93,14 @@ export default function Portfolio() {
       open={portafolio.open}
       maxHeight={portafolio.maxHeight}
       height={portafolio.height}
-      overflowY={portafolio.overflowY}
     >
       <AnimatePresence mode="popLayout" initial={false}>
         {expanded && (
           <>
             <Folder name=".next" openIcon={<></>} closedIcon={<Next />} disabled indent={0} segmentActive={false} />
+            <Folder name="node_modules" openIcon={<></>} closedIcon={<NodeModules />} disabled indent={0} segmentActive={false} />
+            <Folder name="node_modules" openIcon={<></>} closedIcon={<NodeModules />} disabled indent={0} segmentActive={false} />
+            <Folder name="node_modules" openIcon={<></>} closedIcon={<NodeModules />} disabled indent={0} segmentActive={false} />
             <Folder name="node_modules" openIcon={<></>} closedIcon={<NodeModules />} disabled indent={0} segmentActive={false} />
             <Folder name="public" openIcon={<PublicOpen />} closedIcon={<Public />} disabled={false} indent={0} segmentActive={segments.length === 0}>
               <File name="about_me.ts" icon={<FavIcon />} url="/" indent={1} sections={pathname === '/' ? sections : []} />
@@ -122,10 +136,11 @@ interface FolderProps {
 
 function Folder({ name, openIcon, closedIcon, disabled, indent, children, segmentActive }: FolderProps) {
   const [open, setOpen] = useState(true);
+  const dispatch = useDispatch();
 
-  const onToggleFolder: React.MouseEventHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const onToggleFolder: React.MouseEventHandler = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     setOpen((prev) => !prev);
-  };
+  }, []);
 
   return (
     <div className="overflow-hidden">

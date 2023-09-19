@@ -3,7 +3,7 @@ import { useState, useCallback, useRef } from 'react';
 import { ChevronDown, ChevronRight } from '@/icons';
 import { SubMenu, useDispatch, explorerSlice } from '@/lib/redux';
 
-export default function SubCollapsableMenu({ subMenuTitle, subMenuButtons, children, subMenu, open, maxHeight, height, overflowY }: SubCollapsableMenuProps) {
+export default function SubCollapsableMenu({ subMenuTitle, subMenuButtons, children, subMenu, open, maxHeight, height }: SubCollapsableMenuProps) {
   const [focused, setFocused] = useState<boolean>(false);
   const [hovered, setHovered] = useState<boolean>(false);
   const contentRef = useRef<HTMLDivElement | null>();
@@ -33,18 +33,6 @@ export default function SubCollapsableMenu({ subMenuTitle, subMenuButtons, child
     [dispatch, subMenu]
   );
 
-  const handleTransitionEnd: React.TransitionEventHandler = useCallback(
-    (e: React.TransitionEvent<HTMLDivElement>) => {
-      if (!contentRef.current) return;
-      if (open && e.propertyName === 'max-height' && contentRef.current.clientHeight < contentRef.current.scrollHeight) {
-        contentRef.current.classList.add('overflown');
-        dispatch(explorerSlice.actions.overFlowYAuto({ subMenu }));
-        contentRef.current.style.overflowY = 'auto';
-      }
-    },
-    [open, dispatch, subMenu]
-  );
-
   return (
     <div onMouseEnter={handleMouseIn} onMouseLeave={handleMouseOut} className="bg-dark_bg">
       <div className="relative">
@@ -65,15 +53,8 @@ export default function SubCollapsableMenu({ subMenuTitle, subMenuButtons, child
         )}
       </div>
       <div tabIndex={-1} onFocus={handleFocusIn} onBlur={handleFocusBlur} className="focus:ring-[.5px] active:ring-0 ring-gray-500 ring-opacity-20 select-none">
-        <div
-          id={'subMenu-' + subMenu}
-          ref={(ref) => (contentRef.current = ref)}
-          onTransitionEnd={handleTransitionEnd}
-          className="transition-all content"
-          style={{ maxHeight: maxHeight, overflowY: overflowY, height: height ? height : 'auto' }}
-        >
+        <div id={'subMenu-' + subMenu} ref={(ref) => (contentRef.current = ref)} className="transition-all content overflow-y-auto" style={{ maxHeight: maxHeight, height: height ? height : 'auto' }}>
           {children}
-          <div className="cover-bar"></div>
         </div>
       </div>
     </div>
@@ -88,7 +69,6 @@ interface SubCollapsableMenuProps {
   subMenu: SubMenu;
   open: boolean;
   maxHeight: string;
-  overflowY: 'auto' | 'hidden';
   height?: string;
 }
 
