@@ -1,6 +1,6 @@
 'use client';
-import { ChromeClose, ChromeMenu, ChromeMinimize, ChromeRestore, SplitHorizontal, SplitVerticalToggled, SplitVerticalUntoggled, ToggledSidebar, UntoggledSidebar, VSCode } from '@/icons';
-import { useSelector, selectExpanded, useDispatch, expandableSlice } from '@/lib/redux';
+import { ChromeClose, ChromeMenu, ChromeMinimize, ChromeRestore, SplitHorizontal, SplitVerticalUntoggled, ToggledSidebar, UntoggledSidebar, VSCode } from '@/icons';
+import { expandableSlice, selectExpanded, useDispatch, useSelector } from '@/lib/redux';
 const menuItems = ['File', 'Edit', 'Selection', 'View', 'Go', 'Run', 'Terminal', 'Help'];
 
 export default function TopBar() {

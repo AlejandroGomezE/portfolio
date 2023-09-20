@@ -1,7 +1,7 @@
 'use client';
-import { useState, useCallback, useRef } from 'react';
 import { ChevronDown, ChevronRight } from '@/icons';
-import { SubMenu, useDispatch, explorerSlice } from '@/lib/redux';
+import { SubMenu, explorerSlice, useDispatch } from '@/lib/redux';
+import { useCallback, useRef, useState } from 'react';
 
 export default function SubCollapsableMenu({ subMenuTitle, subMenuButtons, children, subMenu, open, maxHeight, height }: SubCollapsableMenuProps) {
   const [focused, setFocused] = useState<boolean>(false);

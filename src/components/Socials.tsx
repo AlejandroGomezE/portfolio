@@ -1,9 +1,8 @@
 'use client';
-import Link from 'next/link';
-import clsx from 'clsx';
 import { FadeIn, FadeInStagger } from '@/components/FadeIn';
+import clsx from 'clsx';
+import Link from 'next/link';
 import { Button } from './Button';
-import { motion } from 'framer-motion';
 
 function LinkedinIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -24,26 +23,10 @@ function GitHubIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     </svg>
   );
 }
-function DownloadIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fillRule="evenodd" clipRule="evenodd" {...props}>
-      <path d="M6 16H1v6h22v-6h-5v-1h6v8H0v-8h6v1zm14 2a1 1 0 110 2 1 1 0 010-2zM12.5 1v14.884l4.736-5.724.764.645L12.021 18 6 10.795l.765-.644 4.735 5.732V1h1z"></path>
-    </svg>
-  );
-}
 
 export const socialMediaProfiles = [
   { title: 'Linkedin', href: 'https://www.linkedin.com/in/jalejandrogomeze/', icon: LinkedinIcon },
   { title: 'GitHub', href: 'https://github.com/AlejandroGomezE', icon: GitHubIcon },
-  {
-    title: 'Download CV',
-    href: '/#work-experience',
-    icon: () => (
-      <Button className="flex items-center gap-x-2" variant="secondary" arrow="right">
-        Resume
-      </Button>
-    ),
-  },
 ];
 
 export default function Socials({ className }: { className?: string; invert?: boolean }) {
@@ -51,11 +34,16 @@ export default function Socials({ className }: { className?: string; invert?: bo
     <FadeInStagger role="list" className={clsx('flex gap-x-4 text-white mt-5', className)}>
       {socialMediaProfiles.map((socialMediaProfile) => (
         <FadeIn key={socialMediaProfile.title}>
-          <Link href={socialMediaProfile.href} aria-label={socialMediaProfile.title} className="transition hover:text-white/80 duration-200">
+          <Link href={socialMediaProfile.href} target="_blank" aria-label={socialMediaProfile.title} className="transition hover:text-white/80 duration-200">
             <socialMediaProfile.icon className="h-6 w-6 fill-current" />
           </Link>
         </FadeIn>
       ))}
+      <FadeIn>
+        <Button className="flex items-center gap-x-2 hover-shadow" variant="secondary" arrow="right">
+          Resume
+        </Button>
+      </FadeIn>
     </FadeInStagger>
   );
 }

@@ -1,5 +1,5 @@
+import { SubMenu, selectTimeline, useSelector } from '@/lib/redux';
 import SubCollapsableMenu from '../SubCollapsableMenu';
-import { SubMenu, useSelector, selectTimeline } from '@/lib/redux';
 
 export default function Timeline() {
   const timeline = useSelector(selectTimeline);

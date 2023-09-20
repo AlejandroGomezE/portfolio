@@ -1,11 +1,11 @@
 'use client';
-import clsx from 'clsx';
-import { useState, useCallback, useEffect } from 'react';
-import { Accounts, Debug, Explorer, Extensions, Gear, Search, SourceControl } from '@/icons';
-import { useDispatch, useSelector, selectExpanded, selectMenu, expandableSlice, Menu, sectionSlice, Section } from '@/lib/redux';
 import { CollapsableMenu } from '@/components';
-import ToolTip from './ToolTip';
+import { Accounts, Debug, Explorer, Extensions, Gear, Search, SourceControl } from '@/icons';
+import { Menu, Section, expandableSlice, sectionSlice, selectExpanded, selectMenu, useDispatch, useSelector } from '@/lib/redux';
+import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
+import { useCallback, useEffect, useState } from 'react';
+import ToolTip from './ToolTip';
 
 const barItems = [
   {
@@ -62,7 +62,7 @@ export default function ActivityBar({ sections }: { sections: Record<string, Arr
           ))}
         </div>
         <div className="cursor-pointer">
-          <Tooltip icon={<Accounts />} text="Accounts" active={false} handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {}} />
+          <Tooltip icon={<Accounts width="32" height="32" />} text="Accounts" active={false} handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {}} />
           <Tooltip icon={<Gear />} text="Manage" active={false} handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {}} />
         </div>
       </div>

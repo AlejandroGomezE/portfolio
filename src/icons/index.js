@@ -8,9 +8,9 @@ import BottomRightArrow from './bottom-right-arrow';
 import ChevronDown from './chevron-down';
 import ChevronRight from './chevron-right';
 import ChromeClose from './chrome-close';
-import ChromeRestore from './chrome-restore';
 import ChromeMenu from './chrome-menu';
 import ChromeMinimize from './chrome-minimize';
+import ChromeRestore from './chrome-restore';
 import CloseAll from './close-all';
 import CloudUpload from './cloud-upload';
 import CollapseAll from './collapse-all';
@@ -67,9 +67,9 @@ export {
   ChevronDown,
   ChevronRight,
   ChromeClose,
+  ChromeMenu,
   ChromeMinimize,
   ChromeRestore,
-  ChromeMenu,
   CloseAll,
   CloudUpload,
   CollapseAll,
@@ -86,8 +86,8 @@ export {
   NewFolder,
   Next,
   NextConfig,
-  NodeModules,
   NodeJs,
+  NodeModules,
   Projects,
   Public,
   PublicOpen,
@@ -110,8 +110,8 @@ export {
   TopRigthArrow,
   TsConfig,
   Tsx,
-  VSCode,
   UntoggledSidebar,
+  VSCode,
   Warning,
   WorkExperience,
 };

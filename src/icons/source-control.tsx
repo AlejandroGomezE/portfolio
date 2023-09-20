@@ -1,4 +1,4 @@
-export default function SourceControl({ height, width }: { height: number; width: number }) {
+export default function SourceControl({ height, width }: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} fill="none" viewBox="0 0 32 32">
       <path

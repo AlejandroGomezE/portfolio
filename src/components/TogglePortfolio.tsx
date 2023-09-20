@@ -1,6 +1,6 @@
 'use client';
+import { SubMenu, explorerSlice, useDispatch } from '@/lib/redux';
 import { useEffect } from 'react';
-import { SubMenu, useDispatch, explorerSlice } from '@/lib/redux';
 
 export default function TogglePortfolio() {
   const dispatch = useDispatch();

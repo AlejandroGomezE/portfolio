@@ -1,11 +1,9 @@
 'use client';
 
-import { ElementType, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import { useDispatch, sectionSlice } from '@/lib/redux';
+import { useDispatch } from '@/lib/redux';
 import { useInView } from 'framer-motion';
-import { Tag } from '@/components/Tag';
-import { remToPx } from '@/lib/remToPx';
+import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 
 function AnchorIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (

@@ -1,6 +1,6 @@
 'use client';
+import { selectExpanded, selectMenu, useSelector } from '@/lib/redux';
 import clsx from 'clsx';
-import { useSelector, selectMenu, selectExpanded } from '@/lib/redux';
 import Explorer from './Explorer';
 
 export default function CollapsableMenu() {

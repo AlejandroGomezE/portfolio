@@ -7,6 +7,7 @@ const config: Config = {
       colors: {
         dark_bg: '#1E2336',
         dark_border: '#1B1E2E',
+        about_me_green: '#7ee787',
         white: '#FFF',
         'red-500': '#E51400',
         'gray-200': '#292E42',
@@ -18,6 +19,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/container-queries')],
 };
 export default config;

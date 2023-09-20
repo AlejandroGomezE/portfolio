@@ -1,10 +1,4 @@
-import clsx from 'clsx';
-import Link from 'next/link';
-import { usePathname, useSelectedLayoutSegments } from 'next/navigation';
-import { useState, useCallback } from 'react';
-import SubCollapsableMenu from '../SubCollapsableMenu';
 import { FadeIn, FadeInStagger } from '@/components';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   AboutMe,
   App,
@@ -17,7 +11,6 @@ import {
   Eslint,
   FavIcon,
   Git,
-  Refresh,
   NewFile,
   NewFolder,
   Next,
@@ -27,17 +20,24 @@ import {
   Projects,
   Public,
   PublicOpen,
+  Refresh,
   Src,
   SrcOpen,
   TailwindCSS,
   Technologies,
   TopLeftArrow,
   TopRigthArrow,
-  Tsx,
   TsConfig,
+  Tsx,
   WorkExperience,
 } from '@/icons';
-import { SubMenu, useSelector, selectPortfolio, selectSections, Section, selectFirstVisibleSection, selectExpanded, selectLastVisibleSection, selectSectionIsVisible } from '@/lib/redux';
+import { Section, SubMenu, selectExpanded, selectFirstVisibleSection, selectLastVisibleSection, selectPortfolio, selectSectionIsVisible, selectSections, useSelector } from '@/lib/redux';
+import clsx from 'clsx';
+import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname, useSelectedLayoutSegments } from 'next/navigation';
+import { useCallback, useState } from 'react';
+import SubCollapsableMenu from '../SubCollapsableMenu';
 
 const staticFiles = [
   { name: '.eslintrc.json', icon: <Eslint /> },

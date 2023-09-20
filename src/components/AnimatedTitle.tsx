@@ -1,6 +1,6 @@
 'use client';
-import { useAnimationControls, useScroll, useTransform, motion, animate, useAnimate, inView } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { AnimationControls, motion, useAnimationControls } from 'framer-motion';
+import { useEffect } from 'react';
 import { sleep } from '../lib/sleep';
 
 const list = {
@@ -27,23 +27,40 @@ export default function AnimatedTitle() {
   const web = useAnimationControls();
 
   useEffect(() => {
+    let hasCanceled_ = false;
+    const animationActions = [
+      { controller: web as AnimationControls, value: 'visible' },
+      { controller: frontEnd, value: 'visible' },
+      { controller: web, value: 1000 },
+      { controller: frontEnd, value: 'hidden' },
+      { controller: web, value: 'hidden' },
+      { controller: web, value: 700 },
+      { controller: web, value: 'visible' },
+      { controller: backEnd, value: 'visible' },
+      { controller: web, value: 1000 },
+      { controller: backEnd, value: 'hidden' },
+      { controller: web, value: 'hidden' },
+    ];
+
     const animateWords = async () => {
-      while (true) {
-        await web.start('visible');
-        await frontEnd.start('visible');
-        await sleep(1000);
-        await frontEnd.start('hidden');
-        await web.start('hidden');
-        await sleep(700);
-        await web.start('visible');
-        await backEnd.start('visible');
-        await sleep(1000);
-        await backEnd.start('hidden');
-        await web.start('hidden');
+      for (const action of animationActions) {
+        if (hasCanceled_) {
+          return;
+        }
+        if (typeof action.value === 'number') {
+          await sleep(action.value);
+        } else if (!hasCanceled_) {
+          await action.controller.start(action.value);
+        }
       }
+      animateWords();
     };
     animateWords();
+    return () => {
+      hasCanceled_ = true;
+    };
   }, [frontEnd, backEnd, web]);
+
   return (
     <div className="flex text-blue-100">
       <motion.div variants={list} initial="hidden" animate={web}>
@@ -67,7 +84,7 @@ const item = {
 
 function WriteWord({ word, ...props }: React.ComponentPropsWithoutRef<typeof motion.div> & { word: string }) {
   return word.split('').map((letter, index) => (
-    <motion.div key={index} variants={item}>
+    <motion.div key={index} variants={item} {...props}>
       {letter}
     </motion.div>
   ));

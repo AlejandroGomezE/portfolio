@@ -1,6 +1,6 @@
-import SubCollapsableMenu from '../SubCollapsableMenu';
 import { CloseAll, NewFile, SaveAll } from '@/icons';
-import { SubMenu, useSelector, selectEditor } from '@/lib/redux';
+import { SubMenu, selectEditor, useSelector } from '@/lib/redux';
+import SubCollapsableMenu from '../SubCollapsableMenu';
 
 export default function Editors() {
   const editors = useSelector(selectEditor);

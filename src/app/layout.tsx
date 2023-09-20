@@ -1,12 +1,12 @@
 import glob from 'fast-glob';
 
-import './globals.css';
-import type { Metadata } from 'next';
 import { ActivityBar, BottomBar, TopBar } from '@/components';
+import NavigationChange from '@/components/NavigationChange';
+import TogglePortfolio from '@/components/TogglePortfolio';
 import { Providers } from '@/lib/providers';
 import { type Section } from '@/lib/redux/slices/sectionSlice/sectionSlice';
-import TogglePortfolio from '@/components/TogglePortfolio';
-import NavigationChange from '@/components/NavigationChange';
+import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Create Next App',

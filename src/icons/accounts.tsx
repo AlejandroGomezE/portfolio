@@ -1,6 +1,6 @@
-export default function Accounts() {
+export default function Accounts({ width, height }: React.ComponentPropsWithoutRef<'svg'>) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
+    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} fill="none" viewBox="0 0 32 32">
       <g clipPath="url(#clip0_8368_5357)">
         <path
           fill="currentColor"
@@ -9,7 +9,7 @@ export default function Accounts() {
       </g>
       <defs>
         <clipPath id="clip0_8368_5357">
-          <path fill="#fff" d="M0 0H32V32H0z"></path>
+          <path fill="currentColor" d="M0 0H32V32H0z"></path>
         </clipPath>
       </defs>
     </svg>

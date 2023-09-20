@@ -1,5 +1,5 @@
+import { SubMenu, selectOutline, useSelector } from '@/lib/redux';
 import SubCollapsableMenu from '../SubCollapsableMenu';
-import { SubMenu, useSelector, selectOutline } from '@/lib/redux';
 
 export default function Outline() {
   const outline = useSelector(selectOutline);

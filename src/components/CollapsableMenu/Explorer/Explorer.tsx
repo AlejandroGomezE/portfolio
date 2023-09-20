@@ -1,11 +1,11 @@
 'use client';
-import Header from '../Header';
 import { Ellipsis } from '@/icons';
-import Portfolio from './Portfolio';
+import Header from '../Header';
 import Editors from './Editors';
 import Outline from './Outline';
-import Timeline from './Timeline';
+import Portfolio from './Portfolio';
 import Scripts from './Scripts';
+import Timeline from './Timeline';
 
 export default function Explorer() {
   return (

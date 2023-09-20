@@ -1,8 +1,8 @@
 'use client';
-import { useRef, useEffect } from 'react';
-import { useInView } from 'framer-motion';
-import { useDispatch, sectionSlice } from '@/lib/redux';
+import { sectionSlice, useDispatch } from '@/lib/redux';
 import clsx from 'clsx';
+import { useInView } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 export default function Section({ children, id, className }: { children: React.ReactNode; id: string; className: string }) {
   const ref = useRef<HTMLElement>(null);
@@ -19,7 +19,7 @@ export default function Section({ children, id, className }: { children: React.R
   }, [ref, isInView, dispatch]);
 
   return (
-    <section id={id} ref={ref} className={clsx('mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 py-6 text-white', className)}>
+    <section id={id} ref={ref} className={clsx('mx-auto max-w-6xl px-4 sm:px-8 lg:px-12 py-6 text-white', className)}>
       {children}
     </section>
   );
