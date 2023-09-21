@@ -1,33 +1,44 @@
 'use client';
 
 import { Variants, motion } from 'framer-motion';
-import { createContext, useContext } from 'react';
+import { RefObject, createContext, useContext } from 'react';
 
 const FadeInStaggerContext = createContext(false);
 
-const viewport = { margin: '0px 0px -200px' };
+const viewport = { margin: '0px 0px -150px' };
 
-export function FadeIn({ variants, ...props }: React.ComponentPropsWithoutRef<typeof motion.div> & { variants?: Variants }) {
+interface ViewportOptions {
+  root?: RefObject<Element>;
+  once?: boolean;
+  margin?: string;
+  amount?: 'some' | 'all' | number;
+}
+
+export function FadeIn({ variants, viewportProp, ...props }: React.ComponentPropsWithoutRef<typeof motion.div> & { variants?: Variants; viewportProp?: ViewportOptions }) {
   let isInStaggerGroup = useContext(FadeInStaggerContext);
 
   return (
     <motion.div
       className="self-center"
       variants={
-        isInStaggerGroup
+        variants
+          ? variants
+          : isInStaggerGroup
           ? {
               hidden: { opacity: 0, y: 16 },
               visible: { opacity: 1, y: 0 },
             }
-          : variants
+          : {}
       }
       transition={{ duration: 0.5 }}
       {...(isInStaggerGroup
-        ? {}
+        ? {
+            viewport: viewportProp || {},
+          }
         : {
             initial: 'hidden',
             whileInView: 'visible',
-            viewport,
+            viewport: viewportProp || viewport,
           })}
       {...props}
     />

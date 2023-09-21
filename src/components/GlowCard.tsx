@@ -36,7 +36,7 @@ export default function GlowCard({ children, className }: { children: React.Reac
     height.set(containerRef.current.clientHeight);
   }, [width, height]);
 
-  const transform = useMotionTemplate`perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  const transform = useMotionTemplate`perspective(200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
   const style = {
     transform,

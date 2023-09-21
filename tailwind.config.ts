@@ -8,6 +8,8 @@ const config: Config = {
         dark_bg: '#1E2336',
         dark_border: '#1B1E2E',
         about_me_green: '#7ee787',
+        work_experience_orange: '#ffa28b',
+        skills_purple: '#939aff',
         white: '#FFF',
         'red-500': '#E51400',
         'gray-200': '#292E42',

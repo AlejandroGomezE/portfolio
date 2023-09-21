@@ -1,15 +1,15 @@
-import { AboutMe, AnimatedTitle, Border, FadeIn, GridPattern, Section, SectionHeader, Socials, WriteWord } from '@/components';
-import { Accounts } from '@/icons';
+import { AboutMe, AnimatedTitle, Border, FadeIn, GridPattern, Section, SectionHeader, Skills, Socials, Stars, WriteWord, WorkExperience } from '@/components';
+import { Accounts, BookOpen, BriefCase } from '@/icons';
 
 export const metadata = {
-  title: 'About Me',
-  description: 'My personal portfolio and blog.',
+  title: 'Alejandro Gomez',
+  description: 'My personal portfolio.',
 };
 
 export const sections = [
   { index: 0, title: 'About Me', id: 'about-me' },
   { index: 1, title: 'Work Experience', id: 'work-experience' },
-  { index: 2, title: 'Technologies', id: 'technologies' },
+  { index: 2, title: 'Skills', id: 'skills' },
   { index: 3, title: 'My Projects', id: 'projects' },
 ];
 
@@ -21,7 +21,7 @@ export const sections = [
       
       <div className="flex mt-3 text-white/90">Software Engineer / &#8205; <AnimatedTitle/></div>
       
-      26 yo software engineer with a B.S. in Computer Science and Technology and a strong background in Front-End and Back-End technologies.{{ className: 'max-w-3xl' }}
+      26 yo software engineer with a B.S. in Computer Science and Technology with experience in Front-End and Back-End technologies.{{ className: 'max-w-3xl' }}
     </FadeIn>
 
     <Socials />
@@ -35,30 +35,48 @@ export const sections = [
 
 {' '}
 
-<Border className="mb-12" />
-<SectionHeader
-  icon={
-    <>
-      <Accounts height="28" width="28" />
-      <span className="bg-about_me_green icon-blur absolute inset-0 -z-10"></span>
-    </>
-  }
-  title="About Me"
-  description={
-    <div>
-      I'm a <span className="text-about_me_green">software developer</span> specialized on <span className="text-about_me_green">Web Applications</span>
-    </div>
-  }
-/>
+<Border />
 <AboutMe />
 
 </Section>
 
-<Section id={sections[1].id}>
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
+<Section id={sections[1].id} className="pt-24">
+  <Border />
+  <Stars id="work-experience" />
+  <SectionHeader
+    icon={
+      <>
+        <BriefCase height="28" width="28" />
+        <span className="bg-work_experience_orange icon-blur absolute inset-0 -z-10"></span>
+      </>
+    }
+    title="Work Experience"
+    description={
+      <div>
+        <span className="text-work_experience_orange">Mid Engineer</span> with <span className="text-work_experience_orange">3+ years</span> of experience in the software industry
+      </div>
+    }
+  />
+  <WorkExperience />
+</Section>
+
+<Section id={sections[2].id} className="pt-24">
+  <Border />
+  <Stars id="skills" />
+  <SectionHeader
+    icon={
+      <>
+        <BookOpen height="28" width="28" />
+        <span className="bg-skills_purple icon-blur absolute inset-0 -z-10"></span>
+      </>
+    }
+    title="Skills"
+    description={
+      <div>
+        <span className="text-skills_purple">Full Stack</span> software developer with experience in <span className="text-skills_purple">Front-End</span> and{' '}
+        <span className="text-skills_purple">Back-End</span> technologies
+      </div>
+    }
+  />
+  <Skills />
 </Section>

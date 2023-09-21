@@ -19,7 +19,7 @@ export default function Section({ children, id, className }: { children: React.R
   }, [ref, isInView, dispatch]);
 
   return (
-    <section id={id} ref={ref} className={clsx('mx-auto max-w-6xl px-4 sm:px-8 lg:px-12 py-6 text-white', className)}>
+    <section id={id} ref={ref} className={clsx('mx-auto max-w-6xl px-4 sm:px-8 lg:px-12 py-6 text-white relative', className)}>
       {children}
     </section>
   );

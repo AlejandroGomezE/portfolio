@@ -3,8 +3,10 @@ import Accounts from './accounts';
 import App from './app';
 import AppOpen from './app-open';
 import Bell from './bell';
+import BookOpen from './book-open';
 import BottomLeftArrow from './bottom-left-arrow';
 import BottomRightArrow from './bottom-right-arrow';
+import BriefCase from './brief-case';
 import ChevronDown from './chevron-down';
 import ChevronRight from './chevron-right';
 import ChromeClose from './chrome-close';
@@ -62,8 +64,10 @@ export {
   App,
   AppOpen,
   Bell,
+  BookOpen,
   BottomLeftArrow,
   BottomRightArrow,
+  BriefCase,
   ChevronDown,
   ChevronRight,
   ChromeClose,

@@ -58,7 +58,7 @@ const appFiles = [
 const subSectionsIcons: { [key: string]: JSX.Element } = {
   'about-me': <AboutMe />,
   'work-experience': <WorkExperience />,
-  technologies: <Technologies />,
+  skills: <Technologies />,
   projects: <Projects />,
 };
 
