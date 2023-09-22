@@ -28,7 +28,10 @@ export function FadeIn({ variants, viewportProp, ...props }: React.ComponentProp
               hidden: { opacity: 0, y: 16 },
               visible: { opacity: 1, y: 0 },
             }
-          : {}
+          : {
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
+            }
       }
       transition={{ duration: 0.5 }}
       {...(isInStaggerGroup
@@ -48,7 +51,7 @@ export function FadeIn({ variants, viewportProp, ...props }: React.ComponentProp
 export function FadeInStagger({ faster = false, ...props }: React.ComponentPropsWithoutRef<typeof motion.div> & { faster?: boolean }) {
   return (
     <FadeInStaggerContext.Provider value={true}>
-      <motion.div initial="hidden" whileInView="visible" viewport={viewport} transition={{ staggerChildren: faster ? 0.12 : 0.2 }} {...props} />
+      <motion.div initial="hidden" whileInView="visible" viewport={viewport} transition={{ staggerChildren: faster ? 0.09 : 0.2 }} {...props} />
     </FadeInStaggerContext.Provider>
   );
 }

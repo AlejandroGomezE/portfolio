@@ -46,7 +46,7 @@ export default function ActivityBar({ sections }: { sections: Record<string, Arr
   }, [pathname, dispatch, sections]);
 
   return (
-    <div className="relative md:flex">
+    <div className="relative md:flex z-20">
       <div className="max-w-fit text-gray-500 flex flex-col justify-between h-full">
         <div className="cursor-pointer">
           {barItems.map((item, index) => (

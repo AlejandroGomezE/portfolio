@@ -217,6 +217,7 @@ function FileSection({ id, title, url }: { id: string; title: string; url: strin
 }
 
 function FileContent({ name, icon, url, indent, active }: FileProps & { active: boolean }) {
+
   if (!url) {
     return (
       <button style={{ paddingLeft: indent * 16 + 22 }} className={clsx(itemsCSS)}>
@@ -226,7 +227,7 @@ function FileContent({ name, icon, url, indent, active }: FileProps & { active: 
   }
 
   return (
-    <Link href={url} style={{ paddingLeft: indent * 16 + 22 }} className={clsx(itemsCSS, active ? 'bg-gray-200' : '', 'focus:bg-gray-200')}>
+    <Link href={url} scroll={false} style={{ paddingLeft: indent * 16 + 22 }} className={clsx(itemsCSS, active ? 'bg-gray-200' : '', 'focus:bg-gray-200')}>
       <div className="ml-4 mr-2 relative">{icon}</div> <p>{name}</p>
     </Link>
   );

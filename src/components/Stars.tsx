@@ -23,6 +23,9 @@ export default function Stars({ id }: { id: string }) {
           opacity: {
             value: 0.25,
           },
+          move: {
+            speed: 0.75,
+          },
         },
       }}
       init={customInit}
