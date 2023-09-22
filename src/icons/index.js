@@ -2,6 +2,7 @@ import AboutMe from './about-me';
 import Accounts from './accounts';
 import App from './app';
 import AppOpen from './app-open';
+import Archive from './archive-icon';
 import Bell from './bell';
 import BookOpen from './book-open';
 import BottomLeftArrow from './bottom-left-arrow';
@@ -63,6 +64,7 @@ export {
   Accounts,
   App,
   AppOpen,
+  Archive,
   Bell,
   BookOpen,
   BottomLeftArrow,

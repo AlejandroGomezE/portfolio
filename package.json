@@ -48,5 +48,9 @@
     "unist-util-filter": "^5.0.1",
     "unist-util-visit": "^5.0.0",
     "zustand": "^4.4.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4"
   }
 }

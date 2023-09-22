@@ -193,6 +193,7 @@ export default function Skills() {
 
   const handleChangeSkill: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
     const skill = e.currentTarget.textContent;
+    if (skill === activeSkill) return;
     if (skill) setActiveSkill(skill);
     await controls.start('hidden');
     await controls.start('visible');
@@ -222,9 +223,17 @@ export default function Skills() {
           return (
             <FadeIn key={skill.name} className="h-[115px] w-24 place-self-center flex flex-col">
               <div className="mt-auto">
-                <div className="mx-auto h-16 w-16 relative rounded-md overflow-hidden">
-                  <Image src={skill.image} className="object-contain" alt="" fill />
-                </div>
+                <Image
+                  src={skill.image}
+                  className="object-contain rounded-md m-auto"
+                  alt=""
+                  height={64}
+                  width={64}
+                  style={{
+                    width: 64,
+                    height: 64,
+                  }}
+                />
                 <h3 className="text-sm font-semibold tracking-tight text-[#525df3] text-center bg-white rounded-full w-min px-2 m-2 mx-auto">{skill.name}</h3>
               </div>
             </FadeIn>

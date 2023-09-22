@@ -10,6 +10,7 @@ const config: Config = {
         about_me_green: '#7ee787',
         work_experience_orange: '#ffa28b',
         skills_purple: '#939aff',
+        my_work_yellow: '#ffdc8b',
         white: '#FFF',
         'red-500': '#E51400',
         'gray-200': '#292E42',

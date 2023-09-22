@@ -7,7 +7,7 @@ import CollapsableMenu from './CollapsableMenu';
 import { FadeIn, FadeInStagger, Stagger } from './FadeIn';
 import GlowCard from './GlowCard';
 import GridPattern from './GridPattern';
-import Projects from './Projects';
+import MyWork from './MyWork';
 import Section from './Section';
 import SectionHeader from './SectionHeader';
 import Skills from './Skills';
@@ -28,7 +28,7 @@ export {
   FadeInStagger,
   GlowCard,
   GridPattern,
-  Projects,
+  MyWork,
   Section,
   SectionHeader,
   Skills,

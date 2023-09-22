@@ -40,8 +40,8 @@ export default function Socials({ className }: { className?: string; invert?: bo
         </FadeIn>
       ))}
       <FadeIn>
-        <Button className="flex items-center gap-x-2 hover-shadow" variant="secondary" arrow="right">
-          Resume
+        <Button className="flex items-center gap-x-2 button-hover-shadow" variant="secondary" arrow="right">
+          Contact Me
         </Button>
       </FadeIn>
     </FadeInStagger>

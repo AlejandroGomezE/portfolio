@@ -28,8 +28,8 @@ export default function AboutMe() {
             <p className="mt-4 text-lg text-gray-500">I&apos;m an experienced software engineer who constantly seeks out innovative solutions to everyday problems.</p>
             <p className="mt-4 text-lg text-gray-500">After 3+ years in this industry I have worked with multiple front-end and back-end technologies.</p>
           </div>
-          <div className="h-52 w-52 relative flex-none mx-auto">
-            <Image className="h-16 w-16 rounded-full object-cover" src="/me.jpg" alt="" fill />
+          <div className="flex-none mx-auto">
+            <Image className="rounded-full object-cover" src="/me.jpg" alt="" height={208} width={208} />
           </div>
         </div>
         <div className="@container">
@@ -61,10 +61,10 @@ export default function AboutMe() {
                 visible: { opacity: 1, x: 0 },
               }}
             >
-              <GlowCard className="from-[#6bc072] to-[#6bc072] @container">
+              <GlowCard className="hover:shadow-about_me_green/90" glowClassName="from-[#6bc072] to-[#6bc072]">
                 <div className="flex flex-col gap-8 @lg:flex-row justify-between">
-                  <div className="h-36 w-36 relative flex-none mx-auto self-center">
-                    <Image className="rounded-2xl object-fill" src="/tec.jpeg" alt="" fill />
+                  <div className="flex-none mx-auto self-center">
+                    <Image className="rounded-2xl object-fill" src="/tec.jpeg" alt="" width={144} height={144} />
                   </div>
                   <div className="max-w-xl flex-auto">
                     <h3 className="text-lg font-semibold leading-8 tracking-tight text-white">B.S. in Computer Science and Technology</h3>

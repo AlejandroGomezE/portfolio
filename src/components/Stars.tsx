@@ -9,7 +9,7 @@ export default function Stars({ id }: { id: string }) {
   };
   return (
     <Particles
-      id={id}
+      id={id + '-container'}
       options={{
         id,
         preset: 'stars',

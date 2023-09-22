@@ -1,5 +1,5 @@
-import { AboutMe, AnimatedTitle, Border, FadeIn, GridPattern, Section, SectionHeader, Skills, Socials, Stars, WriteWord, WorkExperience } from '@/components';
-import { Accounts, BookOpen, BriefCase } from '@/icons';
+import { AboutMe, AnimatedTitle, Border, FadeIn, GridPattern, MyWork, Section, SectionHeader, Skills, Socials, Stars, WriteWord, WorkExperience } from '@/components';
+import { Accounts, Archive, BookOpen, BriefCase } from '@/icons';
 
 export const metadata = {
   title: 'Alejandro Gomez',
@@ -10,7 +10,7 @@ export const sections = [
   { index: 0, title: 'About Me', id: 'about-me' },
   { index: 1, title: 'Work Experience', id: 'work-experience' },
   { index: 2, title: 'Skills', id: 'skills' },
-  { index: 3, title: 'My Projects', id: 'projects' },
+  { index: 3, title: 'My Work', id: 'my-work' },
 ];
 
 <GridPattern />
@@ -79,4 +79,24 @@ export const sections = [
     }
   />
   <Skills />
+</Section>
+
+<Section id={sections[3].id} className="pt-24 mt-28">
+  <Border />
+  <Stars id="my-work" />
+  <SectionHeader
+    icon={
+      <>
+        <Archive height="28" width="28" />
+        <span className="bg-my_work_yellow icon-blur absolute inset-0 -z-10"></span>
+      </>
+    }
+    title="My Work"
+    description={
+      <div>
+        Some of <span className="text-my_work_yellow">my work</span> as a full stack <span className="text-my_work_yellow">web</span> developer
+      </div>
+    }
+  />
+  <MyWork />
 </Section>

@@ -59,7 +59,7 @@ const subSectionsIcons: { [key: string]: JSX.Element } = {
   'about-me': <AboutMe />,
   'work-experience': <WorkExperience />,
   skills: <Technologies />,
-  projects: <Projects />,
+  'my-work': <Projects />,
 };
 
 export default function Portfolio() {
@@ -217,7 +217,6 @@ function FileSection({ id, title, url }: { id: string; title: string; url: strin
 }
 
 function FileContent({ name, icon, url, indent, active }: FileProps & { active: boolean }) {
-
   if (!url) {
     return (
       <button style={{ paddingLeft: indent * 16 + 22 }} className={clsx(itemsCSS)}>
