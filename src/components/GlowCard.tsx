@@ -8,8 +8,8 @@ function Glow({ mouseX, mouseY, width, className }: { mouseX: MotionValue<number
   let style = { maskImage, WebkitMaskImage: maskImage };
 
   return (
-    <div className="pointer-events-none">
-      <motion.div className={clsx('absolute inset-0 bg-gradient-to-r blur-lg opacity-0 transition duration-0 group-hover:duration-700 group-hover:opacity-20', className)} style={style} />
+    <div className="pointer-events-none"> 
+      <motion.div className={clsx('absolute inset-0 bg-gradient-to-r blur-lg opacity-0 transition duration-700 group-hover:opacity-20', className)} style={style} />
     </div>
   );
 }

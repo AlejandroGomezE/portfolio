@@ -182,8 +182,8 @@ const skillsLogos = {
 
 const skillsTitles = {
   ['Languages' as string]: 'Programming Languages',
-  ['Front' as string]: 'Frontend Frameworks',
-  ['Back' as string]: 'Backend Frameworks',
+  ['Front' as string]: 'Frontend',
+  ['Back' as string]: 'Backend',
   ['Tools' as string]: 'Tools',
 };
 
