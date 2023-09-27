@@ -60,6 +60,14 @@ export const technologies = [
     name: 'Mailchimp',
     image: '/logos/mailchimp-logo.webp',
   },
+  {
+    name: 'Git',
+    image: '/logos/git-logo.png',
+  },
+  {
+    name: 'Github',
+    image: '/logos/github-logo.webp',
+  },
 ];
 
 <Container>
@@ -69,8 +77,8 @@ export const technologies = [
   <Section id="challenge">
     ## Challenge
 
-    Translate a Figma design to a web application using ReactJS, Bootstrap and Sass for the Front-End, Firebase for the Back-End, Mailchimp to send emails to users, 
-    and Hotmart as the payment processing system.
+    Replace and existing website by translating a Figma design to a web application using ReactJS, Bootstrap and Sass for the Front-End, Firebase for the Back-End, 
+    Mailchimp to send emails to users, and Hotmart as the payment processing system.
 
     -Master Admin should be able to create new courses for users.
 
@@ -82,8 +90,6 @@ export const technologies = [
 
     -Send Emails on signup, on new course releases, and whenever a user buys a course.
 
-    -Information should be accessible on a mobile application.
-
   </Section>
 
 <Border className="my-8" />
@@ -92,10 +98,14 @@ export const technologies = [
 
 ## Solution
 
-<AppSolution image={appData.image}>
+<AppSolution image={appData.image} href={appData.url}>
 
+Leenith Borges's website is mainly powered by Firebase. The website is hosted on Firebase Hosting, the database is on Firestore, and the authentication 
+system is on Firebase Auth.
 
-<Button href={appData.url} target="_blank" className="flex items-center gap-x-2 button-hover-shadow mt-3" variant="secondary" arrow="right">Visit website</Button>
+The system's logic such as creating new courses, deleting courses, and seeing sell orders is handled by Firebase Cloud Functions.
+
+All of the mailing is handled by Mailchimp, which is integrated inside Firebase Cloud Functions.
 
 </AppSolution>
 

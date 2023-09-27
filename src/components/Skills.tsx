@@ -43,6 +43,7 @@ const skillsLogos = {
     { name: '', image: '' },
     { name: '', image: '' },
     { name: '', image: '' },
+    { name: '', image: '' },
   ],
   ['Front' as string]: [
     {
@@ -95,6 +96,7 @@ const skillsLogos = {
     },
     { name: '', image: '' },
     { name: '', image: '' },
+    { name: '', image: '' },
   ],
   ['Back' as string]: [
     {
@@ -136,6 +138,10 @@ const skillsLogos = {
     {
       name: 'Paypal',
       image: '/logos/paypal-logo.png',
+    },
+    {
+      name: 'MercadoPago',
+      image: '/logos/mercadopago-logo.webp',
     },
     {
       name: 'awsS3',
@@ -188,6 +194,7 @@ const skillsLogos = {
       name: 'Postmark',
       image: '/logos/postmark-logo.png',
     },
+    { name: '', image: '' },
     { name: '', image: '' },
     { name: '', image: '' },
     { name: '', image: '' },

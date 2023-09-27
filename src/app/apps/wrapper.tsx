@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default async function AppsLayout({ appData, children }: { appData: App; children: React.ReactNode }) {
   const allApps = await loadApps();
-  const moreApps = allApps.filter(({ metadata }) => metadata !== appData).slice(0, 2);
+  const moreApps = allApps.filter(({ metadata }) => metadata.url !== appData.url).slice(0, 2);
 
   return (
     <div className="w-full overflow-y-auto @container">

@@ -1,9 +1,11 @@
-export default function AppSolution({ image, children }: { image: string; children: React.ReactNode }) {
+import { Button } from '@/components';
+
+export default function AppSolution({ image, href, children }: { image: string; href: string; children: React.ReactNode }) {
   return (
     <div className="@container">
       <div className="grid grid-cols-1 gap-x-4 @4xl:mx-0 @4xl:grid-cols-2 @4xl:items-start">
-        <div className="py-4 @4xl:sticky @4xl:top-1 @4xl:col-start-2 @4xl:row-start-1">
-          <img className="w-[48rem] rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]" src={`/projects/diagrams/${image}`} alt="" />
+        <div className="py-4 @4xl:sticky @4xl:top-1 @4xl:col-start-2 @4xl:row-start-1 @5xl:w-[110%]">
+          <img className="w-[48rem] rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]" src={`/projects/diagrams/${image}`} alt="" />
           <p className="flex text-gray-500 mt-1 gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
               <path
@@ -13,11 +15,14 @@ export default function AppSolution({ image, children }: { image: string; childr
               />
             </svg>
 
-            <span className="text-sm">The high level design of the application is shown in the image.</span>
+            <span className="text-sm">High level architecture of the application.</span>
           </p>
         </div>
         <div className="w-full @4xl:col-span-1 @4xl:col-start-1">{children}</div>
       </div>
+      <Button href={href} target="_blank" className="flex items-center gap-x-2 button-hover-shadow mt-8" variant="secondary" arrow="right">
+        Visit website
+      </Button>
     </div>
   );
 }

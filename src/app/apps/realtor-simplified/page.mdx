@@ -6,7 +6,7 @@ export const appData = {
   title: 'Realtor Simplified',
   description: 'Realtor Simplified is a saas platform that allows you to deploy a real estate website from a selection of templates within minutes.',
   image: '/realtor-simplified.png',
-  date: '2022-10',
+  date: '2022-08',
   service: 'Saas application',
   url: 'https://www.realtorsimplified.com/',
 };
@@ -86,7 +86,7 @@ export const technologies = [
   <Section id="challenge">
     ## Challenge
 
-    Develop a platform that desploys a premade template within minutes. This application needs to have multiple services coupled together:
+    Design & Develop a platform that desploys a premade template within minutes. This application needs to have multiple services coupled together:
 
     1. Dedicated static image hosting service, Digital Ocean Spaces (S3 wrapper).
     2. Dedicated mongodb database from Digital Ocean.
@@ -109,9 +109,9 @@ export const technologies = [
 
 ## Solution
 
-<AppSolution image={appData.image}>
+<AppSolution image={appData.image} href={appData.url}>
   
-Realtor Simplified Saas as a whole is split in 3 different systems. Each of this systems is hosted in their own server and they communicate through apis.
+Realtor Simplified Saas is split in 3 different systems. Each of this systems is hosted in their own server and they communicate through apis.
 
 The first system 'Shop' is a NextJs application that faces the user. It is where a user can register, manage their subscription, and choose which template to deploy.
 Once a template is deployed this is also where that user is able to change the template, add admin users that can access the application dasboard's and where they can add
@@ -143,8 +143,6 @@ and initialize any of the 3 job sequences available:
 
 The last system 'Worker' is a series of redis queues that execute in sequence depending on which queue they start at. It is important to note, that job error handling and job initialization is only done
 by the 'Server' this is why the 'Worker' needs to notify the 'Server' whenever a job is finished correctly or incorrectly.
-
-<Button href={appData.url} target="_blank" className="flex items-center gap-x-2 button-hover-shadow mt-3" variant="secondary" arrow="right">Visit website</Button>
 
 </AppSolution>
 

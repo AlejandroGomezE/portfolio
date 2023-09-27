@@ -34,6 +34,7 @@ export const sectionSlice = createSlice({
       };
     },
     resetVisible: (state) => {
+      console.log(state.sections)
       return {
         sections: state.sections,
         sectionsOrder: [],

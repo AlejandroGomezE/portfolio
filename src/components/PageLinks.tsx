@@ -29,7 +29,7 @@ function PageLink({ page }: { page: Page }) {
 
 export default function PageLinks({ pages, className }: { pages: Array<Page>; className?: string }) {
   return (
-    <Container className="mb-32">
+    <Container className="mb-48">
       <Border className="mb-6" />
       <h2 className="max-w-3xl text-3xl sm:text-4xl mb-4">More Applications</h2>
       <div className={clsx('relative', className)}>
