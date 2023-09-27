@@ -24,6 +24,7 @@ export interface App {
   description: string;
   image: string;
   service: string;
+  url: string;
 }
 
 export function loadApps() {

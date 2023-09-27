@@ -5,8 +5,10 @@ import AppIntro from './AppIntro';
 import AppSolution from './AppSolution';
 import Border from './Border';
 import BottomBar from './BottomBar';
+import Button from './Button';
 import CollapsableMenu from './CollapsableMenu';
 import Container from './Container';
+import ExpandArrowLink from './ExpandArrowLink';
 import { FadeIn, FadeInStagger, Stagger } from './FadeIn';
 import GlowCard from './GlowCard';
 import GridPattern from './GridPattern';
@@ -29,8 +31,10 @@ export {
   AppSolution,
   Border,
   BottomBar,
+  Button,
   CollapsableMenu,
   Container,
+  ExpandArrowLink,
   FadeIn,
   FadeInStagger,
   GlowCard,

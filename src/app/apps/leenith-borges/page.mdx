@@ -1,10 +1,14 @@
+import { AppSolution, Border, Button, Container, FadeIn, FadeInStagger, Section } from '@/components';
+import Image from 'next/image';
+
 export const appData = {
   industry: 'Art & Painting',
   title: 'Leenith Borges',
-  description: '',
+  description: 'Leenith Borges is a popular paint artist in Mexico, based in Monterrey, NL. she sells her courses online.',
   image: '/leenith-borges.png',
   date: '2023-01',
   service: 'E-commerce',
+  url: 'https://leenithborges-arte.com/',
 };
 
 export const sections = [
@@ -19,6 +23,111 @@ export const metadata = {
   description: appData.description,
 };
 
-export const technologies = [];
+export const technologies = [
+  {
+    name: 'JavaScript',
+    image: '/logos/js-logo.png',
+  },
+  {
+    name: 'HTML5',
+    image: '/logos/html5-logo.png',
+  },
+  {
+    name: 'CSS3',
+    image: '/logos/css-logo.png',
+  },
+  {
+    name: 'ReactJS',
+    image: '/logos/react-logo.png',
+  },
+  {
+    name: 'Sass',
+    image: '/logos/sass-logo.png',
+  },
+  {
+    name: 'Bootstrap',
+    image: '/logos/bootstrap-logo.svg',
+  },
+  {
+    name: 'Firebase',
+    image: '/logos/firebase-logo.jpg',
+  },
+  {
+    name: 'Figma',
+    image: '/logos/figma-logo.webp',
+  },
+  {
+    name: 'Mailchimp',
+    image: '/logos/mailchimp-logo.webp',
+  },
+];
 
-;
+<Container>
+
+<Border className="my-8" />
+
+  <Section id="challenge">
+    ## Challenge
+
+    Translate a Figma design to a web application using ReactJS, Bootstrap and Sass for the Front-End, Firebase for the Back-End, Mailchimp to send emails to users, 
+    and Hotmart as the payment processing system.
+
+    -Master Admin should be able to create new courses for users.
+
+    -Master Admin should be able to see sell orders in the dashboard.
+
+    -Master Admin should be able to add/delete courses from any user.
+
+    -Users should be able to authenticate themselves.
+
+    -Send Emails on signup, on new course releases, and whenever a user buys a course.
+
+    -Information should be accessible on a mobile application.
+
+  </Section>
+
+<Border className="my-8" />
+
+<Section id="solution">
+
+## Solution
+
+<AppSolution image={appData.image}>
+
+
+<Button href={appData.url} target="_blank" className="flex items-center gap-x-2 button-hover-shadow mt-3" variant="secondary" arrow="right">Visit website</Button>
+
+</AppSolution>
+
+</Section>
+
+<Border className="my-8" />
+
+<Section id="technologies">
+
+## Technologies
+
+<FadeInStagger className="flex gap-4 mt-6 flex-wrap" faster once>
+  {technologies.map((tech) => (
+    <FadeIn key={tech.name}>
+      <div className="mt-auto">
+        <Image
+          src={tech.image}
+          className="object-contain rounded-md m-auto"
+          alt=""
+          height={64}
+          width={64}
+          style={{
+            width: 64,
+            height: 64,
+          }}
+        />
+        <h3 className="text-sm font-semibold tracking-tight text-[#525df3] text-center bg-white rounded-full w-min px-2 m-2 mx-auto">{tech.name}</h3>
+      </div>
+    </FadeIn>
+  ))}
+</FadeInStagger>
+
+</Section>
+
+</Container>

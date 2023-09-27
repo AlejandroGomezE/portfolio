@@ -1,8 +1,7 @@
 'use client';
-import { FadeIn, FadeInStagger } from '@/components/FadeIn';
+import { Button, FadeIn, FadeInStagger } from '@/components';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { Button } from './Button';
 
 function LinkedinIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (

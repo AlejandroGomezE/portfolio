@@ -1,4 +1,4 @@
-import { AppSolution, Border, Container, FadeIn, FadeInStagger, Section } from '@/components';
+import { AppSolution, Border, Button, Container, FadeIn, FadeInStagger, Section } from '@/components';
 import Image from 'next/image';
 
 export const appData = {
@@ -8,6 +8,7 @@ export const appData = {
   image: '/realtor-simplified.png',
   date: '2022-10',
   service: 'Saas application',
+  url: 'https://www.realtorsimplified.com/',
 };
 
 export const sections = [
@@ -72,6 +73,10 @@ export const technologies = [
     image: '/logos/github-logo.webp',
   },
   { name: 'Docker', image: '/logos/docker-logo.png' },
+  {
+    name: 'Postmark',
+    image: '/logos/postmark-logo.png',
+  },
 ];
 
 <Container>
@@ -106,7 +111,7 @@ export const technologies = [
 
 <AppSolution image={appData.image}>
   
-  Realtor Simplified Saas as a whole is split in 3 different systems. Each of this systems is hosted in their own server and they communicate through apis.
+Realtor Simplified Saas as a whole is split in 3 different systems. Each of this systems is hosted in their own server and they communicate through apis.
 
 The first system 'Shop' is a NextJs application that faces the user. It is where a user can register, manage their subscription, and choose which template to deploy.
 Once a template is deployed this is also where that user is able to change the template, add admin users that can access the application dasboard's and where they can add
@@ -114,8 +119,6 @@ a custom domain for the application.
 
 The second system 'Server' is a small express server that serves as a connection between the 'Shop' and the 'Worker' system. It's job is to recieve orders from the 'Shop'
 and initialize any of the 3 job sequences available:
-
-{' '}
 
 <ul role="list" className="mt-6 space-y-8">
   <li>
@@ -137,8 +140,11 @@ and initialize any of the 3 job sequences available:
     </span>
   </li>
 </ul>
+
 The last system 'Worker' is a series of redis queues that execute in sequence depending on which queue they start at. It is important to note, that job error handling and job initialization is only done
 by the 'Server' this is why the 'Worker' needs to notify the 'Server' whenever a job is finished correctly or incorrectly.
+
+<Button href={appData.url} target="_blank" className="flex items-center gap-x-2 button-hover-shadow mt-3" variant="secondary" arrow="right">Visit website</Button>
 
 </AppSolution>
 
@@ -150,9 +156,9 @@ by the 'Server' this is why the 'Worker' needs to notify the 'Server' whenever a
 
 ## Technologies
 
-<FadeInStagger className="flex gap-4 mt-6" faster>
+<FadeInStagger className="flex gap-4 mt-6 flex-wrap" faster once>
   {technologies.map((tech) => (
-    <FadeIn>
+    <FadeIn key={tech.name}>
       <div className="mt-auto">
         <Image
           src={tech.image}

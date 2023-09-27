@@ -5,12 +5,14 @@ import {
   AppOpen,
   BottomLeftArrow,
   BottomRightArrow,
+  ChallengeIcon,
   ChevronDown,
   ChevronRight,
   CollapseAll,
   Eslint,
   FavIcon,
   Git,
+  LogIcon,
   NewFile,
   NewFolder,
   Next,
@@ -21,10 +23,12 @@ import {
   Public,
   PublicOpen,
   Refresh,
+  SolutionIcon,
   Src,
   SrcOpen,
   TailwindCSS,
   Technologies,
+  TechnologiesIcon,
   TopLeftArrow,
   TopRigthArrow,
   TsConfig,
@@ -52,7 +56,7 @@ const staticFiles = [
 const appFiles = [
   { name: 'Realtor-Simplified.ts', icon: <Tsx />, url: '/apps/realtor-simplified' },
   { name: 'Loteria-Monarca.ts', icon: <Tsx />, url: '/apps/loteria-monarca' },
-  { name: 'Leenith.ts', icon: <Tsx />, url: '/apps/leenith-borges' },
+  { name: 'Leenith-Borges.ts', icon: <Tsx />, url: '/apps/leenith-borges' },
 ];
 
 const subSectionsIcons: { [key: string]: JSX.Element } = {
@@ -60,6 +64,10 @@ const subSectionsIcons: { [key: string]: JSX.Element } = {
   'work-experience': <WorkExperience />,
   skills: <Technologies />,
   'my-work': <Projects />,
+  about: <LogIcon />,
+  challenge: <ChallengeIcon />,
+  solution: <SolutionIcon />,
+  technologies: <TechnologiesIcon />,
 };
 
 export default function Portfolio() {

@@ -180,8 +180,14 @@ const skillsLogos = {
       name: 'SocketIO',
       image: '/logos/socketio-logo.webp',
     },
-    { name: '', image: '' },
-    { name: '', image: '' },
+    {
+      name: 'Mailchimp',
+      image: '/logos/mailchimp-logo.webp',
+    },
+    {
+      name: 'Postmark',
+      image: '/logos/postmark-logo.png',
+    },
     { name: '', image: '' },
     { name: '', image: '' },
     { name: '', image: '' },

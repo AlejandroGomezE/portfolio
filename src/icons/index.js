@@ -8,6 +8,7 @@ import BookOpen from './book-open';
 import BottomLeftArrow from './bottom-left-arrow';
 import BottomRightArrow from './bottom-right-arrow';
 import BriefCase from './brief-case';
+import ChallengeIcon from './challenge-icon';
 import ChevronDown from './chevron-down';
 import ChevronRight from './chevron-right';
 import ChromeClose from './chrome-close';
@@ -26,6 +27,7 @@ import FavIcon from './fav-icon';
 import Gear from './gear';
 import Git from './git';
 import Info from './info';
+import LogIcon from './log-icon';
 import NewFile from './new-file';
 import NewFolder from './new-folder';
 import Next from './next';
@@ -40,6 +42,7 @@ import Refresh from './refresh';
 import Remote from './remote';
 import SaveAll from './save-all';
 import Search from './search';
+import SolutionIcon from './solution-icon';
 import SourceControl from './source-control.tsx';
 import SplitHorizontal from './split-horizontal';
 import SplitVerticalToggled from './split-vertical-toggled';
@@ -49,6 +52,7 @@ import SrcOpen from './src-open';
 import SubSection from './sub-section';
 import TailwindCSS from './tailwindcss';
 import Technologies from './technologies';
+import TechnologiesIcon from './technologies-icon';
 import ToggledSidebar from './toggled-sidebar';
 import TopLeftArrow from './top-left-arrow';
 import TopRigthArrow from './top-right-arrow';
@@ -70,6 +74,7 @@ export {
   BottomLeftArrow,
   BottomRightArrow,
   BriefCase,
+  ChallengeIcon,
   ChevronDown,
   ChevronRight,
   ChromeClose,
@@ -88,6 +93,7 @@ export {
   Gear,
   Git,
   Info,
+  LogIcon,
   NewFile,
   NewFolder,
   Next,
@@ -102,6 +108,7 @@ export {
   Remote,
   SaveAll,
   Search,
+  SolutionIcon,
   SourceControl,
   SplitHorizontal,
   SplitVerticalToggled,
@@ -111,6 +118,7 @@ export {
   SubSection,
   TailwindCSS,
   Technologies,
+  TechnologiesIcon,
   ToggledSidebar,
   TopLeftArrow,
   TopRigthArrow,
