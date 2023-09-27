@@ -183,23 +183,7 @@
   width: 100%;
 }
 
-#work-experience canvas {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-}
-
-#skills canvas {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-}
-
-#my-work canvas {
+#stars-container canvas {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -281,4 +265,9 @@
 
 .my-work-button-container:hover .my-work-button-arrow {
   transform: translateX(0);
+}
+
+.app-gradient-bg {
+  background-color: #3649aa;
+  background-image: linear-gradient(315deg, #3649aa 0%, #2bd2ff 52%, #2b60ff 90%);
 }

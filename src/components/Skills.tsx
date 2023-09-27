@@ -42,6 +42,7 @@ const skillsLogos = {
     { name: '', image: '' },
     { name: '', image: '' },
     { name: '', image: '' },
+    { name: '', image: '' },
   ],
   ['Front' as string]: [
     {
@@ -93,6 +94,7 @@ const skillsLogos = {
       image: '/logos/leaflet-logo.jpg',
     },
     { name: '', image: '' },
+    { name: '', image: '' },
   ],
   ['Back' as string]: [
     {
@@ -120,8 +122,12 @@ const skillsLogos = {
       image: '/logos/firebase-logo.jpg',
     },
     {
-      name: 'SocketIO',
-      image: '/logos/socketio-logo.webp',
+      name: 'Heroku',
+      image: '/logos/heroku-logo.webp',
+    },
+    {
+      name: 'DigitalOcean',
+      image: '/logos/digital-ocean-logo.svg',
     },
     {
       name: 'Stripe',
@@ -169,6 +175,10 @@ const skillsLogos = {
     {
       name: 'Figma',
       image: '/logos/figma-logo.webp',
+    },
+    {
+      name: 'SocketIO',
+      image: '/logos/socketio-logo.webp',
     },
     { name: '', image: '' },
     { name: '', image: '' },

@@ -1,13 +1,17 @@
 import AboutMe from './AboutMe';
 import ActivityBar from './ActivityBar';
 import AnimatedTitle from './AnimatedTitle';
+import AppIntro from './AppIntro';
+import AppSolution from './AppSolution';
 import Border from './Border';
 import BottomBar from './BottomBar';
 import CollapsableMenu from './CollapsableMenu';
+import Container from './Container';
 import { FadeIn, FadeInStagger, Stagger } from './FadeIn';
 import GlowCard from './GlowCard';
 import GridPattern from './GridPattern';
 import MyWork from './MyWork';
+import PageLinks from './PageLinks';
 import Section from './Section';
 import SectionHeader from './SectionHeader';
 import Skills from './Skills';
@@ -21,14 +25,18 @@ export {
   AboutMe,
   ActivityBar,
   AnimatedTitle,
+  AppIntro,
+  AppSolution,
   Border,
   BottomBar,
   CollapsableMenu,
+  Container,
   FadeIn,
   FadeInStagger,
   GlowCard,
   GridPattern,
   MyWork,
+  PageLinks,
   Section,
   SectionHeader,
   Skills,

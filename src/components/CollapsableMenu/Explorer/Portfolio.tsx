@@ -50,9 +50,9 @@ const staticFiles = [
 ];
 
 const appFiles = [
-  { name: 'RealtorSimplified.ts', icon: <Tsx />, url: '/apps/realtor-simplified' },
-  { name: 'LoteriaMonarca.ts', icon: <Tsx />, url: '/apps/loteria-monarca' },
-  { name: 'Leenith.ts', icon: <Tsx />, url: '/apps/leenith' },
+  { name: 'Realtor-Simplified.ts', icon: <Tsx />, url: '/apps/realtor-simplified' },
+  { name: 'Loteria-Monarca.ts', icon: <Tsx />, url: '/apps/loteria-monarca' },
+  { name: 'Leenith.ts', icon: <Tsx />, url: '/apps/leenith-borges' },
 ];
 
 const subSectionsIcons: { [key: string]: JSX.Element } = {
@@ -91,7 +91,7 @@ export default function Portfolio() {
             <File name="about_me.ts" icon={<FavIcon />} url="/" indent={1} sections={pathname === '/' ? sections : []} />
           </Folder>
           <Folder name="src" openIcon={<SrcOpen />} closedIcon={<Src />} disabled={false} indent={0} segmentActive={false}>
-            <Folder name="projects" openIcon={<AppOpen />} closedIcon={<App />} disabled={false} indent={1} segmentActive={segments[0] === 'apps'}>
+            <Folder name="my work" openIcon={<AppOpen />} closedIcon={<App />} disabled={false} indent={1} segmentActive={segments[0] === 'apps'}>
               {appFiles.map((file) => (
                 <File key={file.name} name={file.name} icon={file.icon} url={file.url} indent={2} sections={pathname === file.url ? sections : []} />
               ))}

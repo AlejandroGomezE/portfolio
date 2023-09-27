@@ -60,7 +60,7 @@ const projects: Project[] = [
     image: { src: '/projects/leenith-ios.png', width: 883, height: 588 },
   },
   {
-    href: '/apps/leenith-ios',
+    href: '/apps/impulseux',
     name: 'ImpulseUX',
     full: false,
     description: ' static website for design and development agency.',

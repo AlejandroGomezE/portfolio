@@ -1,4 +1,4 @@
-import { createSlice, type PayloadAction, current } from '@reduxjs/toolkit';
+import { createSlice, current, type PayloadAction } from '@reduxjs/toolkit';
 
 export interface Section {
   index: number;

@@ -48,10 +48,22 @@ export function FadeIn({ variants, viewportProp, ...props }: React.ComponentProp
   );
 }
 
-export function FadeInStagger({ faster = false, ...props }: React.ComponentPropsWithoutRef<typeof motion.div> & { faster?: boolean }) {
+export function FadeInStagger({ faster = false, once = false, ...props }: React.ComponentPropsWithoutRef<typeof motion.div> & { faster?: boolean; once?: boolean }) {
   return (
     <FadeInStaggerContext.Provider value={true}>
-      <motion.div initial="hidden" whileInView="visible" viewport={viewport} transition={{ staggerChildren: faster ? 0.09 : 0.2 }} {...props} />
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        {...(once
+          ? {
+              viewport: { ...viewport, once: true },
+            }
+          : {
+              viewport,
+            })}
+        transition={{ staggerChildren: faster ? 0.09 : 0.2 }}
+        {...props}
+      />
     </FadeInStaggerContext.Provider>
   );
 }
