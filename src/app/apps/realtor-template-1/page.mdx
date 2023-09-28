@@ -1,0 +1,162 @@
+import { AppSolution, Border, Button, Container, FadeIn, FadeInStagger, Section } from '@/components';
+import Image from 'next/image';
+import { template1 } from '../../../../public/projects'
+
+export const appData = {
+  industry: 'Real Estate',
+  title: 'Template 1',
+  description: 'Template available for deployment at the realtor simplified platform.',
+  image: template1,
+  date: '2022-08',
+  service: 'Web application',
+  url: 'https://template-1.realtorsimplified.com/',
+  pathname: '/apps/realtor-template-1',
+  framework: 'next',
+};
+
+export const sections = [
+  { index: 0, title: 'About', id: 'about' },
+  { index: 1, title: 'Challenge', id: 'challenge' },
+  { index: 2, title: 'Solution', id: 'solution' },
+  { index: 3, title: 'Technologies', id: 'technologies' },
+];
+
+export const metadata = {
+  title: `${appData.title}`,
+  description: appData.description,
+};
+
+export const technologies = [
+  {
+    name: 'HTML5',
+    image: '/logos/html5-logo.png',
+  },
+  {
+    name: 'CSS3',
+    image: '/logos/css-logo.png',
+  },
+  {
+    name: 'JavaScript',
+    image: '/logos/js-logo.png',
+  },
+  {
+    name: 'ReactJS',
+    image: '/logos/react-logo.png',
+  },
+  {
+    name: 'NextJS',
+    image: '/logos/nextjs-logo.png',
+  },
+  {
+    name: 'TailwindCSS',
+    image: '/logos/tailwindcss-logo.jpg',
+  },
+  {
+    name: 'NodeJS',
+    image: '/logos/nodejs-logo.png',
+  },
+  {
+    name: 'ExpressJS',
+    image: '/logos/express-logo.png',
+  },
+  {
+    name: 'MongoDB',
+    image: '/logos/mongodb-logo.webp',
+  },
+  {
+    name: 'DigitalOcean',
+    image: '/logos/digital-ocean-logo.svg',
+  },
+  {
+    name: 'Git',
+    image: '/logos/git-logo.png',
+  },
+  {
+    name: 'Github',
+    image: '/logos/github-logo.webp',
+  },
+  { name: 'Docker', image: '/logos/docker-logo.png' },
+  {
+    name: 'Postmark',
+    image: '/logos/postmark-logo.png',
+  },
+  {
+    name: 'LeafletJS',
+    image: '/logos/leaflet-logo.jpg',
+  },
+];
+
+<Container>
+
+<Border className="my-8" />
+
+  <Section id="challenge">
+    ## Challenge
+
+    Design & Develop a template that can be deployed by a user in the realtor simplified platform. This template should be a reusable skeleton that can be
+    re-skinned with different colors and images. 
+    
+    The template should display a list of properties, a list of realtors, and a contact form. It also needs to display a map with the location of the properties, 
+    and have a dashboard where admin users can manage the content of the website.
+
+    -Dashboard should only be accessible to admin users.
+
+    -Add/Modify/Delete property listings.
+
+    -Add/Modify/Delete realtors.
+
+    -Change static content of the website.
+
+  </Section>
+
+<Border className="my-8" />
+
+<Section id="solution">
+
+## Solution
+
+<AppSolution image='realtor-template-1.png' href={appData.url}>
+  
+Template built to be deployed in the realtor simplified platform. Something that was taken into considaration was that the site had to be easy to use and maintain.
+
+This initial template is geared towards small real estate companies or agents that want to have a web presence.
+
+The Front-End is built with ReactJS and NextJS, the database used is MongoDB, for the static images a Digital OCean Spaces is used, and for the map a Mapbox API and Leaflet is used.
+
+
+The most importat components in this template are the Map, since it can be used in pretty much any other template, and the Dashboard, since it allows the user to manage the content of the website.
+
+</AppSolution>
+
+</Section>
+
+<Border className="my-8" />
+
+<Section id="technologies">
+
+## Technologies
+
+<FadeInStagger className="flex gap-4 mt-6 flex-wrap" faster once>
+  {technologies.map((tech) => (
+    <FadeIn key={tech.name}>
+      <div className="mt-auto">
+        <Image
+          src={tech.image}
+          className="object-contain rounded-md m-auto"
+          alt=""
+          height={64}
+          width={64}
+          style={{
+            width: 64,
+            height: 64,
+          }}
+        />
+        <h3 className="text-sm font-semibold tracking-tight text-[#525df3] text-center bg-white rounded-full w-min px-2 m-2 mx-auto">{tech.name}</h3>
+      </div>
+    </FadeIn>
+  ))}
+</FadeInStagger>
+
+</Section>
+
+</Container>

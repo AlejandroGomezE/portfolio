@@ -1,0 +1,124 @@
+import { AppSolution, Border, Button, Container, FadeIn, FadeInStagger, Section } from '@/components';
+import Image from 'next/image';
+import { sierraEcomaderas } from '../../../../public/projects'
+
+export const appData = {
+  industry: 'Wood Supplier',
+  title: 'Sierra Ecomaderas',
+  description: 'Static website for a wood provider, located in Mexico. Mainly used to display the products and services offered by the company.',
+  image: sierraEcomaderas,
+  date: '2021-10',
+  service: 'Static Website',
+  url: 'https://sierraecomaderas.com/',
+  pathname: '/apps/sierra-ecomaderas',
+  framework: 'next',
+};
+
+export const sections = [
+  { index: 0, title: 'About', id: 'about' },
+  { index: 1, title: 'Challenge', id: 'challenge' },
+  { index: 2, title: 'Solution', id: 'solution' },
+  { index: 3, title: 'Technologies', id: 'technologies' },
+];
+
+export const metadata = {
+  title: `${appData.title}`,
+  description: appData.description,
+};
+
+export const technologies = [
+  {
+    name: 'HTML5',
+    image: '/logos/html5-logo.png',
+  },
+  {
+    name: 'CSS3',
+    image: '/logos/css-logo.png',
+  },
+  {
+    name: 'JavaScript',
+    image: '/logos/js-logo.png',
+  },
+  {
+    name: 'ReactJS',
+    image: '/logos/react-logo.png',
+  },
+  {
+    name: 'NextJS',
+    image: '/logos/nextjs-logo.png',
+  },
+  {
+    name: 'TailwindCSS',
+    image: '/logos/tailwindcss-logo.jpg',
+  },
+  {
+    name: 'Git',
+    image: '/logos/git-logo.png',
+  },
+  {
+    name: 'Github',
+    image: '/logos/github-logo.webp',
+  },
+  {
+    name: 'Postmark',
+    image: '/logos/postmark-logo.png',
+  },
+];
+
+<Container>
+
+<Border className="my-8" />
+
+  <Section id="challenge">
+    ## Challenge
+
+    Design & Develop a static website for a wood supplier company.
+
+    -Display the products and services offered by the company.
+    
+    -Allow the user to contact the company.
+
+  </Section>
+
+<Border className="my-8" />
+
+<Section id="solution">
+
+## Solution
+
+<AppSolution href={appData.url}>
+  
+</AppSolution>
+
+</Section>
+
+<Border className="my-8" />
+
+<Section id="technologies">
+
+## Technologies
+
+<FadeInStagger className="flex gap-4 mt-6 flex-wrap" faster once>
+  {technologies.map((tech) => (
+    <FadeIn key={tech.name}>
+      <div className="mt-auto">
+        <Image
+          src={tech.image}
+          className="object-contain rounded-md m-auto"
+          alt=""
+          height={64}
+          width={64}
+          style={{
+            width: 64,
+            height: 64,
+          }}
+        />
+        <h3 className="text-sm font-semibold tracking-tight text-[#525df3] text-center bg-white rounded-full w-min px-2 m-2 mx-auto">{tech.name}</h3>
+      </div>
+    </FadeIn>
+  ))}
+</FadeInStagger>
+
+</Section>
+
+</Container>

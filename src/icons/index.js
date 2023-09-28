@@ -38,6 +38,7 @@ import Projects from './projects';
 import Public from './public';
 import PublicOpen from './public-open';
 import RadioTower from './radio-tower';
+import ReactIcon from './react-icon';
 import Refresh from './refresh';
 import Remote from './remote';
 import SaveAll from './save-all';
@@ -50,6 +51,7 @@ import SplitVerticalUntoggled from './split-vertical-untoggled';
 import Src from './src';
 import SrcOpen from './src-open';
 import SubSection from './sub-section';
+import Svelte from './svelte';
 import TailwindCSS from './tailwindcss';
 import Technologies from './technologies';
 import TechnologiesIcon from './technologies-icon';
@@ -104,6 +106,7 @@ export {
   Public,
   PublicOpen,
   RadioTower,
+  ReactIcon,
   Refresh,
   Remote,
   SaveAll,
@@ -116,6 +119,7 @@ export {
   Src,
   SrcOpen,
   SubSection,
+  Svelte,
   TailwindCSS,
   Technologies,
   TechnologiesIcon,

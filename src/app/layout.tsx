@@ -7,6 +7,7 @@ import { Providers } from '@/lib/providers';
 import { type Section } from '@/lib/redux/slices/sectionSlice/sectionSlice';
 import type { Metadata } from 'next';
 import './globals.css';
+import { loadApps } from '@/lib/mdx';
 
 export const metadata: Metadata = {
   title: 'Alejandro Gomez Portfolio',
@@ -25,13 +26,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   const allSections = Object.fromEntries([...mdxSectionEntries, ...tsxSectionEntries]);
 
+  const allApps = await loadApps();
+
   return (
     <Providers>
       <html lang="en">
         <body className={`bg-dark_bg min-h-screen max-h-screen flex flex-col`}>
           <TopBar />
           <main className="flex-1 flex overflow-hidden">
-            <ActivityBar sections={allSections} />
+            <ActivityBar sections={allSections} allApps={allApps} />
             {children}
           </main>
           <BottomBar />

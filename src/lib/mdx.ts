@@ -26,6 +26,8 @@ export interface App {
   image: StaticImageData;
   service: string;
   url: string;
+  pathname: string;
+  framework: string;
 }
 
 export function loadApps() {

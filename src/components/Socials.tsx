@@ -1,5 +1,5 @@
 'use client';
-import { Button, FadeIn, FadeInStagger } from '@/components';
+import { FadeIn, FadeInStagger } from '@/components';
 import clsx from 'clsx';
 import Link from 'next/link';
 
@@ -38,11 +38,11 @@ export default function Socials({ className }: { className?: string; invert?: bo
           </Link>
         </FadeIn>
       ))}
-      <FadeIn>
+      {/* <FadeIn>
         <Button className="flex items-center gap-x-2 button-hover-shadow" variant="secondary" arrow="right">
           Contact Me
         </Button>
-      </FadeIn>
+      </FadeIn> */}
     </FadeInStagger>
   );
 }

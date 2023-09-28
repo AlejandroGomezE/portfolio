@@ -1,6 +1,6 @@
 import { AppSolution, Border, Button, Container, FadeIn, FadeInStagger, Section } from '@/components';
 import Image from 'next/image';
-import { realtorSimplified } from '../../../../public/projects'
+import { realtorSimplified } from '../../../../public/projects';
 
 export const appData = {
   industry: 'Real Estate',
@@ -10,6 +10,8 @@ export const appData = {
   date: '2022-08',
   service: 'Saas application',
   url: 'https://www.realtorsimplified.com/',
+  pathname: '/apps/realtor-simplified',
+  framework: 'next',
 };
 
 export const sections = [
@@ -60,6 +62,10 @@ export const technologies = [
   {
     name: 'MongoDB',
     image: '/logos/mongodb-logo.webp',
+  },
+  {
+    name: 'Stripe',
+    image: '/logos/stripe-logo.png',
   },
   {
     name: 'DigitalOcean',

@@ -22,10 +22,12 @@ import {
   Projects,
   Public,
   PublicOpen,
+  ReactIcon,
   Refresh,
   SolutionIcon,
   Src,
   SrcOpen,
+  Svelte,
   TailwindCSS,
   Technologies,
   TechnologiesIcon,
@@ -35,6 +37,7 @@ import {
   Tsx,
   WorkExperience,
 } from '@/icons';
+import { App as AppType, MDXEntry } from '@/lib/mdx';
 import { Section, SubMenu, selectExpanded, selectFirstVisibleSection, selectLastVisibleSection, selectPortfolio, selectSectionIsVisible, selectSections, useSelector } from '@/lib/redux';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -53,11 +56,12 @@ const staticFiles = [
   { name: 'tsconfig.json', icon: <TsConfig /> },
 ];
 
-const appFiles = [
-  { name: 'Realtor-Simplified.ts', icon: <Tsx />, url: '/apps/realtor-simplified' },
-  { name: 'Loteria-Monarca.ts', icon: <Tsx />, url: '/apps/loteria-monarca' },
-  { name: 'Leenith-Borges.ts', icon: <Tsx />, url: '/apps/leenith-borges' },
-];
+const fileType = {
+  ['react' as string]: <ReactIcon />,
+  ['typescript' as string]: <Tsx />,
+  ['next' as string]: <NextConfig />,
+  ['svelte' as string]: <Svelte />,
+};
 
 const subSectionsIcons: { [key: string]: JSX.Element } = {
   'about-me': <AboutMe />,
@@ -70,7 +74,7 @@ const subSectionsIcons: { [key: string]: JSX.Element } = {
   technologies: <TechnologiesIcon />,
 };
 
-export default function Portfolio() {
+export default function Portfolio({ allApps }: { allApps: MDXEntry<AppType>[] }) {
   const portafolio = useSelector(selectPortfolio);
   const sections = useSelector(selectSections);
   const pathname = usePathname();
@@ -100,8 +104,8 @@ export default function Portfolio() {
           </Folder>
           <Folder name="src" openIcon={<SrcOpen />} closedIcon={<Src />} disabled={false} indent={0} segmentActive={false}>
             <Folder name="my work" openIcon={<AppOpen />} closedIcon={<App />} disabled={false} indent={1} segmentActive={segments[0] === 'apps'}>
-              {appFiles.map((file) => (
-                <File key={file.name} name={file.name} icon={file.icon} url={file.url} indent={2} sections={pathname === file.url ? sections : []} />
+              {allApps.map((app) => (
+                <File key={app.pathname} name={app.title} icon={fileType[app.framework]} url={app.pathname} indent={2} sections={pathname === app.pathname ? sections : []} />
               ))}
             </Folder>
           </Folder>

@@ -11,8 +11,6 @@ interface Project {
   full: boolean;
   image: {
     src: StaticImageData;
-    width: number;
-    height: number;
   };
 }
 
@@ -22,49 +20,49 @@ const projects: Project[] = [
     name: 'Realtor Simplified',
     full: true,
     description: ' saas platform that enables realtors to deploy a professional website in minutes.',
-    image: { src: realtorSimplified, width: 1928, height: 1208 },
-  },
-  {
-    href: '/apps/template-1',
-    name: 'Realtor Template',
-    full: false,
-    description: ' deployable template on the realtor simplified platform.',
-    image: { src: template1, width: 1553, height: 955 },
-  },
-  {
-    href: '/apps/sierra-ecomanderas',
-    name: 'Sierra Ecomanderas',
-    full: false,
-    description: ' static website for a wood selling bussiness.',
-    image: { src: sierraEcomaderas, width: 1558, height: 955 },
+    image: { src: realtorSimplified },
   },
   {
     href: '/apps/loteria-monarca',
     name: 'Loteria Monarca',
     full: true,
     description: ' online platform to register and play Loteria Mexicana.',
-    image: { src: loteriaMonarca, width: 1553, height: 955 },
+    image: { src: loteriaMonarca },
+  },
+  {
+    href: '/apps/realtor-template-1',
+    name: 'Realtor Template',
+    full: false,
+    description: ' deployable template on the realtor simplified platform.',
+    image: { src: template1 },
+  },
+  {
+    href: '/apps/sierra-ecomanderas',
+    name: 'Sierra Ecomanderas',
+    full: false,
+    description: ' static website for a wood selling bussiness.',
+    image: { src: sierraEcomaderas },
   },
   {
     href: '/apps/leenith-borges',
     name: 'Leenith',
     full: true,
     description: ' e-commerce website to manage, and sell courses online.',
-    image: { src: leenithBorges, width: 1558, height: 955 },
+    image: { src: leenithBorges },
   },
   {
-    href: '/apps/leenith-ios',
+    href: '/apps/leenith-borges',
     name: 'Leenith',
     full: false,
     description: ' ios app to access and buy courses.',
-    image: { src: leenithIos, width: 883, height: 588 },
+    image: { src: leenithIos },
   },
   {
     href: '/apps/impulseux',
     name: 'ImpulseUX',
     full: false,
     description: ' static website for design and development agency.',
-    image: { src: impulseux, width: 1669, height: 955 },
+    image: { src: impulseux },
   },
 ];
 
@@ -93,8 +91,6 @@ export default function MyWork() {
               )}
               src={project.image.src}
               alt=""
-              width={project.image.width}
-              height={project.image.height}
             />
           </GlowCard>
         ))}
