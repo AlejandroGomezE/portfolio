@@ -10,3 +10,4 @@ export const selectPortfolio = (state: ReduxState) => state.explorer.portfolio;
 export const selectOutline = (state: ReduxState) => state.explorer.outline;
 export const selectTimeline = (state: ReduxState) => state.explorer.timeline;
 export const selectScripts = (state: ReduxState) => state.explorer.scripts;
+export const selectInitialLoad = (state: ReduxState) => state.explorer.initial;

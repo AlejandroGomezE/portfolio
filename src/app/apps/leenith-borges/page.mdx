@@ -1,11 +1,12 @@
 import { AppSolution, Border, Button, Container, FadeIn, FadeInStagger, Section } from '@/components';
 import Image from 'next/image';
+import { leenithBorges } from '../../../../public/projects'
 
 export const appData = {
   industry: 'Art & Painting',
   title: 'Leenith Borges',
   description: 'Leenith Borges is a popular paint artist in Mexico, based in Monterrey, NL. she sells her courses online.',
-  image: '/leenith-borges.png',
+  image: leenithBorges,
   date: '2023-01',
   service: 'E-commerce',
   url: 'https://leenithborges-arte.com/',
@@ -98,7 +99,7 @@ export const technologies = [
 
 ## Solution
 
-<AppSolution image={appData.image} href={appData.url}>
+<AppSolution image='leenith-borges.png' href={appData.url}>
 
 Leenith Borges's website is mainly powered by Firebase. The website is hosted on Firebase Hosting, the database is on Firestore, and the authentication 
 system is on Firebase Auth.

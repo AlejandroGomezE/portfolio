@@ -83,7 +83,7 @@ const content: contentSection[] = [
 
 export default function Index() {
   return (
-    <div className="w-full overflow-y-auto">
+    <div className="w-full overflow-y-auto overflow-x-hidden">
       <GridPattern />
       <Section id={sections[0].id}>
         <Container>

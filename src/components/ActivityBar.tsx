@@ -1,18 +1,13 @@
 'use client';
 import { CollapsableMenu } from '@/components';
 import { Accounts, Debug, Explorer, Extensions, Gear, Search, SourceControl } from '@/icons';
-import { Menu, Section, expandableSlice, sectionSlice, selectExpanded, selectMenu, useDispatch, useSelector } from '@/lib/redux';
+import { Menu, Section, SubMenu, expandableSlice, explorerSlice, sectionSlice, selectExpanded, selectInitialLoad, selectMenu, useDispatch, useSelector } from '@/lib/redux';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import ToolTip from './ToolTip';
 
 const barItems = [
-  {
-    hoverText: 'Explorer (Ctrl+Shift+E)',
-    icon: <Explorer />,
-    menu: Menu.EXPLORER,
-  },
   {
     hoverText: 'Search (Ctrl + Shift + F)',
     icon: <Search />,
@@ -39,6 +34,7 @@ export default function ActivityBar({ sections }: { sections: Record<string, Arr
   const dispatch = useDispatch();
   const activeMenu = useSelector(selectMenu);
   const expanded = useSelector(selectExpanded);
+  const initialLoad = useSelector(selectInitialLoad);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -49,21 +45,36 @@ export default function ActivityBar({ sections }: { sections: Record<string, Arr
     <div className="relative md:flex z-20">
       <div className="max-w-fit text-gray-500 flex flex-col justify-between h-full">
         <div className="cursor-pointer">
+          <Tooltip
+            icon={<Explorer />}
+            text="Explorer (Ctrl+Shift+E)"
+            active={expanded && activeMenu === Menu.EXPLORER}
+            handleMouseClick={() => {
+              dispatch(expandableSlice.actions.toggleMenu({ menu: Menu.EXPLORER }));
+
+              if (!initialLoad) return;
+              dispatch(explorerSlice.actions.setInitialLoad());
+
+              setTimeout(() => {
+                dispatch(explorerSlice.actions.toggleMenu({ subMenu: SubMenu.PORTFOLIO }));
+              }, 200);
+            }}
+          />
           {barItems.map((item, index) => (
             <Tooltip
               key={index}
               icon={item.icon}
               text={item.hoverText}
               active={expanded && activeMenu === item.menu}
-              handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+              handleMouseClick={() => {
                 dispatch(expandableSlice.actions.toggleMenu({ menu: item.menu }));
               }}
             />
           ))}
         </div>
         <div className="cursor-pointer">
-          <Tooltip icon={<Accounts width="32" height="32" />} text="Accounts" active={false} handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {}} />
-          <Tooltip icon={<Gear />} text="Manage" active={false} handleMouseClick={(e: React.MouseEvent<HTMLButtonElement>) => {}} />
+          <Tooltip icon={<Accounts width="32" height="32" />} text="Accounts" active={false} handleMouseClick={() => {}} />
+          <Tooltip icon={<Gear />} text="Manage" active={false} handleMouseClick={() => {}} />
         </div>
       </div>
       <CollapsableMenu />
@@ -83,7 +94,7 @@ function Tooltip({ icon, text, active, handleMouseClick }: TooltipProps) {
     setToolTipActive(false);
   }, []);
 
-  const handleFocus: React.FocusEventHandler = useCallback((e: React.FocusEvent<HTMLButtonElement>) => {
+  const handleFocus: React.FocusEventHandler = useCallback(() => {
     setToolTipActive(false);
   }, []);
 

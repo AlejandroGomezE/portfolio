@@ -1,11 +1,12 @@
 import { AppSolution, Border, Button, Container, FadeIn, FadeInStagger, Section } from '@/components';
 import Image from 'next/image';
+import { realtorSimplified } from '../../../../public/projects'
 
 export const appData = {
   industry: 'Real Estate',
   title: 'Realtor Simplified',
   description: 'Realtor Simplified is a saas platform that allows you to deploy a real estate website from a selection of templates within minutes.',
-  image: '/realtor-simplified.png',
+  image: realtorSimplified,
   date: '2022-08',
   service: 'Saas application',
   url: 'https://www.realtorsimplified.com/',
@@ -109,7 +110,7 @@ export const technologies = [
 
 ## Solution
 
-<AppSolution image={appData.image} href={appData.url}>
+<AppSolution image='realtor-simplified.png' href={appData.url}>
   
 Realtor Simplified Saas is split in 3 different systems. Each of this systems is hosted in their own server and they communicate through apis.
 

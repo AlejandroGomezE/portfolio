@@ -1,6 +1,6 @@
 'use client';
 import { ChromeClose, ChromeMenu, ChromeMinimize, ChromeRestore, SplitHorizontal, SplitVerticalUntoggled, ToggledSidebar, UntoggledSidebar, VSCode } from '@/icons';
-import { expandableSlice, selectExpanded, useDispatch, useSelector } from '@/lib/redux';
+import { Menu, SubMenu, expandableSlice, explorerSlice, selectExpanded, selectInitialLoad, useDispatch, useSelector } from '@/lib/redux';
 const menuItems = ['File', 'Edit', 'Selection', 'View', 'Go', 'Run', 'Terminal', 'Help'];
 
 export default function TopBar() {
@@ -19,6 +19,20 @@ export default function TopBar() {
 }
 
 function MenuBar() {
+  const initialLoad = useSelector(selectInitialLoad);
+  const dispatch = useDispatch();
+
+  const toggleMenu: React.MouseEventHandler<HTMLDivElement> = () => {
+    dispatch(expandableSlice.actions.toggleMenu({ menu: Menu.EXPLORER }));
+
+    if (!initialLoad) return;
+    dispatch(explorerSlice.actions.setInitialLoad());
+
+    setTimeout(() => {
+      dispatch(explorerSlice.actions.toggleMenu({ subMenu: SubMenu.PORTFOLIO }));
+    }, 200);
+  };
+
   return (
     <div className="p-1 flex">
       <div className="my-auto">
@@ -31,7 +45,7 @@ function MenuBar() {
           </button>
         ))}
       </div>
-      <div className="flex items-center ml-4 lg:hidden hover:bg-gray-300 px-4 rounded-md py-2">
+      <div className="flex items-center ml-4 lg:hidden hover:bg-gray-300 px-4 rounded-md py-2" onClick={toggleMenu}>
         <ChromeMenu />
       </div>
     </div>

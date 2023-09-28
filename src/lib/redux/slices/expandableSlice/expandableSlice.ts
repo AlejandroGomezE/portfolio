@@ -11,7 +11,7 @@ export enum Menu {
 }
 
 const initialState: ExpandableSliceState = {
-  value: true,
+  value: false,
   menu: Menu.EXPLORER,
 };
 

@@ -1,11 +1,12 @@
 import { AppSolution, Border, Button, Container, FadeIn, FadeInStagger, Section } from '@/components';
+import { loteriaMonarca } from '../../../../public/projects'
 import Image from 'next/image';
 
 export const appData = {
   industry: 'Entertainment',
   title: 'Loteria Monarca',
   description: 'Online platform to play the traditional Mexican game "Loteria Tradicional" & "Loteria de Pocitos" with friends and family.',
-  image: '/loteria-monarca.png',
+  image: loteriaMonarca,
   date: '2020-02',
   service: 'Web Application',
   url: 'https://loteria-online.onrender.com/',
@@ -113,7 +114,7 @@ export const technologies = [
 
 ## Solution
 
-<AppSolution image={appData.image} href={appData.url}>
+<AppSolution image='loteria-monarca.png' href={appData.url}>
 
 Loteria Monarca's application is made up of 2 different express servers. Each of this servers is hosted on their own Heroku dyno.
 

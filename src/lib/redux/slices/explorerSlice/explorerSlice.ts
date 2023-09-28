@@ -11,6 +11,7 @@ export enum SubMenu {
 }
 
 const initialState: ExplorerSliceState = {
+  initial: true,
   editor: {
     open: false,
     maxHeight: '0px',
@@ -38,6 +39,9 @@ export const explorerSlice = createSlice({
   name: 'explorer',
   initialState,
   reducers: {
+    setInitialLoad: (state) => {
+      state.initial = false;
+    },
     toggleMenu: (
       state,
       action: PayloadAction<{
@@ -105,6 +109,7 @@ export const explorerSlice = createSlice({
 
 /* Types */
 export interface ExplorerSliceState {
+  initial: boolean;
   editor: {
     open: boolean;
     maxHeight: string;

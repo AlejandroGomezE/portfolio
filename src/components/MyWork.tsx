@@ -1,7 +1,8 @@
 'use client';
 import { ExpandArrowLink, GlowCard } from '@/components';
 import clsx from 'clsx';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
+import { impulseux, leenithBorges, leenithIos, loteriaMonarca, realtorSimplified, sierraEcomaderas, template1 } from '../../public/projects/';
 
 interface Project {
   href: string;
@@ -9,7 +10,7 @@ interface Project {
   description: string;
   full: boolean;
   image: {
-    src: string;
+    src: StaticImageData;
     width: number;
     height: number;
   };
@@ -21,49 +22,49 @@ const projects: Project[] = [
     name: 'Realtor Simplified',
     full: true,
     description: ' saas platform that enables realtors to deploy a professional website in minutes.',
-    image: { src: '/projects/realtor-simplified.png', width: 1928, height: 1208 },
+    image: { src: realtorSimplified, width: 1928, height: 1208 },
   },
   {
     href: '/apps/template-1',
     name: 'Realtor Template',
     full: false,
     description: ' deployable template on the realtor simplified platform.',
-    image: { src: '/projects/template-1.png', width: 1553, height: 955 },
+    image: { src: template1, width: 1553, height: 955 },
   },
   {
     href: '/apps/sierra-ecomanderas',
     name: 'Sierra Ecomanderas',
     full: false,
     description: ' static website for a wood selling bussiness.',
-    image: { src: '/projects/sierra-ecomaderas.png', width: 1558, height: 955 },
+    image: { src: sierraEcomaderas, width: 1558, height: 955 },
   },
   {
     href: '/apps/loteria-monarca',
     name: 'Loteria Monarca',
     full: true,
     description: ' online platform to register and play Loteria Mexicana.',
-    image: { src: '/projects/loteria-monarca.png', width: 1553, height: 955 },
+    image: { src: loteriaMonarca, width: 1553, height: 955 },
   },
   {
     href: '/apps/leenith-borges',
     name: 'Leenith',
     full: true,
     description: ' e-commerce website to manage, and sell courses online.',
-    image: { src: '/projects/leenith-borges.png', width: 1558, height: 955 },
+    image: { src: leenithBorges, width: 1558, height: 955 },
   },
   {
     href: '/apps/leenith-ios',
     name: 'Leenith',
     full: false,
     description: ' ios app to access and buy courses.',
-    image: { src: '/projects/leenith-ios.png', width: 883, height: 588 },
+    image: { src: leenithIos, width: 883, height: 588 },
   },
   {
     href: '/apps/impulseux',
     name: 'ImpulseUX',
     full: false,
     description: ' static website for design and development agency.',
-    image: { src: '/projects/impulseux.png', width: 1669, height: 955 },
+    image: { src: impulseux, width: 1669, height: 955 },
   },
 ];
 
@@ -85,6 +86,7 @@ export default function MyWork() {
               <ExpandArrowLink href={project.href} className="before:bg-my_work_yellow " />
             </div>
             <Image
+              placeholder="blur"
               className={clsx(
                 'z-10 my-work-img-shadow absolute w-full',
                 project.full ? '@md:w-[80%] @xl:w-[70%] @2xl:w-[55%] @md:rounded-tl-md bottom-0 right-0' : 'bottom-0 @xl:right-0 @xl:w-[70%] @3xl:w-full'

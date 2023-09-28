@@ -39,7 +39,7 @@ export default async function AppsLayout({ appData, children }: { appData: App; 
                   </div>
                 </div>
                 <div className="p-4 @lg:p-12 @3xl:p-24 @6xl:p-32 app-gradient-bg">
-                  <Image src={'/projects' + appData.image} alt="" quality={90} width={1928} height={1208} className="m-auto" sizes="(min-width: 1216px) 76rem, 100vw" priority />
+                  <Image src={appData.image} alt="" quality={90} width={1928} height={1208} className="m-auto" sizes="(min-width: 1216px) 76rem, 100vw" priority />
                 </div>
               </FadeIn>
             </FadeInStagger>

@@ -1,4 +1,5 @@
 import glob from 'fast-glob';
+import { StaticImageData } from 'next/image';
 
 async function loadEntries<T extends { date: string }>(directory: string, metaName: string): Promise<Array<MDXEntry<T>>> {
   return (
@@ -22,7 +23,7 @@ export interface App {
   industry: string;
   title: string;
   description: string;
-  image: string;
+  image: StaticImageData;
   service: string;
   url: string;
 }

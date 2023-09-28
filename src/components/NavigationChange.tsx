@@ -13,7 +13,6 @@ export default function NavigationChange() {
       intialLoad.current = false;
       return;
     }
-    console.log('ost')
     dispatch(sectionSlice.actions.resetVisible());
   }, [dispatch, segments]);
   return <></>;
