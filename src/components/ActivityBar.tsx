@@ -53,7 +53,8 @@ export default function ActivityBar({ sections, allApps }: { sections: Record<st
             handleMouseClick={() => {
               dispatch(expandableSlice.actions.toggleMenu({ menu: Menu.EXPLORER }));
 
-              if (!initialLoad) return;
+              if (!initialLoad || window.innerWidth >= 768) return;
+              
               dispatch(explorerSlice.actions.setInitialLoad());
 
               setTimeout(() => {
