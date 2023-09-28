@@ -4,14 +4,14 @@ import { default as Image } from 'next/image';
 
 const experience = [
   {
-    title: 'Zenith Systems | Software Engineer/Freelance.',
+    title: 'Zenith Systems | Software Engineer.',
     date: 'Oct 2022 - Present',
     description: [
       'Built an e-commerce site to sell courses online, by using React, Firebase Sass, Bootstrap, and Hotmart.',
       'Developed swift IOS app from scratch and modified existing ones, by adding new screens, transitions and styling.',
       'Developed software by following the Agile Methodology',
     ],
-    image: { url: '/work/zenith.png', height: 48, width: 144, className: '' },
+    image: { url: '/work/zenith.png', height: 34, width: 110, className: '' },
   },
   {
     title: 'BOHRIM BIM LEAN QUALITY | Full Stack Developer.',
@@ -24,7 +24,7 @@ const experience = [
     image: { url: '/work/bohrim.jpg', height: 96, width: 96, className: '' },
   },
   {
-    title: 'Loteria Monarca | Full Stack Developer/Co-Founder.',
+    title: 'Loteria Monarca | Co-Founder.',
     date: 'Jan 2020 - March 2021',
     description: [
       'Tasked with creating a web app to play ‘Loteria Mexicana’ online with the technology of my choosing.',

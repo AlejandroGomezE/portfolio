@@ -110,17 +110,17 @@ export default function Index() {
         </Container>
       </Section>
 
-      <div id="stars-container" className="relative mx-auto max-w-6xl px-4 sm:px-8 lg:px-12">
-        <Stars id="stars-container" />
-        {content.map((section: contentSection) => (
-          <Section key={section.id} id={section.id} className="pt-24 mt-28">
-            <Container>
+      <div id="stars-container" className="relative">
+        <Container>
+          <Stars id="stars-container" />
+          {content.map((section: contentSection) => (
+            <Section key={section.id} id={section.id} className="pt-24 mt-28">
               <Border />
               <SectionHeader {...section.sectionHeader} />
               {section.mainContent}
-            </Container>
-          </Section>
-        ))}
+            </Section>
+          ))}
+        </Container>
       </div>
     </div>
   );

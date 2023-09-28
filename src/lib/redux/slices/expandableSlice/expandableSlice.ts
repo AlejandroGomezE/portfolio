@@ -19,6 +19,11 @@ export const expandableSlice = createSlice({
   name: 'expandable',
   initialState,
   reducers: {
+    closeIfOpen: (state, action: PayloadAction<{}>) => {
+      if (state.value) {
+        state.value = false;
+      }
+    },
     toggleMenu: (
       state,
       action: PayloadAction<{

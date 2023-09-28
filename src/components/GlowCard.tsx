@@ -65,7 +65,7 @@ export default function GlowCard({ children, className = '', glowClassName = '' 
       onMouseLeave={onMouseLeave}
       style={style}
       className={clsx(
-        'group overflow-hidden p-12 relative z-10 rounded-2xl border border-gray-500/20 bg-gray-900/20 transition-all glow-card-transition-duration hover:shadow-md select-none',
+        'group overflow-hidden p-6 sm:p-8 lg:p-12 relative z-10 rounded-2xl border border-gray-500/20 bg-gray-900/20 transition-all glow-card-transition-duration hover:shadow-md select-none',
         className
       )}
     >
