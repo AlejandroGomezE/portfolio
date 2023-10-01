@@ -1,13 +1,13 @@
-import glob from 'fast-glob';
-
 import { ActivityBar, BottomBar, TopBar } from '@/components';
 import NavigationChange from '@/components/NavigationChange';
 import TogglePortfolio from '@/components/TogglePortfolio';
+import { loadApps } from '@/lib/mdx';
 import { Providers } from '@/lib/providers';
 import { type Section } from '@/lib/redux/slices/sectionSlice/sectionSlice';
+import { Analytics } from '@vercel/analytics/react';
+import glob from 'fast-glob';
 import type { Metadata } from 'next';
 import './globals.css';
-import { loadApps } from '@/lib/mdx';
 
 export const metadata: Metadata = {
   title: 'Alejandro Gomez Portfolio',
@@ -40,6 +40,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <BottomBar />
           <TogglePortfolio />
           <NavigationChange />
+          <Analytics />
         </body>
       </html>
     </Providers>
