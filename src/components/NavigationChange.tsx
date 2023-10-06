@@ -1,14 +1,31 @@
 'use client';
-import { expandableSlice, sectionSlice, useDispatch } from '@/lib/redux';
+import { App, MDXEntry } from '@/lib/mdx';
+import { expandableSlice, sectionSlice, tabsSlice, useDispatch } from '@/lib/redux';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
-export default function NavigationChange() {
+export default function NavigationChange({ allApps }: { allApps: MDXEntry<App>[] }) {
   const pathname = usePathname();
   const intialLoad = useRef(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    let current = allApps.find((app) => app.href === pathname);
+    dispatch(
+      tabsSlice.actions.setCurrentTab({
+        current: current
+          ? {
+              href: current.href,
+              title: current.title,
+              type: current.framework,
+            }
+          : {
+              href: '/',
+              title: 'About Me',
+              type: 'about',
+            },
+      })
+    );
     if (intialLoad.current) {
       intialLoad.current = false;
       return;
@@ -17,7 +34,8 @@ export default function NavigationChange() {
       dispatch(expandableSlice.actions.closeIfOpen({}));
     }
     dispatch(sectionSlice.actions.resetVisible());
-  }, [dispatch, pathname]);
+    scrollTo(0, 0);
+  }, [dispatch, pathname, allApps]);
 
   return <></>;
 }

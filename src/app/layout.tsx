@@ -1,4 +1,4 @@
-import { ActivityBar, BottomBar, TopBar } from '@/components';
+import { ActivityBar, BottomBar, TabsContainer, TopBar } from '@/components';
 import NavigationChange from '@/components/NavigationChange';
 import TogglePortfolio from '@/components/TogglePortfolio';
 import { loadApps } from '@/lib/mdx';
@@ -33,13 +33,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <html lang="en">
         <body className={`bg-dark_bg min-h-screen max-h-screen flex flex-col`}>
           <TopBar />
-          <main className="flex-1 flex overflow-hidden">
+          <main className="flex-1 flex overflow-hidden relative">
             <ActivityBar sections={allSections} allApps={allApps} />
-            {children}
+            <div className="flex w-full flex-col overflow-hidden">
+              <TabsContainer /> {children}
+            </div>
           </main>
           <BottomBar />
           <TogglePortfolio />
-          <NavigationChange />
+          <NavigationChange allApps={allApps} />
           <Analytics />
         </body>
       </html>

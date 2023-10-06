@@ -7,7 +7,7 @@ export default async function AppsLayout({ appData, children }: { appData: App; 
   const moreApps = allApps.filter(({ metadata }) => metadata.url !== appData.url).slice(0, 2);
 
   return (
-    <div className="w-full overflow-y-auto @container">
+    <div className="w-full overflow-y-auto overflow-x-hidden @container">
       <article>
         <header>
           <Section id="about">

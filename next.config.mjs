@@ -18,6 +18,9 @@ const nextConfig = {
   images: {
     domains: ['images.unsplash.com'],
   },
+  experimental: {
+    scrollRestoration: true,
+  },
 };
 
 export default withMDX(nextConfig);
