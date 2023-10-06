@@ -43,7 +43,7 @@ export default function ActivityBar({ sections, allApps }: { sections: Record<st
   }, [pathname, dispatch, sections]);
 
   return (
-    <div className="relative md:flex z-20">
+    <div className="relative md:flex z-30">
       <div className="max-w-fit text-gray-500 flex flex-col justify-between h-full">
         <div className="cursor-pointer">
           <Tooltip
@@ -54,7 +54,7 @@ export default function ActivityBar({ sections, allApps }: { sections: Record<st
               dispatch(expandableSlice.actions.toggleMenu({ menu: Menu.EXPLORER }));
 
               if (!initialLoad || window.innerWidth >= 768) return;
-              
+
               dispatch(explorerSlice.actions.setInitialLoad());
 
               setTimeout(() => {

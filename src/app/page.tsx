@@ -1,4 +1,4 @@
-import { AboutMe, AnimatedTitle, Border, Container, FadeIn, GridPattern, MyWork, Section, SectionHeader, Skills, Socials, Stars, WorkExperience } from '@/components';
+import { AboutMe, AnimatedTitle, Border, Container, FadeIn, GridPattern, MyWork, Section, SectionHeader, Skills, Socials, Stars, TabsContainer, WorkExperience } from '@/components';
 import { Archive, BookOpen, BriefCase } from '@/icons';
 
 export const metadata = {
@@ -84,6 +84,7 @@ const content: contentSection[] = [
 export default function Index() {
   return (
     <div className="w-full overflow-y-auto overflow-x-hidden">
+      <TabsContainer />
       <GridPattern />
       <Section id={sections[0].id}>
         <Container>

@@ -19,6 +19,7 @@ import SectionHeader from './SectionHeader';
 import Skills from './Skills';
 import Socials from './Socials';
 import Stars from './Stars';
+import TabsContainer from './TabsContainer';
 import ToolTip from './ToolTip';
 import TopBar from './TopBar';
 import WorkExperience from './WorkExperience';
@@ -47,6 +48,7 @@ export {
   Socials,
   Stagger,
   Stars,
+  TabsContainer,
   ToolTip,
   TopBar,
   WorkExperience,
