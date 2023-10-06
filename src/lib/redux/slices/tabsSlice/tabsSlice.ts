@@ -53,5 +53,37 @@ export const tabsSlice = createSlice({
         state.open = state.open.filter((tab) => tab.href !== action.payload.href);
       }
     },
+    moveTab: (
+      state,
+      action: PayloadAction<{
+        from: string;
+        to: string;
+      }>
+    ) => {
+      const initialIndex = state.open.findIndex((tab) => tab.href === action.payload.from);
+      const finalIndex = state.open.findIndex((tab) => tab.href === action.payload.to);
+      const temp = [...state.open];
+      if (initialIndex > finalIndex) {
+        temp.splice(finalIndex, 0, temp[initialIndex]);
+        temp.splice(initialIndex + 1, 1);
+      } else {
+        temp.splice(finalIndex + 1, 0, temp[initialIndex]);
+        temp.splice(initialIndex, 1);
+      }
+      state.open = temp;
+    },
+    moveToEnd: (
+      state,
+      action: PayloadAction<{
+        href: string;
+      }>
+    ) => {
+      if (state.open.length === 1) return;
+      const index = state.open.findIndex((tab) => tab.href === action.payload.href);
+      const temp = [...state.open];
+      temp.push(temp[index]);
+      temp.splice(index, 1);
+      state.open = temp;
+    },
   },
 });

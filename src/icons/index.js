@@ -26,6 +26,7 @@ import Extensions from './extensions';
 import FavIcon from './fav-icon';
 import Gear from './gear';
 import Git from './git';
+import GitCompare from './git-compare';
 import Info from './info';
 import LogIcon from './log-icon';
 import NewFile from './new-file';
@@ -94,6 +95,7 @@ export {
   FavIcon,
   Gear,
   Git,
+  GitCompare,
   Info,
   LogIcon,
   NewFile,

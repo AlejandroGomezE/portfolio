@@ -34,7 +34,6 @@ export default function NavigationChange({ allApps }: { allApps: MDXEntry<App>[]
       dispatch(expandableSlice.actions.closeIfOpen({}));
     }
     dispatch(sectionSlice.actions.resetVisible());
-    scrollTo(0, 0);
   }, [dispatch, pathname, allApps]);
 
   return <></>;
