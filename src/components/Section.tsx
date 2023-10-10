@@ -1,6 +1,5 @@
 'use client';
 import { sectionSlice, useDispatch } from '@/lib/redux';
-import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 

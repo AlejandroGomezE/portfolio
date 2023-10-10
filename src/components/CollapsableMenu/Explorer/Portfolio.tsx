@@ -38,7 +38,7 @@ import {
   WorkExperience,
 } from '@/icons';
 import { App as AppType, MDXEntry } from '@/lib/mdx';
-import { Section, SubMenu, selectExpanded, selectFirstVisibleSection, selectLastVisibleSection, selectPortfolio, selectSectionIsVisible, selectSections, useSelector } from '@/lib/redux';
+import { Section, SubMenu, selectExpanded, selectPortfolio, selectSectionIsVisible, selectSectionOrder, selectSections, useSelector } from '@/lib/redux';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
@@ -183,8 +183,8 @@ function File({ name, icon, url, indent, sections }: FileWrapperProps) {
 
 function FileSection({ id, title, url }: { id: string; title: string; url: string }) {
   const isVisible = useSelector((state) => selectSectionIsVisible(state, id));
-  const firstVisible = useSelector(selectFirstVisibleSection);
-  const lastVisible = useSelector(selectLastVisibleSection);
+  const firstVisible = useSelector(selectSectionOrder)[0];
+  const lastVisible = useSelector(selectSectionOrder).at(-1);
 
   return (
     <AnimatePresence mode="popLayout" initial={true}>

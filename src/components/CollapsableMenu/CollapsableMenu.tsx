@@ -1,8 +1,8 @@
 'use client';
+import { App, MDXEntry } from '@/lib/mdx';
 import { selectExpanded, selectMenu, useSelector } from '@/lib/redux';
 import clsx from 'clsx';
 import Explorer from './Explorer';
-import { MDXEntry, App } from '@/lib/mdx';
 
 export default function CollapsableMenu({ allApps }: { allApps: MDXEntry<App>[] }) {
   const expanded = useSelector(selectExpanded);

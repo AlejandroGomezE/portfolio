@@ -26,16 +26,19 @@ export default function NavigationChange({ allApps }: { allApps: MDXEntry<App>[]
             },
       })
     );
+  }, [dispatch, allApps, pathname]);
+
+  useEffect(() => {
     if (intialLoad.current) {
-      dispatch(sectionSlice.actions.resetVisible());
       intialLoad.current = false;
       return;
     }
+
     if (window.innerWidth < 768) {
       dispatch(expandableSlice.actions.closeIfOpen({}));
     }
     dispatch(sectionSlice.actions.resetVisible());
-  }, [dispatch, pathname, allApps]);
+  }, [dispatch, pathname]);
 
   return <></>;
 }
