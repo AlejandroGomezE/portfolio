@@ -27,6 +27,7 @@ export default function NavigationChange({ allApps }: { allApps: MDXEntry<App>[]
       })
     );
     if (intialLoad.current) {
+      dispatch(sectionSlice.actions.resetVisible());
       intialLoad.current = false;
       return;
     }
