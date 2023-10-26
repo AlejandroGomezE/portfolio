@@ -18,8 +18,10 @@ import ChromeRestore from './chrome-restore';
 import CloseAll from './close-all';
 import CloudUpload from './cloud-upload';
 import CollapseAll from './collapse-all';
+import ContactMe from './contact-me';
 import Debug from './debug';
 import Ellipsis from './ellipsis';
+import Envelope from './envelope';
 import Eslint from './eslint';
 import Explorer from './explorer';
 import Extensions from './extensions';
@@ -87,8 +89,10 @@ export {
   CloseAll,
   CloudUpload,
   CollapseAll,
+  ContactMe,
   Debug,
   Ellipsis,
+  Envelope,
   Eslint,
   Explorer,
   Extensions,

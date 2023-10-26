@@ -31,7 +31,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <Providers>
       <html lang="en">
-        <body className={`bg-dark_bg min-h-screen max-h-screen flex flex-col`}>
+        <body className="bg-dark_bg min-h-screen max-h-screen flex flex-col scroll-smooth">
           <TopBar />
           <main className="flex-1 flex overflow-hidden relative">
             <ActivityBar sections={allSections} allApps={allApps} />

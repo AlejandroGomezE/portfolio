@@ -23,7 +23,7 @@ export type ButtonProps = {
 } & (React.ComponentPropsWithoutRef<typeof Link> | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined }));
 
 export default function Button({ variant = 'primary', className, children, arrow, ...props }: ButtonProps) {
-  className = clsx('inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition', variantStyles[variant], className);
+  className = clsx('inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition button-hover-shadow', variantStyles[variant], className);
 
   let arrowIcon = <ArrowIcon className={clsx('mt-0.5 h-5 w-5', variant === 'text' && 'relative top-px', arrow === 'left' && '-ml-1 rotate-180', arrow === 'right' && '-mr-1')} />;
 

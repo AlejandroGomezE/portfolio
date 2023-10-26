@@ -23,7 +23,7 @@ export default function AppSolution({ image, href, children }: { image?: string;
         )}
         <div className={clsx('w-full', image ? '@4xl:col-span-1 @4xl:col-start-1' : '@4xl:col-span-2')}>{children}</div>
       </div>
-      <Button href={href} target="_blank" className="flex items-center gap-x-2 button-hover-shadow mt-8" variant="secondary" arrow="right">
+      <Button href={href} target="_blank" className="flex items-center gap-x-2 mt-8" variant="secondary" arrow="right">
         Visit website
       </Button>
     </div>

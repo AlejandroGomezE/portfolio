@@ -7,6 +7,7 @@ import Border from './Border';
 import BottomBar from './BottomBar';
 import Button from './Button';
 import CollapsableMenu from './CollapsableMenu';
+import ContactForm from './ContactForm';
 import Container from './Container';
 import ExpandArrowLink from './ExpandArrowLink';
 import { FadeIn, FadeInStagger, Stagger } from './FadeIn';
@@ -34,6 +35,7 @@ export {
   BottomBar,
   Button,
   CollapsableMenu,
+  ContactForm,
   Container,
   ExpandArrowLink,
   FadeIn,

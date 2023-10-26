@@ -33,6 +33,7 @@
     "next-themes": "^0.2.1",
     "npm": "^10.1.0",
     "postcss": "8.4.28",
+    "postmark": "^3.1.1",
     "react": "18.2.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
