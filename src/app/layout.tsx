@@ -7,6 +7,7 @@ import { type Section } from '@/lib/redux/slices/sectionSlice/sectionSlice';
 import { Analytics } from '@vercel/analytics/react';
 import glob from 'fast-glob';
 import type { Metadata } from 'next';
+import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <Providers>
       <html lang="en">
         <body className="bg-dark_bg min-h-screen max-h-screen flex flex-col scroll-smooth">
+          <Toaster />
           <TopBar />
           <main className="flex-1 flex overflow-hidden relative">
             <ActivityBar sections={allSections} allApps={allApps} />

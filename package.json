@@ -38,6 +38,7 @@
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.1",
     "react-merge-refs": "^2.1.1",
     "react-particles": "^2.12.2",
     "react-redux": "^8.1.2",

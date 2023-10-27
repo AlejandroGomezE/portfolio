@@ -1,5 +1,6 @@
 'use client';
 import { useId, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Button, FadeIn } from '.';
 
 function TextInput({ label, ...props }: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
@@ -41,12 +42,12 @@ export default function ContactForm() {
       }),
     })
       .then((res) => {
-        alert('Message sent!');
+        toast.success('Email sent!');
         const target = e.target as HTMLFormElement;
         target.reset();
       })
       .catch((err) => {
-        alert('Something went wrong!');
+        toast.error('Something went wrong, please try again later.');
       })
       .finally(() => {
         setLoading(false);

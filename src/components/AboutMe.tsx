@@ -48,7 +48,7 @@ export default function AboutMe() {
                       <p className="text-white">Spanish</p> - <p className="text-gray-500">Native</p>
                     </div>
                     <div className="text-lg font-bold leading-9 tracking-tight flex gap-1">
-                      <p className="text-white">English</p> - <p className="text-gray-500">Advanzed</p>
+                      <p className="text-white">English</p> - <p className="text-gray-500">Advanced</p>
                     </div>
                   </div>
                 </div>
