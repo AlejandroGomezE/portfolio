@@ -8,7 +8,7 @@ function Glow({ mouseX, mouseY, width, className }: { mouseX: MotionValue<number
   let style = { maskImage, WebkitMaskImage: maskImage };
 
   return (
-    <div className="pointer-events-none"> 
+    <div className="pointer-events-none">
       <motion.div className={clsx('absolute inset-0 bg-gradient-to-r blur-lg opacity-0 transition duration-700 group-hover:opacity-20', className)} style={style} />
     </div>
   );
@@ -48,9 +48,15 @@ export default function GlowCard({ children, className = '', glowClassName = '' 
   }, [width, height, rotateX, rotateY, containerRef]);
 
   useEffect(() => {
-    rotateX.set(0);
-    rotateY.set(0);
-  }, [width, rotateX, rotateY]);
+    const resizeInterval = setInterval(() => {
+      rotateX.set(0);
+      rotateY.set(0);
+    }, 30);
+
+    return () => {
+      clearInterval(resizeInterval);
+    };
+  }, [width, height, rotateX, rotateY]);
 
   const transform = useMotionTemplate`perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 

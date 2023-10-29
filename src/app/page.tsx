@@ -108,11 +108,16 @@ export default function Index() {
         <Container>
           <div className="min-h-screen relative">
             <FadeIn className="max-w-5xl pt-40 md:pt-[20vh] 2xl:pt-[30vh]">
-              <h1 className="font-display text-5xl font-medium tracking-tight text-white/90 [text-wrap:balance] sm:text-6xl">
+              <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] sm:text-6xl">
                 Alejandro Gomez<span className="wave">👋</span>
               </h1>
-              <div className="flex mt-3 text-white/90">
-                Software Engineer / &#8205; <AnimatedTitle />
+              <div className="flex mt-3 mb-1">
+                Looking for a job{' '}
+                <span className="relative flex h-2 w-2 self-center mx-1">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>{' '}
+                / &#8205; <AnimatedTitle />
               </div>
               <p className="max-w-3xl">26 yo software engineer with a B.S. in Computer Science and Technology with experience in Front-End and Back-End technologies.</p>
             </FadeIn>
