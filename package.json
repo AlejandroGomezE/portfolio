@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "ts-node ./generate_leetcode_md.ts && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -26,6 +26,7 @@
     "eslint-config-next": "13.4.19",
     "fast-glob": "^3.3.1",
     "framer-motion": "^10.16.2",
+    "gray-matter": "^4.0.3",
     "install": "^0.13.0",
     "mdast-util-to-string": "^4.0.0",
     "mdx-annotations": "^0.1.3",
@@ -50,8 +51,7 @@
     "tsparticles-preset-stars": "^2.12.0",
     "typescript": "5.2.2",
     "unified-conditional": "^0.0.2",
-    "unist-util-visit": "^5.0.0",
-    "zustand": "^4.4.1"
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "prettier": "^3.0.3",

@@ -13,6 +13,7 @@ import {
   Eslint,
   FavIcon,
   Git,
+  Leetcode,
   Lib,
   LibOpen,
   LogIcon,
@@ -40,7 +41,7 @@ import {
   Tsx,
   WorkExperience,
 } from '@/icons';
-import { App as AppType, Leetcode, MDXEntry } from '@/lib/mdx';
+import { App as AppType, Leetcode as LeetcodeType, MDXEntry } from '@/lib/mdx';
 import { Section, SubMenu, selectExpanded, selectPortfolio, selectSectionIsVisible, selectSectionOrder, selectSections, useSelector } from '@/lib/redux';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -64,6 +65,7 @@ const fileType = {
   ['typescript' as string]: <Tsx />,
   ['next' as string]: <NextConfig />,
   ['svelte' as string]: <Svelte />,
+  ['leetcode' as string]: <Leetcode />,
 };
 
 const subSectionsIcons: { [key: string]: JSX.Element } = {
@@ -78,7 +80,7 @@ const subSectionsIcons: { [key: string]: JSX.Element } = {
   technologies: <TechnologiesIcon />,
 };
 
-export default function Portfolio({ allApps, allLeetcode }: { allApps: MDXEntry<AppType>[]; allLeetcode: MDXEntry<Leetcode>[] }) {
+export default function Portfolio({ allApps, allLeetcode }: { allApps: MDXEntry<AppType>[]; allLeetcode: MDXEntry<LeetcodeType>[] }) {
   const portafolio = useSelector(selectPortfolio);
   const sections = useSelector(selectSections);
   const pathname = usePathname();

@@ -1,10 +1,9 @@
-const twoPointerProblems = [
+const content = [
   {
     title: '125. Valid Palindrome',
     slug: 'valid-palindrome',
     difficulty: 'easy',
-    description:
-    `
+    description: `
       A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
 
       Given a string s, return true if it is a palindrome, or false otherwise.
@@ -30,7 +29,28 @@ const twoPointerProblems = [
       1 <= s.length <= 2 * 105
       s consists only of printable ASCII characters.
       `,
+    code: `
+      \`\`\`js
+        const isPalindrome = function(s) {
+      
+          // turn string to lowercase and use regex to remove non-alphanumeric
+          s = s.toLowerCase();
+          s = s.replace(/[^A-Za-z0-9]/g, '');
+      
+          let start = 0;
+          let end = s.length-1; 
+          
+          while (start < end){
+              
+              if(s[start] !== s[end]) return false
+              start++;
+              end--;
+          }
+          return true
+        };
+      \`\`\`
+    `,
   },
 ];
 
-export default twoPointerProblems;
+module.exports = content;

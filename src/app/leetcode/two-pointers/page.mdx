@@ -1,5 +1,4 @@
-import { AppSolution, Border, Button, Container, FadeIn, FadeInStagger, Section } from '@/components';
-import twoPointerProblems from '@/lib/leetcode/two-pointers';
+import { AppSolution, Border, Button, CodeGroup, Container, FadeIn, FadeInStagger, Section } from '@/components';
 
 export const leetData = {
   title: 'Two Pointers',
@@ -11,7 +10,6 @@ export const leetData = {
 
 export const sections = [
   { index: 0, title: 'Description', id: 'description' },
-  { index: 1, title: 'Examples', id: 'examples' },
 ];
 
 export const metadata = {
@@ -21,7 +19,7 @@ export const metadata = {
 
 
 <Container>
-  <Section id="description">
+  <Section id={sections[0].id}>
     # Two Pointers
     
     Two pointers is a technique where you use two pointers that either move towards each other or move in the same direction. 
@@ -48,11 +46,33 @@ export const metadata = {
         src={`https://youtube.com/embed/${leetData.videoId}?autoplay=0&t=13`}>
     </iframe>
   </Section>
-  <Section id="examples">
 
   <Border className="-translate-y-2"/>
-  
-  ## Examples
 
-  </Section>
+  [//]: #ExamplesStart
+    <CodeGroup title="125. Valid Palindrome">
+        
+      ```js
+        const isPalindrome = function(s) {
+      
+          // turn string to lowercase and use regex to remove non-alphanumeric
+          s = s.toLowerCase();
+          s = s.replace(/[^A-Za-z0-9]/g, '');
+      
+          let start = 0;
+          let end = s.length-1; 
+          
+          while (start < end){
+              
+              if(s[start] !== s[end]) return false
+              start++;
+              end--;
+          }
+          return true
+        };
+      ```
+    
+    </CodeGroup>
+    [//]: #ExamplesEnd
 </Container>
+

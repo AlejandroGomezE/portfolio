@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 import { Heading } from '@/components/Heading';
+export { CodeGroup, Code as code } from '@/components/Code'
 
 export function wrapper({ children }: { children: React.ReactNode }) {
   return <div className="overflow-y-auto text-gray-500 w-full relative overflow-hidden">{children}</div>;

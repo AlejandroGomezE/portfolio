@@ -1,5 +1,5 @@
 'use client';
-import { ChromeClose, Ellipsis, FavIcon, GitCompare, NextConfig, ReactIcon, Svelte, UntoggledSidebar } from '@/icons';
+import { ChromeClose, Ellipsis, FavIcon, GitCompare, Leetcode, NextConfig, ReactIcon, Svelte, UntoggledSidebar } from '@/icons';
 import { TabData, selectCurrentTab, selectTabs, tabsSlice, useDispatch, useSelector } from '@/lib/redux';
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
@@ -13,6 +13,7 @@ const fileType = {
   ['about' as string]: <FavIcon />,
   ['next' as string]: <NextConfig />,
   ['svelte' as string]: <Svelte />,
+  ['leetcode' as string]: <Leetcode />,
 };
 
 export default function TabsContainer() {

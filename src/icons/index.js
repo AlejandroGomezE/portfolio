@@ -30,6 +30,7 @@ import Gear from './gear';
 import Git from './git';
 import GitCompare from './git-compare';
 import Info from './info';
+import Leetcode from './leetcode';
 import Lib from './lib';
 import LibOpen from './lib-open';
 import LogIcon from './log-icon';
@@ -103,6 +104,7 @@ export {
   Git,
   GitCompare,
   Info,
+  Leetcode,
   Lib,
   LibOpen,
   LogIcon,

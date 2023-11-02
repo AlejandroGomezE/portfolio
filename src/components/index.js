@@ -6,6 +6,7 @@ import AppSolution from './AppSolution';
 import Border from './Border';
 import BottomBar from './BottomBar';
 import Button from './Button';
+import { CodeGroup } from './Code';
 import CollapsableMenu from './CollapsableMenu';
 import ContactForm from './ContactForm';
 import Container from './Container';
@@ -34,6 +35,7 @@ export {
   Border,
   BottomBar,
   Button,
+  CodeGroup,
   CollapsableMenu,
   ContactForm,
   Container,
