@@ -7,11 +7,15 @@ export function wrapper({ children }: { children: React.ReactNode }) {
 }
 
 export function h1(props: { children: React.ReactNode }) {
-  return <Heading level={1} {...props} className="max-w-5xl text-5xl sm:text-6xl" />;
+  return <Heading level={1} {...props} className="max-w-5xl text-5xl sm:text-6xl mt-16" />;
 }
 
 export function h2(props: { children: React.ReactNode }) {
-  return <Heading level={2} {...props} className="max-w-3xl text-3xl sm:text-4xl" />;
+  return <Heading level={2} {...props} className="max-w-3xl text-3xl sm:text-4xl mt-12" />;
+}
+
+export function h3(props: { children: React.ReactNode }) {
+  return <Heading level={3} {...props} className="max-w-3xl text-xl sm:text-2xl mt-8" />;
 }
 
 export function p({ children, className }: { children: React.ReactNode; className: string }) {
@@ -19,5 +23,9 @@ export function p({ children, className }: { children: React.ReactNode; classNam
 }
 
 export function ol({ children }: { children: React.ReactNode }) {
-  return <ol className="pl-6 my-6 text-gray-500 list-decimal">{children}</ol>;
+  return <ol className="pl-10 mb-4 mt-2 text-gray-500 list-decimal">{children}</ol>;
+}
+
+export function ul({ children }: { children: React.ReactNode }) {
+  return <ul className="pl-10 mb-4 mt-2 text-gray-500 list-disc">{children}</ul>;
 }

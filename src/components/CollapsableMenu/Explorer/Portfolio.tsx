@@ -13,6 +13,8 @@ import {
   Eslint,
   FavIcon,
   Git,
+  Lib,
+  LibOpen,
   LogIcon,
   NewFile,
   NewFolder,
@@ -38,7 +40,7 @@ import {
   Tsx,
   WorkExperience,
 } from '@/icons';
-import { App as AppType, MDXEntry } from '@/lib/mdx';
+import { App as AppType, Leetcode, MDXEntry } from '@/lib/mdx';
 import { Section, SubMenu, selectExpanded, selectPortfolio, selectSectionIsVisible, selectSectionOrder, selectSections, useSelector } from '@/lib/redux';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -76,7 +78,7 @@ const subSectionsIcons: { [key: string]: JSX.Element } = {
   technologies: <TechnologiesIcon />,
 };
 
-export default function Portfolio({ allApps }: { allApps: MDXEntry<AppType>[] }) {
+export default function Portfolio({ allApps, allLeetcode }: { allApps: MDXEntry<AppType>[]; allLeetcode: MDXEntry<Leetcode>[] }) {
   const portafolio = useSelector(selectPortfolio);
   const sections = useSelector(selectSections);
   const pathname = usePathname();
@@ -101,13 +103,18 @@ export default function Portfolio({ allApps }: { allApps: MDXEntry<AppType>[] })
         <>
           <Folder name=".next" openIcon={<></>} closedIcon={<Next />} disabled indent={0} segmentActive={false} />
           <Folder name="node_modules" openIcon={<></>} closedIcon={<NodeModules />} disabled indent={0} segmentActive={false} />
-          <Folder name="public" openIcon={<PublicOpen />} closedIcon={<Public />} disabled={false} indent={0} segmentActive={segments.length === 0}>
+          <Folder name="public" openIcon={<PublicOpen />} closedIcon={<Public />} indent={0} segmentActive={segments.length === 0}>
             <File name="about_me.ts" icon={<FavIcon />} url="/" indent={1} sections={pathname === '/' ? sections : []} />
           </Folder>
-          <Folder name="src" openIcon={<SrcOpen />} closedIcon={<Src />} disabled={false} indent={0} segmentActive={false}>
-            <Folder name="my work" openIcon={<AppOpen />} closedIcon={<App />} disabled={false} indent={1} segmentActive={segments[0] === 'apps'}>
+          <Folder name="src" openIcon={<SrcOpen />} closedIcon={<Src />} indent={0} segmentActive={false}>
+            <Folder name="my work" openIcon={<AppOpen />} closedIcon={<App />} indent={1} segmentActive={segments[0] === 'apps'}>
               {allApps.map((app) => (
                 <File key={app.pathname} name={app.title} icon={fileType[app.framework]} url={app.pathname} indent={2} sections={pathname === app.pathname ? sections : []} />
+              ))}
+            </Folder>
+            <Folder name="leetcode" openIcon={<LibOpen />} closedIcon={<Lib />} indent={1} segmentActive={segments[0] === 'leet-code'}>
+              {allLeetcode.map((leetcode) => (
+                <File key={leetcode.pathname} name={leetcode.title} icon={fileType[leetcode.framework]} url={leetcode.pathname} indent={2} sections={pathname === leetcode.pathname ? sections : []} />
               ))}
             </Folder>
           </Folder>
@@ -126,7 +133,7 @@ interface FolderProps {
   name: string;
   openIcon: JSX.Element;
   closedIcon: JSX.Element;
-  disabled: boolean;
+  disabled?: boolean;
   indent: number;
   segmentActive: boolean;
   children?: JSX.Element | JSX.Element[];

@@ -1,0 +1,58 @@
+import { AppSolution, Border, Button, Container, FadeIn, FadeInStagger, Section } from '@/components';
+import twoPointerProblems from '@/lib/leetcode/two-pointers';
+
+export const leetData = {
+  title: 'Two Pointers',
+  description: '.',
+  pathname: '/leetcode/two-pointers',
+  framework: 'leetcode',
+  videoId: 'xZ4AfXHQ1VQ'
+};
+
+export const sections = [
+  { index: 0, title: 'Description', id: 'description' },
+  { index: 1, title: 'Examples', id: 'examples' },
+];
+
+export const metadata = {
+  title: `${leetData.title}`,
+  description: leetData.description,
+};
+
+
+<Container>
+  <Section id="description">
+    # Two Pointers
+    
+    Two pointers is a technique where you use two pointers that either move towards each other or move in the same direction. 
+    The technique is often used to search for a pair of indices satisfying some constraint in linear time.
+    
+    <Border className="mt-6" />
+    ### When:
+
+    - String or array questions
+    - Satisfy a constraint
+    - "Find a set of elements that satisfy some constraint"
+    - Substring/subarray questions
+
+    <Border className="mt-6" />
+    
+    ### Cases:
+
+    - Two pointers one starting at the beginning and one at the end moving towards each other
+    - One pointer moving in the same direction, one slow and one fast.
+
+    <iframe className='w-full aspect-video mt-12'
+        title='Youtube player'
+        sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
+        src={`https://youtube.com/embed/${leetData.videoId}?autoplay=0&t=13`}>
+    </iframe>
+  </Section>
+  <Section id="examples">
+
+  <Border className="-translate-y-2"/>
+  
+  ## Examples
+
+  </Section>
+</Container>

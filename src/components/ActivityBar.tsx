@@ -1,7 +1,7 @@
 'use client';
 import { CollapsableMenu } from '@/components';
 import { Accounts, Debug, Explorer, Extensions, Gear, Search, SourceControl } from '@/icons';
-import { App, MDXEntry } from '@/lib/mdx';
+import { App, Leetcode, MDXEntry } from '@/lib/mdx';
 import { Menu, Section, SubMenu, expandableSlice, explorerSlice, sectionSlice, selectExpanded, selectInitialLoad, selectMenu, useDispatch, useSelector } from '@/lib/redux';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
@@ -31,7 +31,7 @@ const barItems = [
   },
 ];
 
-export default function ActivityBar({ sections, allApps }: { sections: Record<string, Array<Section>>; allApps: MDXEntry<App>[] }) {
+export default function ActivityBar({ sections, allApps, allLeetcode }: { sections: Record<string, Array<Section>>; allApps: MDXEntry<App>[], allLeetcode: MDXEntry<Leetcode>[] }) {
   const dispatch = useDispatch();
   const activeMenu = useSelector(selectMenu);
   const expanded = useSelector(selectExpanded);
@@ -79,7 +79,7 @@ export default function ActivityBar({ sections, allApps }: { sections: Record<st
           <Tooltip icon={<Gear />} text="Manage" active={false} handleMouseClick={() => {}} />
         </div>
       </div>
-      <CollapsableMenu allApps={allApps} />
+      <CollapsableMenu allApps={allApps} allLeetcode={allLeetcode} />
     </div>
   );
 }
