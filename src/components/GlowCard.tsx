@@ -1,7 +1,7 @@
 'use client';
 import clsx from 'clsx';
 import { motion, useMotionTemplate, useMotionValue, useTransform, type MotionValue } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 
 function Glow({ mouseX, mouseY, width, className }: { mouseX: MotionValue<number>; mouseY: MotionValue<number>; width: MotionValue<number>; className: string }) {
   let maskImage = useMotionTemplate`radial-gradient(${width.get() * 0.7}px at ${mouseX}px ${mouseY}px, white, transparent)`;
@@ -26,7 +26,6 @@ export default function GlowCard({ children, className = '', glowClassName = '' 
   const intervalRef = useRef<null | NodeJS.Timeout>(null);
 
   const onMouseMove: React.MouseEventHandler<HTMLDivElement> = ({ currentTarget, clientX, clientY }: React.MouseEvent<HTMLDivElement>) => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
     let { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
@@ -41,22 +40,21 @@ export default function GlowCard({ children, className = '', glowClassName = '' 
     }, 30);
   };
 
-  useEffect(() => {
+  const onMouseEnter: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    if (!intervalRef.current) return;
+    clearInterval(intervalRef.current!);
+  };
+
+  useLayoutEffect(() => {
     if (!containerRef.current) return;
     width.set(containerRef.current.clientWidth);
     height.set(containerRef.current.clientHeight);
-  }, [width, height, rotateX, rotateY, containerRef]);
+  });
 
   useEffect(() => {
-    const resizeInterval = setInterval(() => {
-      rotateX.set(0);
-      rotateY.set(0);
-    }, 30);
-
-    return () => {
-      clearInterval(resizeInterval);
-    };
-  }, [width, height, rotateX, rotateY]);
+    rotateX.set(0);
+    rotateY.set(0);
+  });
 
   const transform = useMotionTemplate`perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
@@ -69,6 +67,7 @@ export default function GlowCard({ children, className = '', glowClassName = '' 
       ref={containerRef}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
+      onMouseEnter={onMouseEnter}
       style={style}
       className={clsx(
         'group overflow-hidden p-6 sm:p-8 lg:p-12 relative z-10 rounded-2xl border border-gray-500/20 bg-gray-900/20 transition-all glow-card-transition-duration hover:shadow-md select-none',

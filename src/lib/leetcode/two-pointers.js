@@ -19,36 +19,42 @@ const content = [
       Output: false
       Explanation: "raceacar" is not a palindrome.
       Example 3:
-      
+
       Input: s = " "
       Output: true
       Explanation: s is an empty string "" after removing non-alphanumeric characters.
       Since an empty string reads the same forward and backward, it is a palindrome.
       
       Constraints:
-      1 <= s.length <= 2 * 105
-      s consists only of printable ASCII characters.
+
+      - 1 <= s.length <= 2 * 105
+      - s consists only of printable ASCII characters.
       `,
     code: `
       \`\`\`js
         const isPalindrome = function(s) {
       
           // turn string to lowercase and use regex to remove non-alphanumeric
-          s = s.toLowerCase();
-          s = s.replace(/[^A-Za-z0-9]/g, '');
+          s = s.replace(/[^\p{L}\p{N}]/giu, '');
+          s = s.toLowerCase()
       
-          let start = 0;
-          let end = s.length-1; 
+          let a = 0, b = s.length - 1
           
-          while (start < end){
-              
-              if(s[start] !== s[end]) return false
-              start++;
-              end--;
+          while(a < b){
+            if(s[a] !== s[b]) return false
+            a++
+            b--
           }
           return true
         };
       \`\`\`
+    `,
+    explanation: `
+      1. Get rid of non alphanumeric values and turn string to lowercase  
+      2. Pointer 'a' points at the beginning of the string and pointer 'b' points at the end of the string
+      3. While 'a' is less than 'b', if the values at 'a' and 'b' are not equal, return false
+      4. If the values at 'a' and 'b' are equal, increment 'a' and decrement 'b'
+      5. If the loop finishes, return true
     `,
   },
 ];
