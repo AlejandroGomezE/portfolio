@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import { Children, useEffect, useState } from 'react';
+import Button from './Button';
 
 function ClipboardIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -70,20 +71,15 @@ function CodePanel({ children }: { children: React.ReactNode; code?: string }) {
   );
 }
 
-interface LeetCodeSection {
-  title: string;
-  slug: string;
-  difficulty: string;
-  description: string;
-  code: string;
-}
-
-export function CodeGroup({ children, title, ...props }: React.ComponentPropsWithoutRef<typeof CodePanel> & { title: string }) {
+export function CodeGroup({ children, slug, ...props }: React.ComponentPropsWithoutRef<typeof CodePanel> & { slug: string }) {
   return (
     <div className="not-prose my-6 overflow-hidden rounded-2xl bg-zinc-900 dark:ring-1 dark:ring-white/10">
-      {title && (
-        <div className="flex flex-wrap items-start gap-x-4 border-b border-zinc-700 bg-zinc-800 px-4 dark:border-zinc-800 dark:bg-transparent">
-          <h3 className="mr-auto py-4 text-base font-semibold text-white">{title}</h3>
+      {slug && (
+        <div className="flex flex-wrap items-start gap-x-4 border-b border-zinc-700 bg-zinc-800 px-4 dark:border-zinc-800 dark:bg-transparent p-4">
+          <p className="self-center">Solution</p>
+          <Button href={'https://leetcode.com/problems/' + slug} target="_blank" variant="secondary" arrow="right" className="ml-auto rounded-md">
+            Try it yourself
+          </Button>
         </div>
       )}
       <CodePanel {...props}>{children}</CodePanel>

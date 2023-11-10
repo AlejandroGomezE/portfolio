@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm i ts-node -D && ts-node ./generate_leetcode_md.ts && next build",
+    "build": "npm i ts-node -D && ts-node ./src/lib/generateLeetcodeMdx.ts && next build",
     "start": "next start",
     "lint": "next lint"
   },

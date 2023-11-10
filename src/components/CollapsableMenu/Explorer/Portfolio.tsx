@@ -78,6 +78,9 @@ const subSectionsIcons: { [key: string]: JSX.Element } = {
   challenge: <ChallengeIcon />,
   solution: <SolutionIcon />,
   technologies: <TechnologiesIcon />,
+  easy: <div className="bg-green-500 rounded-full h-[16px] w-[16px] blur-[1px]" />,
+  medium: <div className="bg-yellow-500 rounded-full h-[16px] w-[16px] blur-[1px]" />,
+  hard: <div className="bg-red-500 rounded-full h-[16px] w-[16px] blur-[1px]" />,
 };
 
 export default function Portfolio({ allApps, allLeetcode }: { allApps: MDXEntry<AppType>[]; allLeetcode: MDXEntry<LeetcodeType>[] }) {
@@ -197,6 +200,8 @@ function FileSection({ id, title, url }: { id: string; title: string; url: strin
   const firstVisible = useSelector(selectSectionOrder)[0];
   const lastVisible = useSelector(selectSectionOrder).at(-1);
 
+  let splitId = id.split('.')[1] ? id.split('.')[1] : id;
+
   return (
     <AnimatePresence mode="popLayout" initial={true}>
       <motion.div
@@ -231,7 +236,7 @@ function FileSection({ id, title, url }: { id: string; title: string; url: strin
           </motion.span>
         )}
         <Link href={`${url}#${id}`} className={clsx('flex items-center hover:text-gray-500 px-[4px] transition-colors duration-300', isVisible ? 'text-blue-100' : 'text-gray-500')}>
-          {subSectionsIcons[id] ? <div className="mr-2">{subSectionsIcons[id]}</div> : <div className="mr-3 w-4" />}
+          {subSectionsIcons[splitId] ? <div className="mr-2">{subSectionsIcons[splitId]}</div> : <div className="mr-3 w-4" />}
           <p className="leading-5">{title}</p>
         </Link>
       </motion.div>

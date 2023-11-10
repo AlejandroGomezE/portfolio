@@ -1,6 +1,6 @@
 const content = [
   {
-    title: '125. Valid Palindrome',
+    title: 'Valid Palindrome',
     slug: 'valid-palindrome',
     difficulty: 'easy',
     description: `
@@ -8,26 +8,30 @@ const content = [
 
       Given a string s, return true if it is a palindrome, or false otherwise.
       
-      Example 1:
+      #### Example 1:
       
-      Input: s = "A man, a plan, a canal: Panama"
-      Output: true
-      Explanation: "amanaplanacanalpanama" is a palindrome.
-      Example 2:
+      <strong>Input</strong>: s = "A man, a plan, a canal: Panama"
+      <br/><strong>Output</strong>: true
+      <br/><strong>Explanation</strong>: "amanaplanacanalpanama" is a palindrome.
       
-      Input: s = "race a car"
-      Output: false
-      Explanation: "raceacar" is not a palindrome.
-      Example 3:
+      #### Example 2:
+      
+      <strong>Input</strong>: s = "race a car"
+      <br/><strong>Output</strong>: false
+      <br/><strong>Explanation</strong>: "raceacar" is not a palindrome.
+      
+      #### Example 3:
 
-      Input: s = " "
-      Output: true
-      Explanation: s is an empty string "" after removing non-alphanumeric characters.
+      <strong>Input</strong>: s = " "
+      <br/><strong>Output</strong>: true
+      <br/><strong>Explanation</strong>: s is an empty string "" after removing non-alphanumeric characters.
       Since an empty string reads the same forward and backward, it is a palindrome.
       
-      Constraints:
+      
+      
+      #### Constraints:
 
-      - 1 <= s.length <= 2 * 105
+      - \`1 <= s.length <= 2 * 105\`
       - s consists only of printable ASCII characters.
       `,
     code: `
@@ -50,6 +54,8 @@ const content = [
       \`\`\`
     `,
     explanation: `
+    #### Explanation:
+
       1. Get rid of non alphanumeric values and turn string to lowercase  
       2. Pointer 'a' points at the beginning of the string and pointer 'b' points at the end of the string
       3. While 'a' is less than 'b', if the values at 'a' and 'b' are not equal, return false

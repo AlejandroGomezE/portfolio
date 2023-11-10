@@ -67,14 +67,14 @@ export const explorerSlice = createSlice({
         }
       } else {
         if (action.payload.subMenu === SubMenu.EDITOR) {
-          let newHeight = subMenuPortafolio.scrollHeight;
+          let newHeight = subMenuPortafolio.clientHeight;
 
           if (subMenuEditor.scrollHeight > 100) {
             state.editor.maxHeight = '100px';
             newHeight = newHeight - 100;
           } else {
             state.editor.maxHeight = subMenuEditor.scrollHeight + 'px';
-            newHeight = newHeight - subMenuEditor.scrollHeight;
+            newHeight -= subMenuEditor.scrollHeight;
           }
 
           if (state.portfolio.open) {

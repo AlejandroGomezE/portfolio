@@ -19,8 +19,12 @@ export function h3(props: { children: React.ReactNode }) {
   return <Heading level={3} {...props} className="max-w-3xl text-xl sm:text-2xl mt-8" />;
 }
 
+export function h4(props: { children: React.ReactNode }) {
+  return <Heading level={4} {...props} className="max-w-3xl text-base sm:text-lg mt-5" />;
+}
+
 export function p({ children, className }: { children: React.ReactNode; className: string }) {
-  return <p className={clsx('mt-6 lg:text-lg text-gray-500', className)}>{children}</p>;
+  return <p className={clsx('mt-5 lg:text-lg text-gray-500', className)}>{children}</p>;
 }
 
 export function ol({ children }: { children: React.ReactNode }) {

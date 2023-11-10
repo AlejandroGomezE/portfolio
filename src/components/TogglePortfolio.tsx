@@ -9,12 +9,11 @@ export default function TogglePortfolio() {
       return;
     }
     dispatch(expandableSlice.actions.toggleMenu({ menu: Menu.EXPLORER }));
-    const t = setTimeout(() => {
+    const cleanup = window.requestAnimationFrame(() => {
       dispatch(explorerSlice.actions.toggleMenu({ subMenu: SubMenu.PORTFOLIO }));
-    }, 200);
-
+    });
     return () => {
-      clearTimeout(t);
+      window.cancelAnimationFrame(cleanup);
     };
   }, [dispatch]);
   return <></>;

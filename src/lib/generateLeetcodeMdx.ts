@@ -6,21 +6,41 @@ const directory = './src/app/leetcode';
 
 async function updateFrontMatter({ folder, filepath }: { folder: string; filepath: string }) {
   const { content }: { content: string } = matter(await readFile(filepath));
-  const jsonContent: Array<{ title: string; slug: string; difficulty: string; description: string; code: string }> = await require(`./src/lib/leetcode/${folder}.js`);
-  const insertIndex = content.indexOf('[//]: #ExamplesStart') + 20;
+  const jsonContent: Array<{ title: string; slug: string; difficulty: string; description: string; code: string; explanation: string }> = await require(`./leetcode/${folder}.js`);
 
+  const sectionsInsertIndex = content.indexOf('//SectionsStart') + 15;
+  const sectionsEndIndex = content.indexOf('//SectionsEnd');
+  const examplesStart = content.indexOf('[//]: #ExamplesStart') + 20;
   const examplesEnd = content.indexOf('[//]: #ExamplesEnd');
-  let newContent = content.slice(0, insertIndex);
 
-  for (const item of jsonContent) {
+  let newSections: { index: number; title: string; id: string }[] = [];
+
+  let newContent = content.slice(0, examplesStart);
+
+  for (const [index, item] of jsonContent.entries()) {
+    newSections.push({
+      index: index + 1,
+      title: item.title,
+      id: item.slug + '.' + item.difficulty,
+    });
     newContent += `
-    <CodeGroup title="${item.title}">
+    <Section id={sections[${index + 1}].id} className="pt-2">
+      <Border className="translate-y-5"/>
+    
+      ### ${item.title}
+
+      ${item.description}
+      <CodeGroup slug="${item.slug}">
         ${item.code}
-    </CodeGroup>
+      </CodeGroup>
+      ${item.explanation}
+    </Section>
     `;
   }
 
   newContent += content.slice(examplesEnd);
+
+  newContent = newContent.slice(0, sectionsInsertIndex) + '\n' + newSections.map((s) => `\t{ index: ${s.index}, title: '${s.title}', id: '${s.id}' },`) + '\n\t' + newContent.slice(sectionsEndIndex);
 
   await writeFile(filepath, newContent);
 }

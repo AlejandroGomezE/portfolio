@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "downlevelIteration": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -23,6 +24,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/**/*.tsx", "src/lib/providers.js", "src/icons/split-vertical-untoggled.jsx", "src/app/page.js", "src/components/NEw.jsx", "src/lib/leetcode/two-pointers.js", "generate_leetcode_md.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/**/*.tsx", "src/lib/providers.js", "src/icons/split-vertical-untoggled.jsx", "src/app/page.js", "src/components/NEw.jsx", "src/lib/leetcode/two-pointers.js", "src/lib/generateLeetcodeMdx.ts"],
   "exclude": ["node_modules"]
 }
