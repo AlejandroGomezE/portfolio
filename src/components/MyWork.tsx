@@ -37,7 +37,7 @@ const projects: Project[] = [
     image: { src: template1 },
   },
   {
-    href: '/apps/sierra-ecomanderas',
+    href: '/apps/sierra-ecomaderas',
     name: 'Sierra Ecomanderas',
     full: false,
     description: ' static website for a wood selling bussiness.',

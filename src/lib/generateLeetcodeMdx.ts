@@ -40,7 +40,7 @@ async function updateFrontMatter({ folder, filepath }: { folder: string; filepat
 
   newContent += content.slice(examplesEnd);
 
-  newContent = newContent.slice(0, sectionsInsertIndex) + '\n' + newSections.map((s) => `\t{ index: ${s.index}, title: '${s.title}', id: '${s.id}' },`) + '\n\t' + newContent.slice(sectionsEndIndex);
+  newContent = newContent.slice(0, sectionsInsertIndex)  + newSections.map((s) => `\n\t{ index: ${s.index}, title: '${s.title}', id: '${s.id}' }`) + '\n\t' + newContent.slice(sectionsEndIndex);
 
   await writeFile(filepath, newContent);
 }
