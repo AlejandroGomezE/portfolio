@@ -37,7 +37,7 @@ const content: contentSection[] = [
       title: 'Work Experience',
       description: (
         <div>
-          <span className="text-work_experience_orange">Mid Engineer</span> with <span className="text-work_experience_orange">3.5+ years</span> of experience in the software industry
+          <span className="text-work_experience_orange">Semi-Senior Engineer</span> with <span className="text-work_experience_orange">4 years</span> of experience in the software industry
         </div>
       ),
     },
@@ -114,8 +114,8 @@ export default function Index() {
               <div className="flex mt-3 mb-1">
                 Looking for a job{' '}
                 <span className="relative flex h-2 w-2 self-center mx-1">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                 </span>{' '}
                 / &#8205; <AnimatedTitle />
               </div>

@@ -4,12 +4,22 @@ import { default as Image } from 'next/image';
 
 const experience = [
   {
+    title: 'WestonDev | Full Stack Developer.',
+    date: 'Dic 2023 - Present',
+    description: [
+      'Developed front-end user interface using React, React Native and JavaScript for Web Apps, iOS and Android mobile applications.',
+      'Developed and maintained React Native components, screens, and features for the mobile app using TDD practices.',
+      'Collaborated with other developers to implement new features in a way that is consistent with existing codebase conventions.',
+    ],
+    image: { url: '/work/westondev.jpg', height: 96, width: 96, className: 'rounded-none' },
+  },
+  {
     title: 'Zenith Systems | Software Engineer.',
-    date: 'Oct 2022 - Present',
+    date: 'Oct 2022 - Dic 2023',
     description: [
       'Built an e-commerce site to sell courses online, by using React, Firebase Sass, Bootstrap, and Hotmart.',
       'Developed swift IOS app from scratch and modified existing ones, by adding new screens, transitions and styling.',
-      'Developed software by following the Agile Methodology',
+      'Developed software by following the Agile Methodology.',
     ],
     image: { url: '/work/zenith.png', height: 34, width: 110, className: '' },
   },
