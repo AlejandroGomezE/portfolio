@@ -23,16 +23,16 @@ const skillsLogos = {
       image: '/logos/ts-logo.png',
     },
     {
-      name: 'Python',
-      image: '/logos/python-logo.png',
+      name: 'Dart',
+      image: '/logos/dart.png',
     },
     {
-      name: 'C#',
-      image: '/logos/csharp-logo.png',
+      name: 'PHP',
+      image: '/logos/php.png',
     },
     {
-      name: 'Swift',
-      image: '/logos/swift-logo.png',
+      name: '',
+      image: '',
     },
     { name: '', image: '' },
     { name: '', image: '' },
@@ -59,40 +59,28 @@ const skillsLogos = {
       image: '/logos/react-logo.png',
     },
     {
-      name: 'NextJS',
-      image: '/logos/nextjs-logo.png',
-    },
-    {
-      name: 'Native',
-      image: '/logos/rnative-logo.png',
-    },
-    {
-      name: 'TailwindCSS',
-      image: '/logos/tailwindcss-logo.jpg',
+      name: 'Vue',
+      image: '/logos/vuejs-logo.jpg',
     },
     {
       name: 'Sass',
       image: '/logos/sass-logo.png',
     },
     {
-      name: 'JQuery',
-      image: '/logos/jquery-logo.webp',
-    },
-    {
-      name: 'Svelte',
-      image: '/logos/svelte-logo.png',
-    },
-    {
-      name: 'Bootstrap',
-      image: '/logos/bootstrap-logo.svg',
+      name: 'PrimeReact',
+      image: '/logos/prime-react.png',
     },
     {
       name: 'MaterialUI',
       image: '/logos/materialui-logo.png',
     },
     {
-      name: 'LeafletJS',
-      image: '/logos/leaflet-logo.jpg',
+      name: 'JQuery',
+      image: '/logos/jquery-logo.webp',
+    },
+    {
+      name: 'Bootstrap',
+      image: '/logos/bootstrap-logo.svg',
     },
     { name: '', image: '' },
     { name: '', image: '' },
@@ -120,12 +108,12 @@ const skillsLogos = {
       image: '/logos/postgres-logo.png',
     },
     {
-      name: 'Firebase',
-      image: '/logos/firebase-logo.jpg',
+      name: 'MySql',
+      image: '/logos/mysql.png',
     },
     {
-      name: 'Heroku',
-      image: '/logos/heroku-logo.webp',
+      name: 'Firebase',
+      image: '/logos/firebase-logo.jpg',
     },
     {
       name: 'DigitalOcean',
@@ -140,24 +128,20 @@ const skillsLogos = {
       image: '/logos/paypal-logo.png',
     },
     {
-      name: 'MercadoPago',
-      image: '/logos/mercadopago-logo.webp',
-    },
-    {
       name: 'awsS3',
       image: '/logos/s3-logo.png',
     },
     {
-      name: 'StrapiCMS',
-      image: '/logos/strapi-cms-logo.png',
+      name: '',
+      image: '',
     },
     {
-      name: 'SanityCMS',
-      image: '/logos/sanity-cms-logo.png',
+      name: '',
+      image: '',
     },
     {
-      name: 'DatoCMS',
-      image: '/logos/dato-cms-logo.png',
+      name: '',
+      image: '',
     },
   ],
   ['Tools' as string]: [
@@ -179,22 +163,29 @@ const skillsLogos = {
       image: '/logos/redux-logo.png',
     },
     {
-      name: 'Figma',
-      image: '/logos/figma-logo.webp',
-    },
-    {
       name: 'SocketIO',
       image: '/logos/socketio-logo.webp',
     },
     {
-      name: 'Mailchimp',
-      image: '/logos/mailchimp-logo.webp',
+      name: 'VSCode',
+      image: '/logos/vs-code.png',
     },
     {
-      name: 'Postmark',
-      image: '/logos/postmark-logo.png',
+      name: 'AWSCli',
+      image: '/logos/awscli.png',
     },
-    { name: '', image: '' },
+    {
+      name: 'GTM',
+      image: '/logos/gtm.png'
+    },
+    {
+      name: 'GA',
+      image: '/logos/ga.png'
+    },
+    {
+      name: 'Modyo',
+      image: '/logos/modyo.png'
+    },
     { name: '', image: '' },
     { name: '', image: '' },
     { name: '', image: '' },

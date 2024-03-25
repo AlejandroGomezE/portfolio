@@ -2,7 +2,7 @@ import { AboutMe, AnimatedTitle, Border, ContactForm, Container, FadeIn, GridPat
 import { Archive, BookOpen, BriefCase, Envelope } from '@/icons';
 
 export const metadata = {
-  title: 'Alejandro Gomez',
+  title: 'Jipson Saad',
   description: 'My personal portfolio.',
 };
 
@@ -23,7 +23,7 @@ interface contentSection {
   };
   mainContent: React.ReactNode;
 }
-
+const expirienceYears = new Date().getFullYear() - 2019
 const content: contentSection[] = [
   {
     id: sections[1].id,
@@ -37,7 +37,7 @@ const content: contentSection[] = [
       title: 'Work Experience',
       description: (
         <div>
-          <span className="text-work_experience_orange">Semi-Senior Engineer</span> with <span className="text-work_experience_orange">4 years</span> of experience in the software industry
+          <span className="text-work_experience_orange">Senior Engineer</span> with <span className="text-work_experience_orange">{expirienceYears} years</span> of experience in the software industry
         </div>
       ),
     },
@@ -62,24 +62,24 @@ const content: contentSection[] = [
     },
     mainContent: <Skills />,
   },
-  {
-    id: sections[3].id,
-    sectionHeader: {
-      icon: (
-        <>
-          <Archive height="28" width="28" />
-          <span className="bg-my_work_yellow icon-blur absolute inset-0 -z-10"></span>
-        </>
-      ),
-      title: 'My Work',
-      description: (
-        <div>
-          Some of <span className="text-my_work_yellow">my work</span> as a full stack <span className="text-my_work_yellow">web</span> developer
-        </div>
-      ),
-    },
-    mainContent: <MyWork />,
-  },
+  // {
+  //   id: sections[3].id,
+  //   sectionHeader: {
+  //     icon: (
+  //       <>
+  //         <Archive height="28" width="28" />
+  //         <span className="bg-my_work_yellow icon-blur absolute inset-0 -z-10"></span>
+  //       </>
+  //     ),
+  //     title: 'My Work',
+  //     description: (
+  //       <div>
+  //         Some of <span className="text-my_work_yellow">my work</span> as a full stack <span className="text-my_work_yellow">web</span> developer
+  //       </div>
+  //     ),
+  //   },
+  //   mainContent: <MyWork />,
+  // },
   {
     id: sections[4].id,
     sectionHeader: {
@@ -101,6 +101,7 @@ const content: contentSection[] = [
 ];
 
 export default function Index() {
+  const age = new Date().getFullYear() - 1997
   return (
     <div className="w-full overflow-y-auto overflow-x-hidden">
       <GridPattern />
@@ -109,17 +110,17 @@ export default function Index() {
           <div className="min-h-screen relative">
             <FadeIn className="max-w-5xl pt-40 md:pt-[20vh] 2xl:pt-[30vh]">
               <h1 className="font-display text-5xl font-medium tracking-tight [text-wrap:balance] sm:text-6xl">
-                Alejandro Gomez<span className="wave">👋</span>
+                Jipson Saad<span className="wave">👋</span>
               </h1>
               <div className="flex mt-3 mb-1">
-                Looking for a job{' '}
+                Currently working on <a className='ml-2' href='https://www.thoughtworks.com/' target='_blank'>Thoughtworks</a>{' '}
                 <span className="relative flex h-2 w-2 self-center mx-1">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                 </span>{' '}
                 / &#8205; <AnimatedTitle />
               </div>
-              <p className="max-w-3xl">26 yo software engineer with a B.S. in Computer Science and Technology with experience in Front-End and Back-End technologies.</p>
+              <p className="max-w-3xl">{age} yo software engineer with experience in Front-End and Back-End technologies.</p>
             </FadeIn>
 
             <Socials />

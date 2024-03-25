@@ -54,6 +54,8 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
+    "acorn-jsx": "^5.3.2",
+    "escape-string-regexp": "^5.0.0",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
     "ts-node": "^10.9.1"
