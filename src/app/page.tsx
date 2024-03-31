@@ -1,5 +1,5 @@
-import { AboutMe, AnimatedTitle, Border, ContactForm, Container, FadeIn, GridPattern, MyWork, Section, SectionHeader, Skills, Socials, Stars, WorkExperience } from '@/components';
-import { Archive, BookOpen, BriefCase, Envelope } from '@/icons';
+import { AboutMe, AnimatedTitle, Border, ContactForm, Container, FadeIn, GridPattern, Section, SectionHeader, Skills, Socials, Stars, WorkExperience } from '@/components';
+import { BookOpen, BriefCase, Envelope } from '@/icons';
 
 export const metadata = {
   title: 'Jipson Saad',
@@ -37,7 +37,7 @@ const content: contentSection[] = [
       title: 'Work Experience',
       description: (
         <div>
-          <span className="text-work_experience_orange">Senior Engineer</span> with <span className="text-work_experience_orange">{expirienceYears} years</span> of experience in the software industry
+          <span className="text-work_experience_orange">Software Engineer</span> with <span className="text-work_experience_orange">{expirienceYears} years</span> of experience in the software industry
         </div>
       ),
     },
@@ -62,24 +62,6 @@ const content: contentSection[] = [
     },
     mainContent: <Skills />,
   },
-  // {
-  //   id: sections[3].id,
-  //   sectionHeader: {
-  //     icon: (
-  //       <>
-  //         <Archive height="28" width="28" />
-  //         <span className="bg-my_work_yellow icon-blur absolute inset-0 -z-10"></span>
-  //       </>
-  //     ),
-  //     title: 'My Work',
-  //     description: (
-  //       <div>
-  //         Some of <span className="text-my_work_yellow">my work</span> as a full stack <span className="text-my_work_yellow">web</span> developer
-  //       </div>
-  //     ),
-  //   },
-  //   mainContent: <MyWork />,
-  // },
   {
     id: sections[4].id,
     sectionHeader: {

@@ -14,7 +14,6 @@ import ExpandArrowLink from './ExpandArrowLink';
 import { FadeIn, FadeInStagger, Stagger } from './FadeIn';
 import GlowCard from './GlowCard';
 import GridPattern from './GridPattern';
-import MyWork from './MyWork';
 import PageLinks from './PageLinks';
 import Section from './Section';
 import SectionHeader from './SectionHeader';
@@ -44,7 +43,6 @@ export {
   FadeInStagger,
   GlowCard,
   GridPattern,
-  MyWork,
   PageLinks,
   Section,
   SectionHeader,

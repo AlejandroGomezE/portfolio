@@ -155,6 +155,10 @@ const skillsLogos = {
     },
     { name: 'Docker', image: '/logos/docker-logo.png' },
     {
+      name: 'Module Federation',
+      image: '/logos/mf.png',
+    },
+    {
       name: 'EsLint',
       image: '/logos/eslint-logo.png',
     },
@@ -169,6 +173,22 @@ const skillsLogos = {
     {
       name: 'VSCode',
       image: '/logos/vs-code.png',
+    },
+    {
+      name: 'Webpack',
+      image: '/logos/webpack.png',
+    },
+    {
+      name: 'Vite',
+      image: '/logos/vite-js.svg',
+    },
+    {
+      name: 'Rspack',
+      image: '/logos/rspack.png',
+    },
+    {
+      name: 'Vitest',
+      image: '/logos/vitest.svg',
     },
     {
       name: 'AWSCli',
