@@ -1,4 +1,4 @@
-import { AboutMe, AnimatedTitle, Border, ContactForm, Container, FadeIn, GridPattern, Section, SectionHeader, Skills, Socials, Stars, WorkExperience } from '@/components';
+import { AboutMe, AnimatedTitle, Border, Container, FadeIn, GridPattern, Section, SectionHeader, Skills, Socials, Stars, WorkExperience } from '@/components';
 import { BookOpen, BriefCase, Envelope } from '@/icons';
 
 export const metadata = {
@@ -11,7 +11,6 @@ export const sections = [
   { index: 1, title: 'Work Experience', id: 'work-experience' },
   { index: 2, title: 'Skills', id: 'skills' },
   { index: 3, title: 'My Work', id: 'my-work' },
-  { index: 4, title: 'Contact Me', id: 'contact' },
 ];
 
 interface contentSection {
@@ -61,24 +60,6 @@ const content: contentSection[] = [
       ),
     },
     mainContent: <Skills />,
-  },
-  {
-    id: sections[4].id,
-    sectionHeader: {
-      icon: (
-        <>
-          <Envelope height="28" width="28" />
-          <span className="bg-blue-400 icon-blur absolute inset-0 -z-10"></span>
-        </>
-      ),
-      title: 'Contact Me',
-      description: (
-        <div>
-          Get in <span className="text-blue-400">contact</span> and let&apos;s <span className="text-blue-400">work together</span>
-        </div>
-      ),
-    },
-    mainContent: <ContactForm />,
   },
 ];
 

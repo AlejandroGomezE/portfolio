@@ -8,7 +8,6 @@ import BottomBar from './BottomBar';
 import Button from './Button';
 import { CodeGroup } from './Code';
 import CollapsableMenu from './CollapsableMenu';
-import ContactForm from './ContactForm';
 import Container from './Container';
 import ExpandArrowLink from './ExpandArrowLink';
 import { FadeIn, FadeInStagger, Stagger } from './FadeIn';
@@ -36,7 +35,6 @@ export {
   Button,
   CodeGroup,
   CollapsableMenu,
-  ContactForm,
   Container,
   ExpandArrowLink,
   FadeIn,
