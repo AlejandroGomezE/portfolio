@@ -4,8 +4,8 @@ export async function POST(request: Request) {
   const body = await request.json();
   try {
     await client.sendEmail({
-      From: process.env.EMAIL_FROM,
-      To: process.env.EMAIL_TO,
+      From: process.env.EMAIL_FROM || '',
+      To: process.env.EMAIL_TO || '',
       Subject: 'Porfolio Contact Form',
       HtmlBody: `
         <h1>Portfolio Contact Form</h1>
