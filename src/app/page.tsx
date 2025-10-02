@@ -37,7 +37,7 @@ const content: contentSection[] = [
       title: 'Work Experience',
       description: (
         <div>
-          <span className="text-work_experience_orange">Semi-Senior Engineer</span> with <span className="text-work_experience_orange">4 years</span> of experience in the software industry
+          <span className="text-work_experience_orange">Semi-Senior Engineer</span> with <span className="text-work_experience_orange">5.5+ years</span> of experience in the software industry
         </div>
       ),
     },
@@ -119,7 +119,7 @@ export default function Index() {
                 </span>{' '}
                 / &#8205; <AnimatedTitle />
               </div>
-              <p className="max-w-3xl">26 yo software engineer with a B.S. in Computer Science and Technology with experience in Front-End and Back-End technologies.</p>
+              <p className="max-w-3xl">28 yo software engineer with a B.S. in Computer Science and Technology with experience in Front-End and Back-End technologies.</p>
             </FadeIn>
 
             <Socials />
