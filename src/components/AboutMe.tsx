@@ -26,7 +26,7 @@ export default function AboutMe() {
             <h3 className="text-lg font-semibold leading-8 tracking-tight text-white">Jose Alejandro Gomez Elizondo</h3>
             <p className="text-base leading-7 text-about_me_green">Full-stack Web Developer</p>
             <p className="mt-4 text-lg text-gray-500">I&apos;m an experienced software engineer who constantly seeks out innovative solutions to everyday problems.</p>
-            <p className="mt-4 text-lg text-gray-500">After 4 years in this industry I have worked with multiple front-end and back-end technologies.</p>
+            <p className="mt-4 text-lg text-gray-500">After 6 years in this industry I have worked with multiple front-end and back-end technologies.</p>
           </div>
           <div className="flex-none mx-auto">
             <Image className="rounded-full object-cover" src="/me.jpg" alt="" height={208} width={208} />

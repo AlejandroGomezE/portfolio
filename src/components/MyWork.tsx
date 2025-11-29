@@ -2,7 +2,16 @@
 import { ExpandArrowLink, GlowCard } from '@/components';
 import clsx from 'clsx';
 import Image, { StaticImageData } from 'next/image';
-import { impulseux, leenithBorges, leenithIos, loteriaMonarca, realtorSimplified, sierraEcomaderas, template1 } from '../../public/projects/';
+import {
+  financetelli,
+  impulseux,
+  leenithBorges,
+  leenithIos,
+  loteriaMonarca,
+  realtorSimplified,
+  sierraEcomaderas,
+  template1,
+} from '../../public/projects/';
 
 interface Project {
   href: string;
@@ -16,18 +25,18 @@ interface Project {
 
 const projects: Project[] = [
   {
-    href: '/apps/realtor-simplified',
-    name: 'Realtor Simplified',
+    href: '/apps/financetelli',
+    name: 'Financetelli',
     full: true,
-    description: ' saas platform that enables realtors to deploy a professional website in minutes.',
-    image: { src: realtorSimplified },
+    description: ' Saas platform to manage and track financial goals and spending, with the help of AI.',
+    image: { src: financetelli },
   },
   {
-    href: '/apps/loteria-monarca',
-    name: 'Loteria Monarca',
-    full: true,
-    description: ' online platform to register and play Loteria Mexicana.',
-    image: { src: loteriaMonarca },
+    href: '/apps/realtor-simplified',
+    name: 'Realtor Simplified',
+    full: false,
+    description: ' saas platform that enables realtors to deploy a professional website in minutes.',
+    image: { src: realtorSimplified },
   },
   {
     href: '/apps/realtor-template-1',
@@ -35,6 +44,13 @@ const projects: Project[] = [
     full: false,
     description: ' deployable template on the realtor simplified platform.',
     image: { src: template1 },
+  },
+  {
+    href: '/apps/loteria-monarca',
+    name: 'Loteria Monarca',
+    full: true,
+    description: ' online platform to register and play Loteria Mexicana.',
+    image: { src: loteriaMonarca },
   },
   {
     href: '/apps/sierra-ecomaderas',
@@ -46,7 +62,7 @@ const projects: Project[] = [
   {
     href: '/apps/leenith-borges',
     name: 'Leenith',
-    full: true,
+    full: false,
     description: ' e-commerce website to manage, and sell courses online.',
     image: { src: leenithBorges },
   },

@@ -132,6 +132,10 @@ const skillsLogos = {
       image: '/logos/digital-ocean-logo.svg',
     },
     {
+      name: 'Render',
+      image: '/logos/render-logo.png',
+    },
+    {
       name: 'Stripe',
       image: '/logos/stripe-logo.png',
     },
@@ -146,6 +150,10 @@ const skillsLogos = {
     {
       name: 'awsS3',
       image: '/logos/s3-logo.png',
+    },
+    {
+      name: 'EC2',
+      image: '/logos/ec2-logo.png',
     },
     {
       name: 'StrapiCMS',

@@ -1,0 +1,177 @@
+import { AppSolution, Border, Button, Container, FadeIn, FadeInStagger, Section } from '@/components';
+import Image from 'next/image';
+import { financetelli } from '../../../../public/projects';
+
+export const appData = {
+  industry: 'Fintech',
+  title: 'Financetelli',
+  description: 'Financetelli is a saas platform to manage and track financial goals and spending, with the help of AI.',
+  image: financetelli,
+  date: '2025-10',
+  service: 'Saas application',
+  url: 'https://financetelli.com/',
+  pathname: '/apps/financetelli',
+  framework: 'next',
+};
+
+export const sections = [
+  { index: 0, title: 'About', id: 'about' },
+  { index: 1, title: 'Challenge', id: 'challenge' },
+  { index: 2, title: 'Solution', id: 'solution' },
+  { index: 3, title: 'Technologies', id: 'technologies' },
+];
+
+export const metadata = {
+  title: `${appData.title}`,
+  description: appData.description,
+};
+
+export const technologies = [
+  {
+    name: 'HTML5',
+    image: '/logos/html5-logo.png',
+  },
+  {
+    name: 'CSS3',
+    image: '/logos/css-logo.png',
+  },
+  {
+    name: 'JavaScript',
+    image: '/logos/js-logo.png',
+  },
+  {
+    name: 'ReactJS',
+    image: '/logos/react-logo.png',
+  },
+  {
+    name: 'NextJS',
+    image: '/logos/nextjs-logo.png',
+  },
+  {
+    name: 'TailwindCSS',
+    image: '/logos/tailwindcss-logo.jpg',
+  },
+  {
+    name: 'NodeJS',
+    image: '/logos/nodejs-logo.png',
+  },
+  {
+    name: 'NestJS',
+    image: '/logos/nestjs-logo.png',
+  },
+  {
+    name: 'PostgresSql',
+    image: '/logos/postgres-logo.png',
+  },
+  {
+    name: 'Stripe',
+    image: '/logos/stripe-logo.png',
+  },
+  {
+    name: 'DigitalOcean',
+    image: '/logos/digital-ocean-logo.svg',
+  },
+  {
+    name: 'Render',
+    image: '/logos/render-logo.png',
+  },
+  {
+    name: 'Git',
+    image: '/logos/git-logo.png',
+  },
+  {
+    name: 'Github',
+    image: '/logos/github-logo.webp',
+  },
+  { name: 'Docker', image: '/logos/docker-logo.png' },
+  {
+    name: 'Postmark',
+    image: '/logos/postmark-logo.png',
+  },
+];
+
+<Container>
+
+<Border className="my-8" />
+
+  <Section id="challenge">
+    ## Challenge
+
+    Design & Develop a platform that allows users to manage their financial goals and spending, with the help of AI. This application needs to have multiple services coupled together:
+
+    1. Create banks and bank accounts for users.
+    2. Create transactions and assign them to a bank account.
+    3. Create Categories and budgets for transactions.
+    4. Ability to upload bank statements and have them analyzed by AI to create transactions.
+    5. Ability to create alerts and notifications for financial goals and budgets.
+    6. Rules to automatically categorize or modify transactions when they meet certain criteria.
+
+  </Section>
+
+<Border className="my-8" />
+
+<Section id="solution">
+
+## Solution
+
+<AppSolution image='financetelli.png' href={appData.url}>
+
+High level architecture of the application.
+
+The 'Dashboard' is a Next.js application that faces the user. It is where a user can register, authenticate, and manage their financial data. Users can view their dashboard with income, expenses, and savings analytics, manage transactions, upload bank statements, configure banks and products, organize categories and budgets, create automation rules, and manage links and debts.
+
+The 'API' is a NestJS server that serves as the backend for the 'Dashboard' and coordinates with the 'Worker' system. It's job is to receive requests from the 'Dashboard' and initialize any of the 2 job sequences available:
+
+There is also a series of Redis queues that execute in sequence depending on which queue they start at. The queues are: 'statements' (initializes statement processing), 'upload' (handles file uploads to S3), 'gemini' (processes PDFs with AI to extract transactions), and 'transactions' (creates transaction records in the database). It is important to note, that job error handling and job initialization is only done by the 'API' this is why the 'Worker' needs to notify the 'API' whenever a job is finished correctly or incorrectly through queue event listeners that update statement statuses and handle error states.
+
+<ul role="list" className="mt-6 space-y-8">
+  <li>
+    <span>
+      <strong className="font-semibold text-blue-100">Statement Processing (user triggered):</strong> This sequence is executed when a user uploads a bank statement PDF. The statement is processed through a multi-stage pipeline: first, the file is optionally uploaded to S3 storage, then the PDF is processed using Google Gemini AI to extract transaction data, and finally the extracted transactions are created in the database. The system tracks the progress of each step and updates the statement status accordingly.
+    </span>
+  </li>
+  <li>
+    <span>
+      <strong className="font-semibold text-blue-100">Budget Sync:</strong> This sequence is executed daily at midnight via a cron job. It synchronizes all user budgets to ensure they reflect the current period's spending and remain accurate for budget tracking.
+    </span>
+  </li>
+  <li>
+    <span>
+      <strong className="font-semibold text-blue-100">Transaction Categorization:</strong> This sequence is executed whenever a new transaction is created. It applies rules to automatically categorize or modify the transaction based on predefined criteria, such as amounts, dates, descriptions, or merchant names. The system reads the transaction's category and budget associations accordingly.
+    </span>
+  </li>
+</ul>
+</AppSolution>
+
+</Section>
+
+<Border className="my-8" />
+
+<Section id="technologies">
+
+## Technologies
+
+<FadeInStagger className="flex gap-4 mt-6 flex-wrap" faster once>
+  {technologies.map((tech) => (
+    <FadeIn key={tech.name}>
+      <div className="mt-auto">
+        <Image
+          src={tech.image}
+          className="object-contain rounded-md m-auto"
+          alt=""
+          height={64}
+          width={64}
+          style={{
+            width: 64,
+            height: 64,
+          }}
+        />
+        <h4 className="text-sm font-semibold tracking-tight text-[#525df3] text-center bg-white rounded-full w-min px-2 m-2 mx-auto">{tech.name}</h4>
+      </div>
+    </FadeIn>
+  ))}
+</FadeInStagger>
+
+</Section>
+
+</Container>
