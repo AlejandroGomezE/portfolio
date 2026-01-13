@@ -8,6 +8,7 @@ import {
   leenithBorges,
   leenithIos,
   loteriaMonarca,
+  oneill,
   realtorSimplified,
   sierraEcomaderas,
   template1,
@@ -31,6 +32,13 @@ const projects: Project[] = [
     description: ' Saas platform to manage and track financial goals and spending, with the help of AI.',
     image: { src: financetelli },
   },
+  {
+    href: '/apps/oneill',
+    name: 'O\'Neill',
+    full: true,
+    description: ' mobile app for the biggest insurance FMO in the USA to empower agents with tech and speed to sell ACA, PPO, dental, life & more (ios & android)',
+    image: { src: oneill },
+  },  
   {
     href: '/apps/realtor-simplified',
     name: 'Realtor Simplified',
@@ -68,7 +76,7 @@ const projects: Project[] = [
   },
   {
     href: '/apps/leenith-borges',
-    name: 'Leenith IOS',
+    name: 'Leenith',
     full: false,
     description: ' ios app to access and buy courses.',
     image: { src: leenithIos },

@@ -1,0 +1,128 @@
+import { AppSolution, Border, Button, Container, FadeIn, FadeInStagger, Section } from '@/components';
+import Image from 'next/image';
+import { oneill } from '../../../../public/projects'
+
+export const appData = {
+  industry: 'Insurance',
+  title: 'O\'Neill Marketing',
+  description: 'Mobile agent portal for O\'Neill Marketing, America\'s #1 FMO. Empowers insurance agents to manage carrier appointments, access resources, and stay connected on the go.',
+  image: oneill,
+  date: '2025-08',
+  service: 'Mobile app',
+  url: 'https://apps.apple.com/us/app/oneill-portal/id6753363820/',
+  pathname: '/apps/oneill',
+  framework: 'react',
+};
+
+export const sections = [
+  { index: 0, title: 'About', id: 'about' },
+  { index: 1, title: 'Challenge', id: 'challenge' },
+  { index: 2, title: 'Solution', id: 'solution' },
+  { index: 3, title: 'Technologies', id: 'technologies' },
+];
+
+export const metadata = {
+  title: `${appData.title}`,
+  description: appData.description,
+};
+
+export const technologies = [
+  {
+    name: 'Typescript',
+    image: '/logos/ts-logo.png',
+  },
+  {
+    name: 'RNative',
+    image: '/logos/rnative-logo.png',
+  },
+  {
+    name: 'Firebase',
+    image: '/logos/firebase-logo.jpg',
+  },
+  {
+    name: 'Git',
+    image: '/logos/git-logo.png',
+  },
+  {
+    name: 'Github',
+    image: '/logos/github-logo.webp',
+  },
+];
+
+<Container>
+
+<Border className="my-8" />
+
+<Section id="about">
+  ## About
+
+  O'Neill Marketing is America's #1 Field Marketing Organization (FMO), empowering over 6,000 agents and 700+ agencies since 2016. They help agents grow their book with ACA, Off-Market Major Medical, and Ancillary products, backed by streamlined onboarding, real-time support, and top-tier technology.
+
+  The O'Neill Portal mobile app brings the power of the agent portal to agents' fingertips, allowing them to manage their business anywhere, anytime.
+
+</Section>
+
+<Border className="my-8" />
+
+  <Section id="challenge">
+    ## Challenge
+
+    Develop a mobile application for android and ios in 3 months that provides insurance agents with on-the-go access to their O'Neill Marketing portal. The app needed to enable agents to:
+
+    - Stay informed with company announcements and upcoming events.
+    - Receive timely push notifications for important updates and events.
+    - Request and manage carrier appointments directly from their mobile device.
+    - Upload required documents for carrier appointments.
+    - Manage and update their profile information.
+    - Access carrier resources and support materials.
+
+  </Section>
+
+<Border className="my-8" />
+
+<Section id="solution">
+
+## Solution
+
+<AppSolution href={appData.url}>
+
+The O'Neill Portal mobile app provides insurance agents with a comprehensive mobile solution to manage their business operations. Built as a React Native application, it offers seamless access to the agent portal's core features optimized for mobile devices.
+
+Key features include a centralized announcements feed where agents can view O'Neill Marketing updates and upcoming events, with push notification support to ensure they never miss important information. The app streamlines the carrier appointment process, allowing agents to request new appointments and upload required documentation directly from their device.
+
+Agents can manage their profile information, ensuring their details are always up to date. The app also provides quick access to carrier resources, including portal links, contacts, member resources, and broker support materials, making it easy for agents to find what they need while on the go.
+
+</AppSolution>
+
+</Section>
+
+<Border className="my-8" />
+
+<Section id="technologies">
+
+## Technologies
+
+<FadeInStagger className="flex gap-4 mt-6 flex-wrap" faster once>
+  {technologies.map((tech) => (
+    <FadeIn key={tech.name}>
+      <div className="mt-auto">
+        <Image
+          src={tech.image}
+          className="object-contain rounded-md m-auto"
+          alt=""
+          height={64}
+          width={64}
+          style={{
+            width: 64,
+            height: 64,
+          }}
+        />
+        <h4 className="text-sm font-semibold tracking-tight text-[#525df3] text-center rounded-full w-min px-2 m-2 mx-auto">{tech.name}</h4>
+      </div>
+    </FadeIn>
+  ))}
+</FadeInStagger>
+
+</Section>
+
+</Container>

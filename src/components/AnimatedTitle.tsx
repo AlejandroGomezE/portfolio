@@ -25,6 +25,7 @@ export default function AnimatedTitle() {
   const frontEnd = useAnimationControls();
   const backEnd = useAnimationControls();
   const web = useAnimationControls();
+  const mobile = useAnimationControls();
 
   useEffect(() => {
     let hasCanceled_ = false;
@@ -39,6 +40,10 @@ export default function AnimatedTitle() {
       { controller: backEnd, value: 'visible' },
       { controller: web, value: 1000 },
       { controller: backEnd, value: 'hidden' },
+      { controller: web, value: 'hidden' },
+      { controller: mobile, value: 'visible' },
+      { controller: web, value: 1000 },
+      { controller: mobile, value: 'hidden' },
       { controller: web, value: 'hidden' },
     ];
 
@@ -63,15 +68,18 @@ export default function AnimatedTitle() {
 
   return (
     <div className="flex text-blue-100">
+      <motion.div variants={list} initial="hidden" animate={mobile}>
+        <WriteWord word="Mobile" />
+      </motion.div>
       <motion.div variants={list} initial="hidden" animate={web}>
         <WriteWord word="Web" />
       </motion.div>
       <div className="text-transparent">a</div>
       <motion.div variants={list} initial="hidden" animate={frontEnd}>
-        <WriteWord word="Front-End" />
+        <WriteWord word="Frontend" />
       </motion.div>
       <motion.div variants={list} initial="hidden" animate={backEnd}>
-        <WriteWord word="Back-End" />
+        <WriteWord word="Backend" />
       </motion.div>
     </div>
   );

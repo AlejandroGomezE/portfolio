@@ -6,10 +6,11 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const skills = [
-  { skill: 'Languages', buttonClassNames: 'rounded-tl-full', textClassNames: '-translate-x-5' },
-  { skill: 'Front', buttonClassNames: 'rounded-tr-full', textClassNames: 'translate-x-3 translate-y-1' },
-  { skill: 'Back', buttonClassNames: 'rounded-bl-full', textClassNames: 'translate-x-8 -translate-y-3' },
-  { skill: 'Tools', buttonClassNames: 'rounded-br-full', textClassNames: 'translate-x-3 -translate-y-3' },
+  { skill: 'Languages' },
+  { skill: 'Front' },
+  { skill: 'Back' },
+  { skill: 'Mobile' },
+  { skill: 'Tools' },
 ];
 
 const skillsLogos = {
@@ -22,6 +23,7 @@ const skillsLogos = {
       name: 'TypeScript',
       image: '/logos/ts-logo.png',
     },
+    { name: 'Dart', image: '/logos/dart-logo.png' },
     {
       name: 'Python',
       image: '/logos/python-logo.png',
@@ -30,11 +32,6 @@ const skillsLogos = {
       name: 'C#',
       image: '/logos/csharp-logo.png',
     },
-    {
-      name: 'Swift',
-      image: '/logos/swift-logo.png',
-    },
-    { name: '', image: '' },
     { name: '', image: '' },
     { name: '', image: '' },
     { name: '', image: '' },
@@ -61,10 +58,6 @@ const skillsLogos = {
     {
       name: 'NextJS',
       image: '/logos/nextjs-logo.png',
-    },
-    {
-      name: 'Native',
-      image: '/logos/rnative-logo.png',
     },
     {
       name: 'TailwindCSS',
@@ -168,6 +161,30 @@ const skillsLogos = {
       image: '/logos/dato-cms-logo.png',
     },
   ],
+  ['Mobile' as string]: [
+    {
+      name: 'RNative',
+      image: '/logos/rnative-logo.png',
+    },
+    { name: 'Flutter', image: '/logos/flutter-logo.png' },
+    {
+      name: 'Swift',
+      image: '/logos/swift-logo.png',
+    },
+    { name: '', image: '' },
+    { name: '', image: '' },
+    { name: '', image: '' },
+    { name: '', image: '' },
+    { name: '', image: '' },
+    { name: '', image: '' },
+    { name: '', image: '' },
+    { name: '', image: '' },
+    { name: '', image: '' },
+    { name: '', image: '' },
+    { name: '', image: '' },
+    { name: '', image: '' },
+    { name: '', image: '' },
+  ],
   ['Tools' as string]: [
     {
       name: 'Git',
@@ -215,6 +232,7 @@ const skillsTitles = {
   ['Languages' as string]: 'Programming Languages',
   ['Front' as string]: 'Frontend',
   ['Back' as string]: 'Backend',
+  ['Mobile' as string]: 'Mobile',
   ['Tools' as string]: 'Tools',
 };
 
@@ -236,17 +254,15 @@ export default function Skills() {
         <div className="row-start-4 col-span-3 h-[115px] flex items-center justify-center @2xl:col-start-4 @2xl:row-start-1 @3xl:col-start-4 @4xl:col-start-4 @4xl:col-span-5 @3xl:justify-start @2xl:h-[40px] @3xl:mt-auto">
           <h2 className="text-center text-3xl font-semibold @2xl:ml-[32px]">{skillsTitles[activeSkill]}</h2>
         </div>
-        <div className="skills-picker w-[325px] m-[10px] h-[325px] col-span-3 row-span-3 place-self-center isolate">
-          <div className="rounded-full inset-6 absolute grid grid-cols-2 p-2 gap-2 rotate-45">
-            {skills.map((skill) => (
-              <button onClick={handleChangeSkill} key={skill.skill} className={clsx('rounded-[500px] skills-buttons', skill.buttonClassNames, activeSkill === skill.skill && 'skills-buttons-active')}>
-                <p className={clsx('text-3xl text-white font-semibold tracking-wide w-min -rotate-45', skill.textClassNames)}>
-                  {skill.skill}
-                  <span className={clsx('transition-all duration-300 -z-10 bg-[#525df3] absolute bottom-0 left-0 right-0 w-full', activeSkill === skill.skill ? 'h-[18px]' : 'h-[2px]')}></span>
-                </p>
-              </button>
-            ))}
-          </div>
+        <div className="skills-picker col-span-3 row-span-3 place-self-center flex flex-wrap items-center justify-center gap-2 p-4">
+          {skills.map((skill) => (
+            <button onClick={handleChangeSkill} key={skill.skill} className={clsx('skills-buttons px-6 py-3 rounded-lg relative', activeSkill === skill.skill && 'skills-buttons-active')}>
+              <p className="text-xl text-white font-semibold tracking-wide">
+                {skill.skill}
+                <span className={clsx('transition-all duration-300 -z-10 bg-[#525df3] absolute bottom-0 left-0 right-0 w-full rounded-b-lg h-[4px]')}></span>
+              </p>
+            </button>
+          ))}
         </div>
         {skillsLogos[activeSkill].map((skill, index) => {
           if (!skill.name) return <div key={index} className="h-[115px] w-24" />;
@@ -265,7 +281,7 @@ export default function Skills() {
                     height: 64,
                   }}
                 />
-                <h3 className="text-sm font-semibold tracking-tight text-[#525df3] text-center bg-white rounded-full w-min px-2 m-2 mx-auto">{skill.name}</h3>
+                <h3 className="text-sm font-semibold tracking-tight text-[#525df3] text-center rounded-full w-min px-2 m-2 mx-auto">{skill.name}</h3>
               </div>
             </FadeIn>
           );

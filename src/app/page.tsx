@@ -55,8 +55,8 @@ const content: contentSection[] = [
       title: 'Skills',
       description: (
         <div>
-          <span className="text-skills_purple">Full Stack</span> software developer with experience in <span className="text-skills_purple">Front-End</span> and{' '}
-          <span className="text-skills_purple">Back-End</span> technologies
+          <span className="text-skills_purple">Full Stack</span> software developer with experience in <span className="text-skills_purple">Frontend</span>, {' '}
+          <span className="text-skills_purple">Backend</span> and{' '} <span className="text-skills_purple">Mobile</span> technologies
         </div>
       ),
     },
@@ -74,7 +74,7 @@ const content: contentSection[] = [
       title: 'My Work',
       description: (
         <div>
-          Some of <span className="text-my_work_yellow">my work</span> as a full stack <span className="text-my_work_yellow">web</span> developer
+          Some of <span className="text-my_work_yellow">my work</span> as a full stack <span className="text-my_work_yellow">web & mobile</span> developer
         </div>
       ),
     },
@@ -119,7 +119,7 @@ export default function Index() {
                 </span>{' '}
                 / &#8205; <AnimatedTitle />
               </div>
-              <p className="max-w-3xl">28 yo software engineer with a B.S. in Computer Science and Technology with experience in Front-End and Back-End technologies.</p>
+              <p className="max-w-3xl">29 yo software engineer with a B.S. in Computer Science and Technology with experience in Frontend, Backend and Mobile technologies.</p>
             </FadeIn>
 
             <Socials />

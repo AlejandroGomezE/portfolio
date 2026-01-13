@@ -7,7 +7,7 @@ const experience = [
     title: 'WestonDev | Full Stack Developer.',
     date: 'Dic 2023 - Present',
     description: [
-      'Developed front-end user interface using React, React Native and JavaScript for Web Apps, iOS and Android mobile applications.',
+      'Developed frontend user interface using React, React Native and JavaScript for Web Apps, iOS and Android mobile applications.',
       'Developed and maintained React Native components, screens, and features for the mobile app using TDD practices.',
       'Collaborated with other developers to implement new features in a way that is consistent with existing codebase conventions.',
     ],

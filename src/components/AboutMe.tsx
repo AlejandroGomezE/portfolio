@@ -15,7 +15,7 @@ export default function AboutMe() {
         title="About Me"
         description={
           <div>
-            I&apos;m a <span className="text-about_me_green">software developer</span> specialized on <span className="text-about_me_green">Web Applications</span>
+            I&apos;m a <span className="text-about_me_green">software developer</span> specialized on <span className="text-about_me_green">Web & Mobile Applications</span>
           </div>
         }
       />
@@ -24,9 +24,9 @@ export default function AboutMe() {
         <div className="flex flex-col gap-8 mt-24 @lg:flex-row justify-between">
           <div className="max-w-xl flex-auto">
             <h3 className="text-lg font-semibold leading-8 tracking-tight text-white">Jose Alejandro Gomez Elizondo</h3>
-            <p className="text-base leading-7 text-about_me_green">Full-stack Web Developer</p>
+            <p className="text-base leading-7 text-about_me_green">Full-stack Developer</p>
             <p className="mt-4 text-lg text-gray-500">I&apos;m an experienced software engineer who constantly seeks out innovative solutions to everyday problems.</p>
-            <p className="mt-4 text-lg text-gray-500">After 6 years in this industry I have worked with multiple front-end and back-end technologies.</p>
+            <p className="mt-4 text-lg text-gray-500">After 6 years in this industry I have worked with multiple frontend, backend and mobile technologies.</p>
           </div>
           <div className="flex-none mx-auto">
             <Image className="rounded-full object-cover" src="/me.jpg" alt="" height={208} width={208} />
