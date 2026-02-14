@@ -122,6 +122,120 @@ const content = [
       4. Return the number of content children.
     `,
   },
+  {
+    title: 'Remove Duplicates from Sorted Array',
+    slug: 'remove-duplicates-from-sorted-array',
+    difficulty: 'easy',
+    description: `
+      Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
+
+      Consider the number of unique elements in nums to be k. After removing duplicates, return the number of unique elements k.
+
+      The first k elements of nums should contain the unique numbers in sorted order. The remaining elements beyond index k - 1 can be ignored.
+
+      #### Example 1:
+
+      <strong>Input</strong>: nums = [1,1,2]
+      <br/><strong>Output</strong>: 2, nums = [1,2,_]
+      <br/><strong>Explanation</strong>: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively. It does not matter what you leave beyond the returned k (hence they are underscores).
+
+      #### Example 2:
+
+      <strong>Input</strong>: nums = [0,0,1,1,1,2,2,3,3,4]
+      <br/><strong>Output</strong>: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+      <br/><strong>Explanation</strong>: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively. It does not matter what you leave beyond the returned k (hence they are underscores).
+
+      #### Constraints:
+
+      - \`1 <= nums.length <= 3 * 104\`
+      - \`-100 <= nums[i] <= 100\`
+      - nums is sorted in non-decreasing order.
+      `,
+    code: `
+      \`\`\`js
+        function removeDuplicates(nums) {
+          if (nums.length === 0) return 0;
+
+          let k = 1;
+          let lastUniquePointer = 0;
+
+          for (let i = 1; i < nums.length; i++) {
+            if (nums[i] !== nums[lastUniquePointer]) {
+              lastUniquePointer += 1;
+              nums[lastUniquePointer] = nums[i];
+              k++;
+            }
+          }
+
+          return k;
+        }
+      \`\`\`
+    `,
+    explanation: `
+    #### Explanation:
+
+      1. Empty array edge case: return 0.
+      2. Two pointers: lastUniquePointer tracks the last unique value's index; k counts unique elements (starts at 1 since first element is always unique).
+      3. Loop from index 1: when nums[i] differs from nums[lastUniquePointer], advance lastUniquePointer, copy nums[i] there, and increment k.
+      4. Return k (number of unique elements). The first k elements of nums hold the unique values in order.
+    `,
+  },
+  {
+    title: 'Remove Duplicates from Sorted Array II',
+    slug: 'remove-duplicates-from-sorted-array-ii',
+    difficulty: 'medium',
+    description: `
+      Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique element appears at most twice. The relative order of the elements should be kept the same.
+
+      Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.
+
+      Return k after placing the final result in the first k slots of nums.
+
+      Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
+
+      #### Example 1:
+
+      <strong>Input</strong>: nums = [1,1,1,2,2,3]
+      <br/><strong>Output</strong>: 5, nums = [1,1,2,2,3,_]
+      <br/><strong>Explanation</strong>: Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively. It does not matter what you leave beyond the returned k (hence they are underscores).
+
+      #### Example 2:
+
+      <strong>Input</strong>: nums = [0,0,1,1,1,1,2,3,3]
+      <br/><strong>Output</strong>: 7, nums = [0,0,1,1,2,3,3,_,_]
+      <br/><strong>Explanation</strong>: Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively. It does not matter what you leave beyond the returned k (hence they are underscores).
+
+      #### Constraints:
+
+      - \`1 <= nums.length <= 3 * 104\`
+      - \`-104 <= nums[i] <= 104\`
+      - nums is sorted in non-decreasing order.
+      `,
+    code: `
+      \`\`\`js
+        function removeDuplicates(nums) {
+          let k = 2;
+
+          for (let i = 2; i < nums.length; i++) {
+            if (nums[i] !== nums[k - 2]) {
+              nums[k] = nums[i];
+              k++;
+            }
+          }
+
+          return k;
+        }
+      \`\`\`
+    `,
+    explanation: `
+    #### Explanation:
+
+      1. First two elements are always valid (at most 2 allowed per value), so k starts at 2.
+      2. From index 2: compare nums[i] with nums[k - 2]. If different, we're not exceeding 2 of the same value in the result, so write nums[i] at k and increment k.
+      3. If nums[i] === nums[k - 2], we would have 3 of that value; skip (do not write, do not increment k).
+      4. Return k. First k elements hold the result with each value appearing at most twice.
+    `,
+  },
 ];
 
 module.exports = content;

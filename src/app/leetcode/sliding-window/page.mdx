@@ -1,0 +1,55 @@
+import { Border, Container, Section } from '@/components';
+
+export const leetData = {
+  title: 'Sliding Window',
+  description: 'Sliding window algorithm pattern for leetcode style problems.',
+  pathname: '/leetcode/sliding-window',
+  framework: 'leetcode',
+  videoId: 'dOonV4byDEg'
+};
+
+export const sections = [
+  { index: 0, title: 'Description', id: 'about' },
+  //SectionsStart
+  //SectionsEnd
+];
+
+export const metadata = {
+  title: `${leetData.title}`,
+  description: leetData.description,
+};
+
+
+<Container>
+  <Section id={sections[0].id}>
+    # Sliding Window
+
+    The sliding window technique uses a fixed or variable-size window that moves across an array or string to avoid redundant work and achieve linear time for subarray/substring problems.
+
+    {leetData.videoId && (
+      <iframe className='w-full aspect-video mt-12'
+        title='Youtube player'
+        sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
+        src={`https://youtube.com/embed/${leetData.videoId}?autoplay=0`}>
+      </iframe>
+    )}
+
+    <Border className="mt-6" />
+    ### When:
+
+    - Subarray or substring problems with a contiguous range
+    - Problems asking for min/max length, sum, or count satisfying a condition
+    - When a brute-force approach would re-scan the same elements repeatedly
+
+    <Border className="mt-6" />
+
+    ### Cases:
+
+    - **Fixed window**: window size is given (e.g. max sum of subarray of size k).
+    - **Variable window**: expand/contract window based on a condition (e.g. smallest subarray with sum ≥ target).
+  </Section>
+
+
+  [//]: #ExamplesStart
+  [//]: #ExamplesEnd
+</Container>
