@@ -182,7 +182,7 @@ function File({ name, icon, url, indent, sections }: FileWrapperProps) {
       <FileContent name={name} icon={icon} url={url} indent={indent} active={sections.length > 0} />
       {sections.length > 0 && (
         <div style={{ paddingLeft: indent * 16 + 22 }} className="flex flex-col ml-7 relative py-1">
-          <FadeInStagger className="w-max" role="list">
+          <FadeInStagger className="mr-2" role="list">
             {sections.map((section) => (
               <FadeIn key={section.id}>
                 <FileSection id={section.id} title={section.title} url={url ? url : ''} />
